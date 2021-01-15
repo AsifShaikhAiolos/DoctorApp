@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:gravity="center"
+        tools:context=".LoginActivity">
+        <ImageView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:id="@+id/doctorprofileimg"
+            android:layout_marginBottom="28dp"
+            android:padding="@dimen/_10sdp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_lilac_insights_logo" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp"
+            app:boxBackgroundMode="none" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp"
+            app:boxBackgroundMode="none" />
+
+
+
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_buttonshape"
+            android:clickable="true"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="16dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+        <TextView
+            android:id="@+id/id_singup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingLeft="12dp"
+            android:paddingTop="2dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="2dp"
+            android:text="REGISTER "
+            android:textStyle="bold"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="#000"
+                android:alpha="0.5"
+                android:layout_margin="@dimen/_16sdp"
+                />
+            <TextView
+                android:id="@+id/id_forgetpasswrod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="FORGET PASSWORD?"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
