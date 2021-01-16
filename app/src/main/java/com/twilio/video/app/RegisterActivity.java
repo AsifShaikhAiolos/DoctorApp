@@ -19,13 +19,13 @@ public class RegisterActivity extends AppCompatActivity {
 //        txtLogin = (TextView) findViewById(R.id.id_txtlogin);
 
 
-        btn_reg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), UserchoiceActivity.class);
-                startActivity(i);
-            }
-        });
+//        btn_reg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), UserchoiceActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
 //        txtLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override

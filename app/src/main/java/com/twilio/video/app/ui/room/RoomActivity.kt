@@ -114,6 +114,8 @@ class RoomActivity : BaseActivity() {
     @Inject
     lateinit var audioSwitch: AudioSwitch
 
+    var RoomNameAPI = ""
+
     /** Coordinates participant thumbs and primary participant rendering.  */
     private lateinit var primaryParticipantController: PrimaryParticipantController
     private lateinit var participantAdapter: ParticipantAdapter
@@ -150,6 +152,10 @@ class RoomActivity : BaseActivity() {
 
         // Setup participant controller
         primaryParticipantController = PrimaryParticipantController(binding.room.primaryVideo)
+
+        RoomNameAPI = intent.getStringExtra("RoomNameAPI").toString()
+
+        binding.joinRoom.roomName.setText(RoomNameAPI)
 
         setupRecordingAnimation()
     }
@@ -323,6 +329,7 @@ class RoomActivity : BaseActivity() {
         binding.joinRoom.connect.isEnabled = false
         // obtain room name
         val text = binding.joinRoom.roomName.text
+
         if (text != null) {
             val roomName = text.toString()
             val viewEvent = Connect(displayName ?: "", roomName)

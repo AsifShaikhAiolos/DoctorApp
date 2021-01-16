@@ -20,6 +20,7 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.UpCommingDatat;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -45,11 +46,13 @@ public class AvailableFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         HomeActivity nAct = new HomeActivity();
-
+        listUpcommig=new ArrayList<>();
+        getUpcommingDataFromServer();
         rv = (RecyclerView) view.findViewById(R.id.recyclerViewAvailable);
-        adp = new AppoinmentsAdapterNormal(nAct,listUpcommig);
+        adp = new AppoinmentsAdapterNormal(nAct,listUpcommig, nAct);
         rv.setLayoutManager(new LinearLayoutManager(nAct));
         rv.setAdapter(adp);
+
 
     }
 

@@ -17,6 +17,7 @@
 package com.twilio.video.app.ui.login;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -42,6 +43,9 @@ import timber.log.Timber;
 // TODO Create view model and fragment for this screen
 public class CommunityLoginActivity extends BaseActivity {
     private CommunityLoginActivityBinding binding;
+    String room_name;
+    String pass_code;
+    String user_name;
 
     @Inject Authenticator authenticator;
     TextWatcher textWatcher =
@@ -63,20 +67,22 @@ public class CommunityLoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = CommunityLoginActivityBinding.inflate(getLayoutInflater());
-        binding.name.addTextChangedListener(textWatcher);
-        binding.passcode.addTextChangedListener(textWatcher);
-        binding.login.setOnClickListener(this::loginClicked);
+//        binding.name.addTextChangedListener(textWatcher);
+//        binding.passcode.addTextChangedListener(textWatcher);
+//        binding.login.setOnClickListener(this::loginClicked);
 
-        String room_name=getIntent().getStringExtra("roomName");
-        String pass_code=getIntent().getStringExtra("passCode");
-        String user_name=getIntent().getStringExtra("userName");
+        room_name=getIntent().getStringExtra("roomName");
+        pass_code=getIntent().getStringExtra("passCode");
+        user_name=getIntent().getStringExtra("userName");
 //        binding.name.setText(room_name);
-        binding.passcode.setText(room_name);
-        binding.name.setText(room_name);
+//        binding.passcode.setText(pass_code);
+//        binding.name.setText(user_name);
+
+        login(user_name, pass_code);
 
 
         setContentView(binding.getRoot());
-        if (authenticator.loggedIn()) startLobbyActivity();
+//        if (authenticator.loggedIn()) startLobbyActivity();
     }
 
     private void passcodeChanged(Editable editable) {
@@ -84,10 +90,9 @@ public class CommunityLoginActivity extends BaseActivity {
     }
 
     private void loginClicked(View view) {
-
         String identity = binding.name.getText().toString();
         String passcode = binding.passcode.getText().toString();
-        login(identity, passcode);
+        login(user_name, pass_code);
     }
 
     private void login(String identity, String passcode) {
@@ -171,7 +176,11 @@ public class CommunityLoginActivity extends BaseActivity {
     }
 
     private void startLobbyActivity() {
-        RoomActivity.Companion.startActivity(this, getIntent().getData());
+        Intent i = new Intent(this, RoomActivity.class);
+        i.putExtra("RoomNameAPI", room_name);
+        startActivity(i);
+
+
         finish();
     }
 

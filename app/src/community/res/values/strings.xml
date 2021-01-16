@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VideoCaller</string>
+    <string name="app_name">Lilac DCP</string>
 
     <!--  Login Screen  -->
     <string name="login_screen_name">Enter your name</string>

@@ -16,7 +16,7 @@
     <color name="lobbyColorPrimaryDark">#424242</color>
     <color name="lobbyColorAccent">#9E9E9E</color>
 
-    <color name="lobbyToolbar">#1dafce</color>
+    <color name="lobbyToolbar">#AE7FB8</color>
     <color name="lobbyStatusBar">#e0e0e0</color>
     <color name="lobbySecondaryText">#80ffffff</color>
     <color name="lobbyEditTextUnderline">#1fffffff</color>

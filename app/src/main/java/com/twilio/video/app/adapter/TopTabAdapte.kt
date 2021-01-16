@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.twilio.video.app.AvailableFragment
 import com.twilio.video.app.PastAppointFragment
 
-class TabAdapterOther(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class TopTabAdapte(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {

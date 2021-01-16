@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:padding="8dp">
 
     <RelativeLayout
@@ -15,15 +16,33 @@
 
         <Button
             android:id="@+id/connect"
-            style="@style/AppTheme.Lobby.BorderlessButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:text="@string/join"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_buttonshape"
+            android:clickable="true"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Join Now"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="16dp" />
+
+<!--        <Button-->
+<!--            android:id="@+id/connect"-->
+<!--            style="@style/AppTheme.Lobby.BorderlessButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:text="@string/join"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:textAlignment="center"-->
+<!--            android:background="@drawable/bg_btn_shape"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />-->
 
         <com.twilio.video.app.ui.room.ClearableEditText
             android:id="@+id/room_name"
@@ -37,6 +56,7 @@
             android:layout_toLeftOf="@id/connect"
             android:layout_toStartOf="@id/connect"
             android:hint="@string/room"
+            android:visibility="gone"
             android:inputType="textAutoComplete"
             android:maxLines="1"
             app:backgroundTint="@color/lobbyEditTextUnderline"

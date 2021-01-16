@@ -64,6 +64,7 @@
 
     <style name="AppTheme.Lobby.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
         <item name="android:textColor">@android:color/black</item>
+        <item name="background">@color/colorPrimary</item>
 
     </style>
 

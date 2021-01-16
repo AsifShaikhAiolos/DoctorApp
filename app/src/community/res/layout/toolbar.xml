@@ -8,4 +8,5 @@
     local:title="@string/app_name"
     local:titleTextColor="#FFF"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
 </androidx.appcompat.widget.Toolbar>
