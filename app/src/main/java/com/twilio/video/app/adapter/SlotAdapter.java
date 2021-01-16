@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.twilio.video.app.BookingDoctorFragment;
+import com.twilio.video.app.EventListenere;
 import com.twilio.video.app.R;
 
 import java.util.List;
@@ -17,16 +19,19 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.ViewHolder> {
 
     List<String> slottimes;
     Context context;
-
-  public  SlotAdapter( Context context,List<String> slottimes){
+    LayoutInflater layoutInflater;
+    EventListenere eventListenere;
+  public  SlotAdapter(Context context, List<String> slottimes, EventListenere eventListenere){
         this.context=context;
+        layoutInflater= LayoutInflater.from(context);
         this.slottimes=slottimes;
+        this.eventListenere=eventListenere;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
         View view = layoutInflater.inflate(R.layout.lyt_slots, parent, false);
         return new ViewHolder(view);
     }
@@ -35,6 +40,12 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         context = holder.itemView.getContext();
         holder.slotTimes.setText(slottimes.get(position));
+        holder.slotTimes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eventListenere.onChildClickClick(slottimes.get(position),position);
+            }
+        });
     }
 
     @Override

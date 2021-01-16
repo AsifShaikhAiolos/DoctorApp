@@ -28,9 +28,14 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.TimeSlotData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.VideoModel;
+import com.twilio.video.app.ui.login.CommunityLoginActivity;
+import com.twilio.video.app.ui.room.RoomViewEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,9 +95,9 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
-                startActivity(intent);
-//                postBookDataServer();
+//                Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
+//                startActivity(intent);
+                postBookDataServer();
             }
         });
         getSlotFromServer();
@@ -155,19 +160,74 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
     }
 
-    @Override
-    public void onClick(int position) {
 
-        List<String> list = timeSlotData.get(position).getTime_slots();
+    private void startAppointment(String appointmentId) {
+
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+        Call<VideoModel> call = lgApi.createVideoCall(new  VideoID(appointmentId));
+        call.enqueue(new Callback<VideoModel>() {
+            @Override
+            public void onResponse(Call<VideoModel> call, Response<VideoModel> response) {
+
+                if (response.body() != null) {
+
+                   if("success".equalsIgnoreCase(response.body().getStatus())){
+                       Intent intent= new Intent(getApplicationContext(), CommunityLoginActivity.class);
+                       intent.putExtra("roomName",response.body().getData().getRoom_name());
+                       intent.putExtra("passCode",response.body().getData().getPasscode());
+                       intent.putExtra("userName",response.body().getData().getUser_name());
+
+
+                       startActivity(intent);
+                   }
+                       //sucess
+//                       String roomName = displayName
+//                       if (response.body().getData().getRoom_name() != null) {
+
+//                          String roomName = response.body().getData().getRoom_name();
+//
+//                           RoomViewEvent viewEvent = RoomViewEvent.Connect(displayName ?: "", roomName)
+//                           roomViewModel.processInput(viewEvent)
+//                       }
+//                   }else {
+//                       //failed
+//                   }
+                } else
+                    Toast.makeText(context,"something went wrong", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<VideoModel> call, Throwable t) {
+                Toast.makeText(context, t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
+    @Override
+    public void onParentClick(TimeSlotData timeSlotDataModel, int position) {
+        date=timeSlotDataModel.getDate();
+        List<String> list = timeSlotDataModel.getTime_slots();
+        Log.e("Tag","enter onclick time");
         if (list != null) {
-            timeSlotData = new ArrayList<>();
+            Log.e("","list size"+list.size());
             slotRecyclerview = findViewById(R.id.slotTimeRecyclerView);
+            slotAdapter = new SlotAdapter(context, list,this);
+            slotRecyclerview.setLayoutManager(new GridLayoutManager(context, 3));
+            slotRecyclerview.setNestedScrollingEnabled(false);
             slotRecyclerview.setHasFixedSize(true);
-            slotRecyclerview.setLayoutManager(new GridLayoutManager(this, 3));
-            slotAdapter = new SlotAdapter(this, list);
             slotRecyclerview.setAdapter(slotAdapter);
 
 //            Toast.makeText(context, "Position " + timeSlotData.get(position), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onChildClickClick(String selectedTime, int position) {
+
+        start_time=selectedTime;
     }
 }

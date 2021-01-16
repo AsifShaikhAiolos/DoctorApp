@@ -40,7 +40,6 @@ sealed class RoomEvent {
         ) : RemoteParticipantEvent()
         data class RemoteParticipantDisconnected(val sid: String) : RemoteParticipantEvent()
     }
-
     sealed class LocalParticipantEvent : RoomEvent() {
         data class VideoTrackUpdated(val videoTrack: VideoTrack?) : LocalParticipantEvent()
         object VideoEnabled : LocalParticipantEvent()

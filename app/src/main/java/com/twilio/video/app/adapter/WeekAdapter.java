@@ -1,9 +1,11 @@
 package com.twilio.video.app.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,8 +23,10 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     List<TimeSlotData> data;
     Context context;
     private EventListenere eventListenere;
+    LayoutInflater layoutInflater;
 
     public WeekAdapter(Context context, List<TimeSlotData> data,EventListenere eventListenere) {
+         layoutInflater = LayoutInflater.from(context);
         this.context=context;
         this.data = data;
         this.eventListenere=eventListenere;
@@ -31,7 +35,7 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     @NonNull
     @Override
     public WeekAdapter.WeekViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
         View view = layoutInflater.inflate(R.layout.lyt_weeksdates, parent, false);
         return new WeekAdapter.WeekViewHolder(view);
     }
@@ -41,6 +45,15 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
 
         context = holder.itemView.getContext();
         holder.docName.setText(data.get(position).getDate());
+        holder.docName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Tag","pos="+position);
+                if(eventListenere!=null){
+                    eventListenere.onParentClick(data.get(position),position );
+                }
+            }
+        });
     }
 
 
@@ -49,19 +62,19 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
         return data.size();
     }
 
-    public class WeekViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+    public class WeekViewHolder extends RecyclerView.ViewHolder  {
         TextView docName;
+        LinearLayout layoutDays;
+
 
         public WeekViewHolder(@NonNull View itemView) {
             super(itemView);
             docName = itemView.findViewById(R.id.weekDates);
-            itemView.setOnClickListener(this);
+            layoutDays=itemView.findViewById(R.id.layoutDays);
+
         }
 
-        @Override
-        public void onClick(View v) {
-            eventListenere.onClick(getAdapterPosition());
-        }
+
     }
 
 
