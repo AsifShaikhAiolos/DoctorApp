@@ -3,12 +3,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+
     <TextView
         android:id="@+id/weekDates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_buttonshape"
-        android:backgroundTint="#E2DEFD"
         android:clickable="true"
         android:textSize="@dimen/_12sdp"
         android:fontFamily="@font/fontawesome_webfont"
@@ -16,5 +16,6 @@
         android:layout_margin="@dimen/_8sdp"
         android:padding="@dimen/_8sdp"
         android:text="Week Date"
-        android:textColor="#000" />
+        android:textColor="@android:color/white" />
+
 </LinearLayout>

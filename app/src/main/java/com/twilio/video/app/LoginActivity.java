@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.body().getStatus().equalsIgnoreCase("success")) {
 //setTokentoprefernece
                    SPManager.getInstance().setAccessToken(response.body().getData());
-                    Intent intent = new Intent(LoginActivity.this, LlistOfDoctorActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     Log.e("errorchecking",response.body().toString());
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();

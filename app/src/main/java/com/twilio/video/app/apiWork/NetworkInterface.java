@@ -6,7 +6,9 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
 
 import java.util.List;
 
@@ -34,7 +36,12 @@ public interface NetworkInterface {
     @POST("doctor/get-available-time-slots")
     Call<TimeSlotModel> createDoctorTimeSlot(@Body DoctorIdData doctorIdData);
 
+    @GET("appointment/past")
+    Call<PastModelAPI> getPastList();
 
+
+    @GET("appointment/upcoming")
+    Call<UpcommingModel> getUpcommingList();
 
 
 }

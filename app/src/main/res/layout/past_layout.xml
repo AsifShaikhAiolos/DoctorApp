@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/crd_profile"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:layout_margin="@dimen/_16sdp"
+        app:cardCornerRadius="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/id_txtpatient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Start Time    :"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_8sdp" />
+            <TextView
+                android:id="@+id/id_txtmember_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_below="@id/id_txtpatient_name"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Start Time      :"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_8sdp" />
+            <TextView
+                android:id="@+id/id_txtmember_conact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_txtmember_date"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Date :"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_8sdp" />
+
+
+            <TextView
+                android:id="@+id/id_member_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:layout_toRightOf="@id/id_txtpatient_name"
+                android:text="Asif Shaikh "
+                android:textColor="#000" />
+            <TextView
+                android:id="@+id/id_member_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/id_member_conatct"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@id/id_txtmember_date"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="19 Jan 2021"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/id_member_conatct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_below="@id/id_txtmember_date"
+                android:layout_toRightOf="@id/id_txtmember_conact"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Rahul Mishra"
+                android:textColor="#000" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

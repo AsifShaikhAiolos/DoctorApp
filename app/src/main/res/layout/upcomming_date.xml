@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/crdDoctorProfile"
+        android:id="@+id/crdDoctorProfileUpcomming"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/IdProfile"
                 android:fontFamily="@font/fontawesome_webfont"
-                android:text="#Slots :"
+                android:text="Start Meeting :"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginLeft="@dimen/_20sdp" />
@@ -68,19 +68,19 @@
                 android:id="@+id/idFreee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/idnumber_of_slots"
+                android:layout_below="@id/satrtMeeting"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_14sdp"
                 android:layout_toRightOf="@id/IdProfile"
                 android:fontFamily="@font/fontawesome_webfont"
-                android:text="Phone :"
+                android:text="Date :"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_marginLeft="@dimen/_20sdp" />
 
             <TextView
-                android:id="@+id/idDoctorName"
+                android:id="@+id/idDoctorNameUpcomming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -93,10 +93,10 @@
                 android:textColor="#000" />
 
             <TextView
-                android:id="@+id/idnumber_of_slots"
+                android:id="@+id/satrtMeeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/idDoctorName"
+                android:layout_below="@id/idDoctorNameUpcomming"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
@@ -106,10 +106,10 @@
                 android:textColor="#000" />
 
             <TextView
-                android:id="@+id/idPhoneNumber"
+                android:id="@+id/idUpcommingDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/idnumber_of_slots"
+                android:layout_below="@id/satrtMeeting"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="8dp"

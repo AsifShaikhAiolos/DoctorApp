@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:context=".RegistrationActivity">
+
+        <ImageView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:id="@+id/doctorprofileimg"
+            android:layout_marginBottom="28dp"
+            android:padding="@dimen/_10sdp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_lilac_insights_logo" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:hint="Name"
+            android:inputType="number"
+            app:boxBackgroundMode="none"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:hint="Email"
+            android:inputType="textPassword"
+            app:boxBackgroundMode="none"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:hint="Phone Number"
+            android:inputType="number"
+            app:boxBackgroundMode="none"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:boxBackgroundMode="none"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_confirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            app:boxBackgroundMode="none"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:textSize="16dp" />
+
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_buttonshape"
+            android:gravity="center"
+            android:padding="10dp"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:text="Register"
+            android:textAlignment="center"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:textColor="#fff"
+            android:textSize="18dp" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/id_txtlogin"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:background="@drawable/bg_buttonshape"-->
+        <!--            android:paddingLeft="12dp"-->
+        <!--            android:paddingTop="2dp"-->
+        <!--            android:paddingRight="12dp"-->
+        <!--            android:paddingBottom="2dp"-->
+        <!--            android:foreground="?android:attr/selectableItemBackground"-->
+        <!--            android:clickable="true"-->
+        <!--            android:text="LOGIN"-->
+        <!--            android:fontFamily="@font/fontawesome_webfont"-->
+        <!--            android:textColor="#000" />-->
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
