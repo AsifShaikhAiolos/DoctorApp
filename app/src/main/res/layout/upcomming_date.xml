@@ -30,8 +30,8 @@
                 android:id="@+id/IdProfile"
                 android:layout_width="@dimen/_42sdp"
                 android:layout_height="@dimen/_42sdp"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
@@ -51,7 +51,7 @@
                 android:text="@string/doctor_name"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_12sdp" />
+                android:layout_marginLeft="0dp" />
 
             <TextView
                 android:id="@+id/idTxtmemberDate"
@@ -65,7 +65,7 @@
                 android:text="Appointment Date:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_12sdp" />
+                android:layout_marginLeft="0dp" />
 
             <TextView
                 android:id="@+id/idFreee"
@@ -80,7 +80,7 @@
                 android:text="Appointment Time:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_12sdp" />
+                android:layout_marginLeft="0dp" />
 
             <TextView
                 android:id="@+id/idDoctorNameUpcomming"

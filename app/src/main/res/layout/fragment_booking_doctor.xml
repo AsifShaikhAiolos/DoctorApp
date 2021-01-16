@@ -51,7 +51,7 @@
             android:paddingTop="@dimen/_8sdp"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/nurse"
+            android:src="@drawable/ic_doctor"
             android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="wrap_content"
