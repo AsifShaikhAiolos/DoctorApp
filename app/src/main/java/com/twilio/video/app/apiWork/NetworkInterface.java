@@ -3,12 +3,15 @@ package com.twilio.video.app.apiWork;
 import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.VideoModel;
 
 import java.util.List;
 
@@ -30,12 +33,14 @@ public interface NetworkInterface {
     Call<ListDoctorModel> getDoctorList();
 
 
-    @POST("book")
+    @POST("appointment/book")
     Call<BookingModel> bookAppointment(@Body BookingData bookingData);
 
     @POST("doctor/get-available-time-slots")
     Call<TimeSlotModel> createDoctorTimeSlot(@Body DoctorIdData doctorIdData);
 
+    @POST("appointment/start")
+    Call<VideoModel> createVideoCall(@Body VideoID videoID);
     @GET("appointment/past")
     Call<PastModelAPI> getPastList();
 

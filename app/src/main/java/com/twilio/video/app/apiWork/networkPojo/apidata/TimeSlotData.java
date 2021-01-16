@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TimeSlotData {
     String date;
-    @SerializedName("Timeslots")
+    @SerializedName("time_slots")
     List<String> time_slots;
 
     public TimeSlotData(String date, List<String> time_slots) {

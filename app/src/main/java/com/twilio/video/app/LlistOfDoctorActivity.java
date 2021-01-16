@@ -39,20 +39,12 @@ public class LlistOfDoctorActivity extends AppCompatActivity
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
 
-    Toolbar toolbar;
-    ActionBarDrawerToggle toggle;
-    DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llist_of_doctor);
         recyclerView = findViewById(R.id.doctorRecyclerView);
-
-        toolbar = findViewById(R.id.toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.id_drawer_layout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.id_navview);
-
 
         listDoctorData = new ArrayList<>();
 
@@ -63,17 +55,7 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         getDoctorDataFromServer();
 
 
-        //code for navigation drawer
-        setSupportActionBar(toolbar);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.syncState();
-        drawer.addDrawerListener(toggle);
-        navigationView.bringToFront();
-//        navigationView.setNavigationItemSelectedListener(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

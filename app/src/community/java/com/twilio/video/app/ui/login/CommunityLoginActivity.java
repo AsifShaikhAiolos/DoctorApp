@@ -66,6 +66,15 @@ public class CommunityLoginActivity extends BaseActivity {
         binding.name.addTextChangedListener(textWatcher);
         binding.passcode.addTextChangedListener(textWatcher);
         binding.login.setOnClickListener(this::loginClicked);
+
+        String room_name=getIntent().getStringExtra("roomName");
+        String pass_code=getIntent().getStringExtra("passCode");
+        String user_name=getIntent().getStringExtra("userName");
+//        binding.name.setText(room_name);
+        binding.passcode.setText(room_name);
+        binding.name.setText(room_name);
+
+
         setContentView(binding.getRoot());
         if (authenticator.loggedIn()) startLobbyActivity();
     }
@@ -75,6 +84,7 @@ public class CommunityLoginActivity extends BaseActivity {
     }
 
     private void loginClicked(View view) {
+
         String identity = binding.name.getText().toString();
         String passcode = binding.passcode.getText().toString();
         login(identity, passcode);
