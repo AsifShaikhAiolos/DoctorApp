@@ -63,11 +63,11 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        String sd = TimeConvertor(data.get(position).getTime_slot().getStart_time());
-        String d = DateConvertor(data.get(position).getTime_slot().getDate());
-        holder.docName.setText(data.get(position).getDoctor_id());
-        holder.docST.setText(sd);
-        holder.docD.setText(d);
+        String appointmenttime = TimeConvertor(data.get(position).getTime_slot().getStart_time());
+        String appointmentdate = DateConvertor(data.get(position).getTime_slot().getDate());
+        holder.docName.setText(data.get(position).getDoctor_name());
+        holder.docST.setText(appointmentdate);
+        holder.docD.setText(appointmenttime);
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +110,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
     public String TimeConvertor(String d){
         try {
             SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm:ss");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
             Date date = inputFormat.parse(d);
             return outputFormat.format(date);
         }catch (Exception e){

@@ -14,33 +14,36 @@
         android:layout_margin="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_2sdp"
         android:clickable="true"
-        android:elevation="@dimen/_8sdp"
+        android:elevation="@dimen/_4sdp"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="12dp"
-        app:cardElevation="@dimen/_8sdp"
+        app:cardElevation="@dimen/_4sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/IdProfile"
                 android:layout_width="@dimen/_42sdp"
                 android:layout_height="@dimen/_42sdp"
-                android:layout_margin="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:background="@drawable/bg_circle"
                 android:backgroundTint="@color/colorPrimary"
-                android:src="@drawable/nurse" />
+                app:srcCompat="@drawable/ic_doctor" />
 
             <TextView
                 android:id="@+id/idTtxtpatientName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:layout_toRightOf="@id/IdProfile"
@@ -48,36 +51,36 @@
                 android:text="@string/doctor_name"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
+                android:layout_marginLeft="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/idTxtmemberDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/idTtxtpatientName"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/IdProfile"
                 android:fontFamily="@font/fontawesome_webfont"
-                android:text="Start Meeting :"
+                android:text="Appointment Date:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
+                android:layout_marginLeft="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/idFreee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/satrtMeeting"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_14sdp"
                 android:layout_toRightOf="@id/IdProfile"
                 android:fontFamily="@font/fontawesome_webfont"
-                android:text="Date :"
+                android:text="Appointment Time:"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
+                android:layout_marginLeft="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/idDoctorNameUpcomming"

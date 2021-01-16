@@ -10,9 +10,10 @@ public class UpCommingDatat {
     String createdAt;
     String updatedAt;
     String room_name;
+    String doctor_name;
     UpcommingTimeSlotDatat time_slot;
 
-    public UpCommingDatat(String _id, String user_id, String doctor_id, String status, String createdAt, String updatedAt, String room_name, UpcommingTimeSlotDatat time_slot) {
+    public UpCommingDatat(String _id, String user_id, String doctor_id, String status, String createdAt, String updatedAt, String room_name, String doctor_name, UpcommingTimeSlotDatat time_slot) {
         this._id = _id;
         this.user_id = user_id;
         this.doctor_id = doctor_id;
@@ -20,6 +21,7 @@ public class UpCommingDatat {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.room_name = room_name;
+        this.doctor_name = doctor_name;
         this.time_slot = time_slot;
     }
 
@@ -77,6 +79,14 @@ public class UpCommingDatat {
 
     public void setRoom_name(String room_name) {
         this.room_name = room_name;
+    }
+
+    public String getDoctor_name() {
+        return doctor_name;
+    }
+
+    public void setDoctor_name(String doctor_name) {
+        this.doctor_name = doctor_name;
     }
 
     public UpcommingTimeSlotDatat getTime_slot() {

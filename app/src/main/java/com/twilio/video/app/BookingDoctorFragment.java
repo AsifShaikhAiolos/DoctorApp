@@ -95,8 +95,6 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             @Override
             public void onClick(View v) {
 
-//                Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
-//                startActivity(intent);
                 postBookDataServer();
             }
         });
@@ -144,16 +142,18 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             @Override
             public void onResponse(Call<BookingModel> call, Response<BookingModel> response) {
                 if (response.body() != null) {
-                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                    Log.e("ERROR CHECKING", response.body().getMessage());
+                    Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+//                    Log.e("ERROR CHECKING", response.body().getMessage());
                 } else
-                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                Log.e("ERROR CHECKING", response.body().getMessage());
+                    Toast.makeText(getApplicationContext(),"Please Book An Appoiment", Toast.LENGTH_LONG).show();
+//                Log.e("ERROR CHECKING", response.body().getMessage());
             }
 
             @Override
             public void onFailure(Call<BookingModel> call, Throwable t) {
-                Toast.makeText(context, t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_LONG).show();
 
             }
         });

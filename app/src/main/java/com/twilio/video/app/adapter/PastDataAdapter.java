@@ -69,7 +69,7 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
     public String TimeConvertor(String d){
         try {
             SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm:ss");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
             Date date = inputFormat.parse(d);
             return outputFormat.format(date);
         }catch (Exception e){

@@ -24,47 +24,32 @@ public class SPManager {
         return myManager;
     }
 
+
+    private  void savedRoomName(String key,String data){
+        SharedPreferences.Editor editor = s.edit();
+        editor.putString(key, data);
+        editor.apply();
+    }
+
+    public String getRoomName() {
+        return retrieveString(getRoomName());
+    }
+
+
     private void saveString(String key, String data) {
         SharedPreferences.Editor editor = s.edit();
         editor.putString(key, data);
         editor.apply();
     }
 
-    private void saveInt(String key, int data) {
-        SharedPreferences.Editor editor = s.edit();
-        editor.putInt(key, data);
-        editor.apply();
-    }
 
-    private void saveBoolean(String key, boolean data) {
-        SharedPreferences.Editor editor = s.edit();
-        editor.putBoolean(key, data);
-        editor.apply();
-    }
 
-    private void delete(String key) {
-        SharedPreferences.Editor editor = s.edit();
-        //editor.putString(key, "null");
-        editor.remove(key);
-        //editor.clear();
-        editor.apply();
-    }
+
 
     private String retrieveString(String key) {
         return s.getString(key, null);
     }
 
-    private int retrieveInt(String key) {
-        return s.getInt(key, 0);
-    }
-
-    private boolean retrieveBool(String key) {
-        return s.getBoolean(key, false);
-    }
-
-    private boolean retrieveBool(String key, boolean defaultValue) {
-        return s.getBoolean(key, defaultValue);
-    }
 
     public String getAccessToken() {
         return retrieveString(ACCESS_TOKEN);
@@ -73,5 +58,7 @@ public class SPManager {
     public void setAccessToken(String token) {
         saveString(ACCESS_TOKEN, token);
     }
+
+
 
 }
