@@ -48,9 +48,9 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            docST = itemView.findViewById(R.id.id_member_name);
-            docET = itemView.findViewById(R.id.id_member_date);
-            docD = itemView.findViewById(R.id.id_member_conatct);
+            docST = itemView.findViewById(R.id.idPastTime);
+            docET = itemView.findViewById(R.id.idPastDate);
+            docD = itemView.findViewById(R.id.idDoctorNamepast);
         }
     }
 

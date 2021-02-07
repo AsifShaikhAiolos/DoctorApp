@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_buttonshape"
+
         android:clickable="true"
         android:textSize="@dimen/_12sdp"
         android:fontFamily="@font/fontawesome_webfont"
@@ -17,6 +18,6 @@
         android:layout_margin="@dimen/_8sdp"
         android:padding="@dimen/_8sdp"
         android:text="Week Date"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/black" />
 
 </LinearLayout>

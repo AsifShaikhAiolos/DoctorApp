@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LlistOfDoctorActivity"
-    android:background="@color/colorgrey">
+    tools:context=".LlistOfDoctorActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/doctorRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_8sdp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

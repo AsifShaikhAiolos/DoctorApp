@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:local="http://schemas.android.com/tools"
-    android:background="@color/colorgrey"
     android:orientation="vertical">
 
 
@@ -13,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/_14sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:clickable="true"
         android:elevation="@dimen/_6sdp"
         android:foreground="?android:attr/selectableItemBackground"
@@ -31,14 +29,17 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_80sdp">
 
-        <ImageView
-            android:id="@+id/IdProfile"
-            android:layout_width="@dimen/_44sdp"
-            android:layout_height="@dimen/_44sdp"
-            android:layout_margin="@dimen/_20sdp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_doctor" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/IdProfile"
+                android:layout_width="70dp"
+                android:layout_height="76dp"
+                android:src="@drawable/doc_image2"
+                android:layout_margin="@dimen/_8sdp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFF"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,14 +53,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold"
-                android:layout_toRightOf="@id/idTtxtpatientName"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:text="@string/asif_shaikh"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:alpha="0.9"/>
+
+            <TextView
+                android:id="@+id/idDrSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idDoctorName"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Cardiologist"
+                android:textColor="#000"
+                android:alpha="0.6"/>
 
             <TextView
                 android:id="@+id/idnumber_of_slots"
@@ -69,10 +83,10 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_toRightOf="@id/idTxtmemberDate"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:text="10"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:alpha="0.6"/>
 
             <TextView
                 android:id="@+id/idPhoneNumber"
@@ -83,12 +97,19 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="8dp"
-                android:layout_toRightOf="@id/idTxtmemberDate"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:text="1223456789"
                 android:textColor="#000" />
 
         </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginLeft="@dimen/_46sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_videocall"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

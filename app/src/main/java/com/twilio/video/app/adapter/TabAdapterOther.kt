@@ -30,13 +30,13 @@ class TabAdapterOther(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
             0 -> {
-                "Past Appointments"
+                "Past Booking"
             }
             1 -> {
-                "Upcoming Appointments"
+                "Upcoming Booking"
             }
             else -> {
-                "Past Appointments"
+                "Past Booking"
             }
         }
         return super.getPageTitle(position)
