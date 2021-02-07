@@ -92,8 +92,11 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
 
 
     public void unselect(int p){
-        if(pos = p){
-            List<TimeSlotData> data;
+        if(pos == p){
+            if (data.get(p).getisRead()){
+                data.get(p).setisRead(false);
+                notifyItemChanged(position)
+            }
 
         }
     }
