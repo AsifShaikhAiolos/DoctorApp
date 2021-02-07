@@ -71,6 +71,7 @@ public class RetrofitClient {
                     .addHeader("Accept", "application/json")
                     .addHeader("token",""+ SPManager.getInstance().getAccessToken())
                     .build();
+
            /* Log.d("Token",token);
             Log.d("SPManager",SPManager.getInstance().getAccessToken());*/
             Response response = chain.proceed(request);
