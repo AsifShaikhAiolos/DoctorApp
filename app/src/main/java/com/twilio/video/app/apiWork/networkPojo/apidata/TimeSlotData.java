@@ -8,19 +8,10 @@ public class TimeSlotData {
     String date;
     @SerializedName("time_slots")
     List<String> time_slots;
-    var isRead: Boolean = false
 
     public TimeSlotData(String date, List<String> time_slots) {
         this.date = date;
         this.time_slots = time_slots;
-    }
-
-    public String getisRead() {
-        return isRead;
-    }
-
-    public void setisRead(String date) {
-        this.isRead = isRead;
     }
 
     public String getDate() {

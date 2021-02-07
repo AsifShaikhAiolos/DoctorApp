@@ -1,6 +1,7 @@
 package com.twilio.video.app.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.ViewHolder> {
     Context context;
     LayoutInflater layoutInflater;
     EventListenere eventListenere;
+    int index = -1;
+
   public  SlotAdapter(Context context, List<String> slottimes, EventListenere eventListenere){
         this.context=context;
         layoutInflater= LayoutInflater.from(context);
@@ -39,11 +42,20 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         context = holder.itemView.getContext();
+        if (index == position){
+            holder.slotTimes.setBackgroundResource(R.drawable.bordertextclick);
+            holder.slotTimes.setTextColor(Color.WHITE);
+        }else {
+            holder.slotTimes.setBackgroundResource(R.drawable.bordertext);
+            holder.slotTimes.setTextColor(Color.BLACK);
+        }
         holder.slotTimes.setText(slottimes.get(position));
         holder.slotTimes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 eventListenere.onChildClickClick(slottimes.get(position),position);
+                index = position;
+                notifyDataSetChanged();
             }
         });
     }

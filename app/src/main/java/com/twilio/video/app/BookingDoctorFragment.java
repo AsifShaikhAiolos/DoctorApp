@@ -86,7 +86,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         Intent intent = getIntent();
         if (intent != null) {
             doctorData = intent.getParcelableExtra("doctorModel");
-            docName.setText(doctorData.getName().getFirst_name());
+            docName.setText("Dr. "+doctorData.getName().getFirst_name());
         }
 
 

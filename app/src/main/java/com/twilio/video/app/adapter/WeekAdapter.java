@@ -1,6 +1,7 @@
 package com.twilio.video.app.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     Context context;
     private EventListenere eventListenere;
     LayoutInflater layoutInflater;
-    int pos = 0;
+    int select = -1;
 
     public WeekAdapter(Context context, List<TimeSlotData> data,EventListenere eventListenere) {
          layoutInflater = LayoutInflater.from(context);
@@ -46,13 +47,16 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
 
         context = holder.itemView.getContext();
         holder.docName.setText(data.get(position).getDate());
-        if (data.get(position).getisRead() == true){
+        int color = Integer.parseInt("bdbdbd", 16)+0xFFFFFF;
+
+        if (select == position){
             holder.docName.setBackgroundResource(R.drawable.bordertextclick);
-            holder.docName.setTextColor(R.color.white_with_alpha);
-        }else{
+            holder.docName.setTextColor(Color.WHITE);
+        }else {
             holder.docName.setBackgroundResource(R.drawable.bordertext);
-            holder.docName.setTextColor(R.color.black);
+            holder.docName.setTextColor(Color.BLACK);
         }
+
         holder.docName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,11 +64,9 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
                 if(eventListenere!=null){
                     eventListenere.onParentClick(data.get(position),position );
                 }
-                if (position == pos){
-                    pos = 0;
-                }else{
-                    pos = position;
-                }
+
+                select = position;
+                notifyDataSetChanged();
             }
         });
     }
@@ -88,17 +90,6 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
         }
 
 
-    }
-
-
-    public void unselect(int p){
-        if(pos == p){
-            if (data.get(p).getisRead()){
-                data.get(p).setisRead(false);
-                notifyItemChanged(position)
-            }
-
-        }
     }
 
 

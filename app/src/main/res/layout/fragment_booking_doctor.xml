@@ -89,7 +89,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="@dimen/_8sdp"
             android:textSize="@dimen/_12ssp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -112,11 +111,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="select Time"
+            android:text="Select Time"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="@dimen/_8sdp"
             android:textSize="@dimen/_12ssp"/>
 
         <androidx.recyclerview.widget.RecyclerView
