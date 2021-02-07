@@ -3,16 +3,18 @@ package com.twilio.video.app.apiWork.networkPojo.apidata;
 public class PastDatat {
     String user_id;
     String doctor_id;
+    String doctor_name;
     String status;
     String createdAt;
     String updatedAt;
     String room_name;
     PastTimeSlotDatat time_slot;
 
-    public PastDatat(String user_id, String doctor_id, String status, String createdAt,
-                     String updatedAt, String room_name, PastTimeSlotDatat time_slot) {
+    public PastDatat(String user_id, String doctor_id, String doctor_name,
+                     String status, String createdAt, String updatedAt, String room_name, PastTimeSlotDatat time_slot) {
         this.user_id = user_id;
         this.doctor_id = doctor_id;
+        this.doctor_name = doctor_name;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -34,6 +36,14 @@ public class PastDatat {
 
     public void setDoctor_id(String doctor_id) {
         this.doctor_id = doctor_id;
+    }
+
+    public String getDoctor_name() {
+        return doctor_name;
+    }
+
+    public void setDoctor_name(String doctor_name) {
+        this.doctor_name = doctor_name;
     }
 
     public String getStatus() {

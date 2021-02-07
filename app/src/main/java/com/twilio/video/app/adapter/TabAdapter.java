@@ -36,11 +36,11 @@ class TabAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "Past Appointments";
+                return "Past Booking";
             case 1:
-                return "Upcoming Appointments";
+                return "Upcoming Booking";
             default:
-                return "Past Appointments";
+                return "Past Booking";
         }
     }
 

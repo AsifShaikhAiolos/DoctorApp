@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crdDoctorProfileUpcomming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:clickable="true"
+        android:elevation="@dimen/_4sdp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/IdProfile"
+                android:layout_width="70dp"
+                android:layout_height="76dp"
+                android:src="@drawable/doc_image2"
+                android:layout_margin="@dimen/_8sdp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#0000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/IdProfile"
+            android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/idDoctorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="@string/asif_shaikh"
+                        android:textColor="#000"
+                        android:alpha="0.9"/>
+
+            <TextView
+                android:id="@+id/idDrSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idDoctorName"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="Cardiologist"
+                android:textColor="#000"
+                android:alpha="0.6"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/idUpcommingDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idDoctorName"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/fontawesome_webfont"
+                    android:text="14 Feb 2020"
+                    android:textColor="#000"
+                    android:alpha="0.6"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="#000"/>
+
+                <TextView
+                    android:id="@+id/idTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idDoctorName"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/fontawesome_webfont"
+                    android:text="8:30 am"
+                    android:textColor="#000"
+                    android:alpha="0.6"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

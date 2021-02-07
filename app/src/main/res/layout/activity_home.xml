@@ -6,6 +6,7 @@
     xmlns:local="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorgrey"
     tools:context=".HomeActivity">
 
 
@@ -27,11 +28,13 @@
         android:background="@color/colorPrimaryDark"
         local:title="Booking"
         local:titleTextColor="#FFF"
-        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabTextColor="#fff"
         android:id="@+id/tabLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
