@@ -3,82 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@null"
+    xmlns:local="http://schemas.android.com/tools"
+    android:background="@color/colorgrey"
     android:orientation="vertical">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/crdDoctorProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/_16sdp"
+        android:layout_margin="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
         android:clickable="true"
-        android:elevation="@dimen/_8sdp"
+        android:elevation="@dimen/_6sdp"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="@dimen/_8sdp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="@dimen/_2sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_80sdp">
+
+        <ImageView
+            android:id="@+id/IdProfile"
+            android:layout_width="@dimen/_44sdp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_doctor" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toRightOf="@id/IdProfile"
+            android:orientation="vertical"
             android:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/IdProfile"
-                android:layout_width="@dimen/_42sdp"
-                android:layout_height="@dimen/_42sdp"
-                android:layout_margin="@dimen/_20sdp"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_doctor" />
-
-            <TextView
-                android:id="@+id/idTtxtpatientName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toRightOf="@id/IdProfile"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="@string/doctor_name"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
-
-            <TextView
-                android:id="@+id/idTxtmemberDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/idTtxtpatientName"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="8dp"
-                android:layout_toRightOf="@id/IdProfile"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="#Slots :"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
-
-            <TextView
-                android:id="@+id/idFreee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/idnumber_of_slots"
-                android:visibility="gone"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_14sdp"
-                android:layout_toRightOf="@id/IdProfile"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="Phone :"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp" />
 
             <TextView
                 android:id="@+id/idDoctorName"
@@ -88,6 +55,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
+                android:textStyle="bold"
                 android:layout_toRightOf="@id/idTtxtpatientName"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:text="@string/asif_shaikh"
@@ -120,8 +88,8 @@
                 android:text="1223456789"
                 android:textColor="#000" />
 
+        </LinearLayout>
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

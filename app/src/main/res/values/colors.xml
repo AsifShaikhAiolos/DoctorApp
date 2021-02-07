@@ -3,6 +3,8 @@
     <color name="colorPrimary">#AE7FB8</color>
     <color name="colorPrimaryDark">#AE7FB8</color>
     <color name="colorAccent">#b0bec5</color>
+    <color name="colorgrey">#F8F7F7</color>
+
     <color name="colorButtonText">#80fffffe</color>
     <color name="textColorPrimary">#de000000</color>
     <color name="textColorSecondary">#8a000000</color>
