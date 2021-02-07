@@ -216,7 +216,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             Log.e("","list size"+list.size());
             slotRecyclerview = findViewById(R.id.slotTimeRecyclerView);
             slotAdapter = new SlotAdapter(context, list,this);
-            slotRecyclerview.setLayoutManager(new GridLayoutManager(context, 3));
+            slotRecyclerview.setLayoutManager(new GridLayoutManager(context, 4));
             slotRecyclerview.setNestedScrollingEnabled(false);
             slotRecyclerview.setHasFixedSize(true);
             slotRecyclerview.setAdapter(slotAdapter);

@@ -24,6 +24,7 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     Context context;
     private EventListenere eventListenere;
     LayoutInflater layoutInflater;
+    int pos = 0;
 
     public WeekAdapter(Context context, List<TimeSlotData> data,EventListenere eventListenere) {
          layoutInflater = LayoutInflater.from(context);
@@ -45,12 +46,24 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
 
         context = holder.itemView.getContext();
         holder.docName.setText(data.get(position).getDate());
+        if (data.get(position).getisRead() == true){
+            holder.docName.setBackgroundResource(R.drawable.bordertextclick);
+            holder.docName.setTextColor(R.color.white_with_alpha);
+        }else{
+            holder.docName.setBackgroundResource(R.drawable.bordertext);
+            holder.docName.setTextColor(R.color.black);
+        }
         holder.docName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("Tag","pos="+position);
                 if(eventListenere!=null){
                     eventListenere.onParentClick(data.get(position),position );
+                }
+                if (position == pos){
+                    pos = 0;
+                }else{
+                    pos = position;
                 }
             }
         });
@@ -76,6 +89,15 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
 
 
     }
+
+
+    public void unselect(int p){
+        if(pos = p){
+            List<TimeSlotData> data;
+
+        }
+    }
+
 
 
 }

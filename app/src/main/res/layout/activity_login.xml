@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -12,8 +13,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#fff"
-        android:gravity="center"
+        android:paddingTop="@dimen/_20sdp"
+        android:layout_margin="@dimen/_10sdp"
         tools:context=".LoginActivity">
+
         <ImageView
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_80sdp"
@@ -23,59 +26,125 @@
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_lilac_insights_logo" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SignIn"
+            android:layout_gravity="start"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signinText"
+                android:text="Don't have an account?"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up!"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                android:textColor="@color/colorApp"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/signinText"
+                app:layout_constraintStart_toEndOf="@+id/signinText"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            />
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_mail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_45sdp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/bg_curve_rectangle"
             android:fontFamily="@font/fontawesome_webfont"
-            android:hint="Email"
+            android:hint="userName@gmail.com"
             android:inputType="textEmailAddress"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingTop="10dp"
             android:paddingRight="16dp"
             android:paddingBottom="10dp"
-            android:textSize="16dp"
+            android:textSize="@dimen/_15ssp"
             app:boxBackgroundMode="none" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_45sdp"
             android:layout_margin="16dp"
             android:background="@drawable/bg_curve_rectangle"
             android:fontFamily="@font/fontawesome_webfont"
-            android:hint="Password"
+            android:hint="******"
             android:inputType="textPassword"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingTop="10dp"
             android:paddingRight="16dp"
             android:paddingBottom="10dp"
-            android:textSize="16dp"
+            android:textSize="@dimen/_15ssp"
             app:boxBackgroundMode="none" />
-
-
 
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/_16sdp"
             android:background="@drawable/bg_buttonshape"
             android:clickable="true"
             android:fontFamily="@font/fontawesome_webfont"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
-            android:padding="8dp"
-            android:text="Login"
+            android:text="Sign In"
             android:textAlignment="center"
             android:textColor="#FFF"
-            android:textSize="16dp" />
+            android:textSize="@dimen/_16ssp" />
 
 
         <LinearLayout

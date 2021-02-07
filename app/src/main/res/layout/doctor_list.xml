@@ -13,11 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/_14sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_marginBottom="@dimen/_2sdp"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:clickable="true"
         android:elevation="@dimen/_6sdp"
         android:foreground="?android:attr/selectableItemBackground"
@@ -40,55 +39,117 @@
             android:backgroundTint="@color/colorPrimary"
             app:srcCompat="@drawable/ic_doctor" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/IdProfile"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/IdProfile"
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/idDoctorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/idTtxtpatientName"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="@string/asif_shaikh"
-                android:textColor="#000" />
+                <TextView
+                    android:id="@+id/idDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/fontawesome_webfont"
+                    android:text="@string/asif_shaikh"
+                    android:textColor="#000"
+                    android:alpha="0.9"/>
 
-            <TextView
-                android:id="@+id/idnumber_of_slots"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/idDoctorName"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_toRightOf="@id/idTxtmemberDate"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="10"
-                android:textColor="#000" />
+                <TextView
+                    android:id="@+id/idDrSpeciality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idDoctorName"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/fontawesome_webfont"
+                    android:text="Cardiologist at City Hospital"
+                    android:textColor="#000"
+                    android:alpha="0.6"/>
 
-            <TextView
-                android:id="@+id/idPhoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_below="@id/idnumber_of_slots"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="8dp"
-                android:layout_toRightOf="@id/idTxtmemberDate"
-                android:fontFamily="@font/fontawesome_webfont"
-                android:text="1223456789"
-                android:textColor="#000" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/idnumber_of_slots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="Exp:"
+                        android:textColor="#000"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:alpha="0.6"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/idyearExpText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="3"
+                        android:textColor="#000"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/idnumber_of_slots"
+                        android:alpha="0.6"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/idFees"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="Fees:"
+                        android:textColor="#000"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/idyearExpText"
+                        android:alpha="0.6"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/idFeesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="300"
+                        android:textColor="#000"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/idFees"
+                        android:alpha="0.6"/>
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/ratinBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:theme="@style/RatingBar"
+                        android:rating="5.0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="?android:attr/ratingBarStyleSmall"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

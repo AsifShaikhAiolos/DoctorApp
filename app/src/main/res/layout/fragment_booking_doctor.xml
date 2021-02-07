@@ -82,6 +82,16 @@
     </LinearLayout>
 </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_12ssp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/WeekRecyclerView"
             android:layout_width="match_parent"
@@ -99,11 +109,51 @@
             android:text="@string/slots_time_will_come_here"
             tools:visibility="visible"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="select Time"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_12ssp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/slotTimeRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"/>
+        
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appointments for"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_12ssp"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_mail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:hint="e.g.Heart,pain,Body ache,etc."
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_15ssp"
+            app:boxBackgroundMode="none" />
 
         <Button
             android:layout_width="250dp"
