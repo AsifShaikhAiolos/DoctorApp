@@ -24,9 +24,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static tvi.webrtc.ContextUtils.getApplicationContext;
-
-
 public class DoctorListFragment extends Fragment {
 
     RecyclerView recyclerView;
@@ -40,10 +37,10 @@ public class DoctorListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_doctorlist, container, false);
         listDoctorData = new ArrayList<>();
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        doctorListAdapter = new DoctorListAdapter(getApplicationContext(), listDoctorData, getActivity());
+        recyclerView = view.findViewById(R.id.doctorRecyclerView);
+//        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        doctorListAdapter = new DoctorListAdapter(view.getContext(), listDoctorData, getActivity());
         recyclerView.setAdapter(doctorListAdapter);
         getDoctorDataFromServer();
         return  view;

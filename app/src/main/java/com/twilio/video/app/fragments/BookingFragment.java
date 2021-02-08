@@ -20,13 +20,20 @@ public class BookingFragment extends Fragment {
 
 
     FloatingActionButton fabBook;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setRetainInstance(true);
         View view =inflater.inflate(R.layout.fragment_booking, container, false);
         TabLayout tabLayOut = (TabLayout) view.findViewById(R.id.tabLayout);
-        TabAdapterOther tabAdapter = new TabAdapterOther(getFragmentManager());
+        TabAdapterOther tabAdapter = new TabAdapterOther(getActivity().getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPager.setAdapter(tabAdapter);
         tabLayOut.setupWithViewPager(viewPager);
@@ -41,5 +48,13 @@ public class BookingFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void  setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
     }
 }
