@@ -31,10 +31,10 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         String sd = TimeConvertor(data.get(position).getTime_slot().getStart_time());
-//        String ed = TimeConvertor(data.get(position).getTime_slot().getEnd_time());
+        String ed = TimeConvertor(data.get(position).getTime_slot().getEnd_time());
         String d = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docST.setText(sd);
-//        holder.docET.setText(ed);
+        holder.docET.setText(ed);
         holder.docD.setText(d);
     }
 
@@ -48,8 +48,9 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            docST = itemView.findViewById(R.id.TimeText);
-            docD = itemView.findViewById(R.id.dateText);
+            docST = itemView.findViewById(R.id.idPastTime);
+            docET = itemView.findViewById(R.id.idPastDate);
+            docD = itemView.findViewById(R.id.idDoctorNamepast);
         }
     }
 

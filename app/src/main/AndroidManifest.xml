@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".LlistOfDoctorActivity" />
         <activity android:name=".LoginActivity">
