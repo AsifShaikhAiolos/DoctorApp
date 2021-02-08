@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@android:color/transparent"
     android:padding="8dp">
 
     <RelativeLayout
@@ -27,7 +27,7 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Join Now"
+            android:text="Call Now"
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="16dp" />

@@ -13,7 +13,7 @@
     <color name="colorApp">#AE7FB8</color>
     <color name="yellow">#E1F8E53D</color>
 
-
+    <color name="hamburgerBlack">#AE7FB8</color>
     <!-- Login Screen Colors -->
     <color name="login_hint">#80ffffff</color>
 
