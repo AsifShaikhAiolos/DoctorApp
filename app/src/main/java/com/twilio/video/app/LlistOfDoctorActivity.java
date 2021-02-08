@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.twilio.video.app.adapter.DoctorListAdapter;
+import com.twilio.video.app.adapter.SpecialityAdapter;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
@@ -35,8 +36,9 @@ import retrofit2.Retrofit;
 public class LlistOfDoctorActivity extends AppCompatActivity
 //        implements NavigationView.OnNavigationItemSelectedListener
 {
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerViewSpeciality;
     DoctorListAdapter doctorListAdapter;
+    SpecialityAdapter specilityAdapter;
     List<ListDoctorData> listDoctorData;
 
 
@@ -45,6 +47,7 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llist_of_doctor);
         recyclerView = findViewById(R.id.doctorRecyclerView);
+        recyclerViewSpeciality = findViewById(R.id.specialityRecyclerView);
 
         listDoctorData = new ArrayList<>();
 
@@ -54,7 +57,10 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         recyclerView.setAdapter(doctorListAdapter);
         getDoctorDataFromServer();
 
-
+        recyclerViewSpeciality.setHasFixedSize(true);
+        recyclerViewSpeciality.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, true));
+        specilityAdapter = new SpecialityAdapter();
+        recyclerViewSpeciality.setAdapter(specilityAdapter);
 
 
     }
