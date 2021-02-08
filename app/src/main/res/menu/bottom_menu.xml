@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/home"
-        android:icon="@drawable/ic_home"
-        android:title="Home"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/booking"
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:title="@string/bottom_tab_text_1"
         android:icon="@drawable/ic_home"
-        android:title="Booking"/>
-
-    <item android:id="@+id/fav"
-        android:icon="@drawable/ic_home"
-        android:title="Fav"/>
-
-    <item android:id="@+id/profile"
-        android:icon="@drawable/ic_home"
-        android:title="Profile"/>
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_search"
+        android:enabled="true"
+        android:title="@string/bottom_tab_text_2"
+        android:icon="@drawable/ic_doctorlist"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_news"
+        android:enabled="true"
+        android:icon="@drawable/ic_booking"
+        android:title="@string/bottom_tab_text_3"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_notification"
+        android:enabled="true"
+        android:title="@string/bottom_tab_text_4"
+        app:showAsAction="always" />
 </menu>

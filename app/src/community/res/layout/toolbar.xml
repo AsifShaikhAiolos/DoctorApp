@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/space_transparent"
+
     local:title="@string/app_name"
     local:titleTextColor="#FFF"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
