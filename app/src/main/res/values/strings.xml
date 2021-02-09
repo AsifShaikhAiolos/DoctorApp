@@ -3,7 +3,8 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="tab_text_1" translatable="false">Past Booking</string>
+    <string name="tab_text_2" translatable="false">UpComing Booking</string>
     <string name="doctor_name">Doctor Name :</string>
     <string name="speciality">Speciality :</string>
     <string name="asif_shaikh">Asif Shaikh</string>

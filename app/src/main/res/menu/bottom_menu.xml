@@ -24,5 +24,6 @@
         android:id="@+id/action_notification"
         android:enabled="true"
         android:title="@string/bottom_tab_text_4"
+        android:icon="@drawable/ic_patienticon"
         app:showAsAction="always" />
 </menu>

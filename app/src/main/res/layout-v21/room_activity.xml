@@ -12,13 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <include android:id="@+id/room" layout="@layout/content_room" />
+
+
+
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/lobby_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lobbyToolbar"
+            android:background="@android:color/transparent"
             app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
@@ -26,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
+                android:background="@android:color/transparent"
                 android:minHeight="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.Lobby.PopupMenu" />
 
