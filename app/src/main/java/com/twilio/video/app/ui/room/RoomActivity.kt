@@ -129,6 +129,8 @@ class RoomActivity : BaseActivity() {
         binding.joinRoom.roomName.doOnTextChanged { text: CharSequence?, _, _, _ ->
             roomNameTextChanged(text)
         }
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding.joinRoom.connect.setOnClickListener { connectButtonClick() }
         binding.disconnect.setOnClickListener { disconnectButtonClick() }
         binding.localVideo.setOnClickListener { toggleLocalVideo() }

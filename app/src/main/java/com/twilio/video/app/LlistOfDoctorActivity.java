@@ -1,6 +1,7 @@
 package com.twilio.video.app;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,10 +37,10 @@ import retrofit2.Retrofit;
 public class LlistOfDoctorActivity extends AppCompatActivity
 //        implements NavigationView.OnNavigationItemSelectedListener
 {
-    RecyclerView recyclerView, recyclerViewSpeciality;
+    RecyclerView recyclerView;
     DoctorListAdapter doctorListAdapter;
-    SpecialityAdapter specilityAdapter;
     List<ListDoctorData> listDoctorData;
+    public Context context = this;
 
 
     @Override
@@ -47,7 +48,6 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llist_of_doctor);
         recyclerView = findViewById(R.id.doctorRecyclerView);
-        recyclerViewSpeciality = findViewById(R.id.specialityRecyclerView);
 
         listDoctorData = new ArrayList<>();
 
@@ -57,10 +57,6 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         recyclerView.setAdapter(doctorListAdapter);
         getDoctorDataFromServer();
 
-        recyclerViewSpeciality.setHasFixedSize(true);
-        recyclerViewSpeciality.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, true));
-        specilityAdapter = new SpecialityAdapter();
-        recyclerViewSpeciality.setAdapter(specilityAdapter);
 
 
     }
