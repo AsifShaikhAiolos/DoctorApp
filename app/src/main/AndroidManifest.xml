@@ -58,6 +58,7 @@
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
             android:name=".ui.room.RoomActivity"
+
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.Lobby"

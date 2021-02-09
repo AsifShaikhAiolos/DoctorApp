@@ -13,13 +13,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.twilio.video.app.LlistOfDoctorActivity;
 import com.twilio.video.app.R;
+import com.twilio.video.app.SectionsPagerAdapter;
 import com.twilio.video.app.adapter.TabAdapterOther;
 
 
 public class BookingFragment extends Fragment {
 
 
-    FloatingActionButton fabBook;
+//    FloatingActionButton fabBook;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,32 +29,36 @@ public class BookingFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRetainInstance(true);
         View view =inflater.inflate(R.layout.fragment_booking, container, false);
         TabLayout tabLayOut = (TabLayout) view.findViewById(R.id.tabLayout);
-        TabAdapterOther tabAdapter = new TabAdapterOther(getActivity().getSupportFragmentManager());
+        SectionsPagerAdapter tabAdapter = new SectionsPagerAdapter(view.getContext(),getActivity().getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+//        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(tabAdapter);
+
         tabLayOut.setupWithViewPager(viewPager);
-
-        fabBook=view.findViewById(R.id.fabBookAppoinment);
-
-        fabBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LlistOfDoctorActivity.class);
-                startActivity(intent);
-            }
-        });
+        tabAdapter.notifyDataSetChanged();
+//        fabBook=view.findViewById(R.id.fabBookAppoinment);
+//
+//        fabBook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), LlistOfDoctorActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         return view;
     }
+
 
     @Override
     public void  setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
+
             getFragmentManager().beginTransaction().detach(this).attach(this).commit();
         }
     }

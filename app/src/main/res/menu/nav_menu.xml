@@ -20,10 +20,6 @@
             android:id="@+id/id_share"
             android:checkable="true"
           />
-        <item android:title="rateus"
-            android:id="@+id/id_rate"
-            android:checkable="true"
-         />
     </menu>
 </item>
 </group>
