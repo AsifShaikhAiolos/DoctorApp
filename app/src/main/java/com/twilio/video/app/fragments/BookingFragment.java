@@ -11,7 +11,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.twilio.video.app.AvailableFragment;
+import com.twilio.video.app.HomeActivity;
 import com.twilio.video.app.LlistOfDoctorActivity;
+import com.twilio.video.app.PastAppointFragment;
 import com.twilio.video.app.R;
 import com.twilio.video.app.SectionsPagerAdapter;
 import com.twilio.video.app.adapter.TabAdapterOther;
@@ -34,13 +37,17 @@ public class BookingFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_booking, container, false);
         TabLayout tabLayOut = (TabLayout) view.findViewById(R.id.tabLayout);
         SectionsPagerAdapter tabAdapter = new SectionsPagerAdapter(view.getContext(),getActivity().getSupportFragmentManager());
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-//        viewPager.setOffscreenPageLimit(2);
-        viewPager.setOffscreenPageLimit(2);
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.tabLayoutViewPager);
+//        setUpViewPager(viewPager);
         viewPager.setAdapter(tabAdapter);
-
         tabLayOut.setupWithViewPager(viewPager);
-        tabAdapter.notifyDataSetChanged();
+//        viewPager.setOffscreenPageLimit(2);
+//        viewPager.setOffscreenPageLimit(2);
+//        viewPager.setAdapter(tabAdapter);
+//
+//        setupWithViewPager(viewPager);
+//        setUpViewPager(viewPager)
+//        tabAdapter.notifyDataSetChanged();
 //        fabBook=view.findViewById(R.id.fabBookAppoinment);
 //
 //        fabBook.setOnClickListener(new View.OnClickListener() {
@@ -53,13 +60,21 @@ public class BookingFragment extends Fragment {
         return view;
     }
 
+//    private void setUpViewPager(ViewPager viewpager){
+//        HomeActivity nAct = new HomeActivity();
+//        TabAdapterOther tabAdapter = new TabAdapterOther(nAct.getSupportFragmentManager());
+//        tabAdapter.addFragment(new PastAppointFragment(), "Past Booking");
+//        tabAdapter.addFragment(new AvailableFragment(), "Upcoming Booking");
+//        viewpager.
+//    }
 
-    @Override
-    public void  setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
 
-            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
-        }
-    }
+//    @Override
+//    public void  setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if (isVisibleToUser) {
+//
+//            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+//        }
+//    }
 }
