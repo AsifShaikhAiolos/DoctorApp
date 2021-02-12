@@ -19,8 +19,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.twilio.video.app.doctor.CalenderFragment;
-import com.twilio.video.app.doctor.DoctorProfileFragment;
 import com.twilio.video.app.fragments.DoctorListFragment;
 import com.twilio.video.app.fragments.BookingFragment;
 import com.twilio.video.app.fragments.HomeFragment;
@@ -41,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.id_navview);
 
 
-        loadFragment(new HomeFragment());
+        loadFragment(new DashFragment());
 
 
         //code for navigation drawer
@@ -68,7 +66,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.action_home:
-                        selectedFragment = new HomeFragment();
+                        selectedFragment = new DashFragment();
                         break;
                     case R.id.action_search:
                         selectedFragment = new CalenderFragment();

@@ -12,12 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.twilio.video.app.adapter.AppoinmentsAdapterNormal;
+import com.twilio.video.app.adapter.UpcomingAdapter;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
-import com.twilio.video.app.apiWork.networkPojo.apidata.PastDatat;
 import com.twilio.video.app.apiWork.networkPojo.apidata.UpCommingDatat;
-import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
 
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ import retrofit2.Retrofit;
 public class AvailableFragment extends Fragment {
 
     List<UpCommingDatat> listUpcommig;
-    AppoinmentsAdapterNormal adp;
+    UpcomingAdapter adp;
     RecyclerView rv;
 
     @Override
@@ -49,7 +47,7 @@ public class AvailableFragment extends Fragment {
         listUpcommig=new ArrayList<>();
         getUpcommingDataFromServer();
         rv = (RecyclerView) view.findViewById(R.id.recyclerViewAvailable);
-        adp = new AppoinmentsAdapterNormal(nAct,listUpcommig, nAct);
+        adp = new UpcomingAdapter(nAct,listUpcommig, nAct);
         rv.setLayoutManager(new LinearLayoutManager(nAct));
         rv.setAdapter(adp);
 

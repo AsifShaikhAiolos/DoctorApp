@@ -49,6 +49,8 @@ public class SlotAdapter extends RecyclerView.Adapter<SlotAdapter.ViewHolder> {
             holder.slotTimes.setBackgroundResource(R.drawable.bordertext);
             holder.slotTimes.setTextColor(Color.BLACK);
         }
+
+        holder.slotTimes.setText(slottimes.get(position));
         holder.slotTimes.setText(slottimes.get(position));
         holder.slotTimes.setOnClickListener(new View.OnClickListener() {
             @Override
