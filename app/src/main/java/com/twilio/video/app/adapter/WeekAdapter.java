@@ -37,7 +37,6 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     @NonNull
     @Override
     public WeekAdapter.WeekViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = layoutInflater.inflate(R.layout.lyt_weeksdates, parent, false);
         return new WeekAdapter.WeekViewHolder(view);
     }
@@ -64,7 +63,6 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
                 if(eventListenere!=null){
                     eventListenere.onParentClick(data.get(position),position );
                 }
-
                 select = position;
                 notifyDataSetChanged();
             }
@@ -80,18 +78,10 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
     public class WeekViewHolder extends RecyclerView.ViewHolder  {
         TextView docName;
         LinearLayout layoutDays;
-
-
         public WeekViewHolder(@NonNull View itemView) {
             super(itemView);
             docName = itemView.findViewById(R.id.weekDates);
             layoutDays=itemView.findViewById(R.id.layoutDays);
-
         }
-
-
     }
-
-
-
 }

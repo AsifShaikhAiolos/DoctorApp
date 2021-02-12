@@ -81,12 +81,14 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         weekAdapter = new WeekAdapter(getApplicationContext(), timeSlotData, this);
+        Log.d("list",timeSlotData.toString());
         recyclerView.setAdapter(weekAdapter);
+
 
         Intent intent = getIntent();
         if (intent != null) {
             doctorData = intent.getParcelableExtra("doctorModel");
-            docName.setText("Dr. "+doctorData.getName().getFirst_name());
+            docName.setText("Dr. " + doctorData.getName().getFirst_name());
         }
 
 
@@ -113,11 +115,11 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
                 timeSlotData.clear();
                 if (response.body() != null && response.body().getTimeSlotData() != null) {
-
                     for (TimeSlotData td : response.body().getTimeSlotData()) {
                         timeSlotData.add(td);
                     }
                 }
+
                 weekAdapter.notifyDataSetChanged();
             }
 
@@ -131,12 +133,10 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
     }
 
-
+    //booking data
     private void postBookDataServer() {
-
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
-
         Call<BookingModel> call = lgApi.bookAppointment(new BookingData(doctorData.get_id(), start_time, date));
         call.enqueue(new Callback<BookingModel>() {
             @Override
@@ -147,7 +147,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
                     Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 //                    Log.e("ERROR CHECKING", response.body().getMessage());
                 } else
-                    Toast.makeText(getApplicationContext(),"Please Book An Appoiment", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please Book An Appoiment", Toast.LENGTH_LONG).show();
 //                Log.e("ERROR CHECKING", response.body().getMessage());
             }
 
@@ -166,23 +166,23 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
-        Call<VideoModel> call = lgApi.createVideoCall(new  VideoID(appointmentId));
+        Call<VideoModel> call = lgApi.createVideoCall(new VideoID(appointmentId));
         call.enqueue(new Callback<VideoModel>() {
             @Override
             public void onResponse(Call<VideoModel> call, Response<VideoModel> response) {
 
                 if (response.body() != null) {
 
-                   if("success".equalsIgnoreCase(response.body().getStatus())){
-                       Intent intent= new Intent(getApplicationContext(), CommunityLoginActivity.class);
-                       intent.putExtra("roomName",response.body().getData().getRoom_name());
-                       intent.putExtra("passCode",response.body().getData().getPasscode());
-                       intent.putExtra("userName",response.body().getData().getUser_name());
+                    if ("success".equalsIgnoreCase(response.body().getStatus())) {
+                        Intent intent = new Intent(getApplicationContext(), CommunityLoginActivity.class);
+                        intent.putExtra("roomName", response.body().getData().getRoom_name());
+                        intent.putExtra("passCode", response.body().getData().getPasscode());
+                        intent.putExtra("userName", response.body().getData().getUser_name());
 
 
-                       startActivity(intent);
-                   }
-                       //sucess
+                        startActivity(intent);
+                    }
+                    //sucess
 //                       String roomName = displayName
 //                       if (response.body().getData().getRoom_name() != null) {
 
@@ -195,7 +195,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 //                       //failed
 //                   }
                 } else
-                    Toast.makeText(context,"something went wrong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "something went wrong", Toast.LENGTH_LONG).show();
 
             }
 
@@ -209,25 +209,23 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
     @Override
     public void onParentClick(TimeSlotData timeSlotDataModel, int position) {
-        date=timeSlotDataModel.getDate();
+        date = timeSlotDataModel.getDate();
         List<String> list = timeSlotDataModel.getTime_slots();
-        Log.e("Tag","enter onclick time");
+        Log.e("Tag", "enter onclick time");
         if (list != null) {
-            Log.e("","list size"+list.size());
+            Log.e("", "list size" + list.size());
             slotRecyclerview = findViewById(R.id.slotTimeRecyclerView);
-            slotAdapter = new SlotAdapter(context, list,this);
+            slotAdapter = new SlotAdapter(context, list, this);
             slotRecyclerview.setLayoutManager(new GridLayoutManager(context, 4));
             slotRecyclerview.setNestedScrollingEnabled(false);
             slotRecyclerview.setHasFixedSize(true);
             slotRecyclerview.setAdapter(slotAdapter);
-
 //            Toast.makeText(context, "Position " + timeSlotData.get(position), Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onChildClickClick(String selectedTime, int position) {
-
-        start_time=selectedTime;
+        start_time = selectedTime;
     }
 }

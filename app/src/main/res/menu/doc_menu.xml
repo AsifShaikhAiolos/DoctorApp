@@ -3,27 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/dash"
         android:enabled="true"
-        android:title="@string/bottom_tab_doc_1"
+        android:title="@string/bottom_tab_text_1"
         android:icon="@drawable/ic_home"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_search"
         android:enabled="true"
-        android:title="@string/bottom_tab_doc_2"
+        android:title="@string/bottom_tab_text_2"
         android:icon="@drawable/ic_doctorlist"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_news"
         android:enabled="true"
         android:icon="@drawable/ic_booking"
-        android:title="@string/bottom_tab_doc_3"
+        android:title="@string/bottom_tab_text_3"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_notification"
         android:enabled="true"
-        android:title="@string/bottom_tab_doc_4"
+        android:title="@string/bottom_tab_text_4"
         android:icon="@drawable/ic_patienticon"
         app:showAsAction="always" />
 </menu>
