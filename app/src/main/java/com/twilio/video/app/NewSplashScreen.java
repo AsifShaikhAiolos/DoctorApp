@@ -12,8 +12,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.trncic.library.DottedProgressBar;
+
 public class NewSplashScreen extends AppCompatActivity {
     private static int SPLASH_DISPLAY_LENGTH = 1000;
+
+    DottedProgressBar bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,9 @@ public class NewSplashScreen extends AppCompatActivity {
             startActivity(new Intent(NewSplashScreen.this,LoginActivity.class));
             finish();
         }
+
+//
+
 //
 //        TextView textViewAni=findViewById(R.id.textAni);
 //        ProgressBar progressBar=findViewById(R.id.progress_bar);
