@@ -19,6 +19,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.twilio.video.app.doctor.CalenderFragment;
+import com.twilio.video.app.doctor.DoctorProfileFragment;
 import com.twilio.video.app.fragments.DoctorListFragment;
 import com.twilio.video.app.fragments.BookingFragment;
 import com.twilio.video.app.fragments.HomeFragment;
@@ -69,13 +71,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                         selectedFragment = new HomeFragment();
                         break;
                     case R.id.action_search:
-                        selectedFragment = new DoctorListFragment();
+                        selectedFragment = new CalenderFragment();
                         break;
                     case R.id.action_news:
                         selectedFragment = new BookingFragment();
                         break;
                     case R.id.action_notification:
-                        selectedFragment = new ProfileFragment();
+                        selectedFragment = new DoctorProfileFragment();
                         break;
                 }
 //        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

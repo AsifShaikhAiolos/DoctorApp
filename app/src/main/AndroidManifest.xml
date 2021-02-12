@@ -3,16 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.twilio.video.app">
 
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-    <uses-feature android:name="android.hardware.camera" />
-
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:name=".VideoApplication"
         android:allowBackup="false"
@@ -21,6 +11,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".doctor.EditDoctorActivity"></activity>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,9 +23,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LlistOfDoctorActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".BookingDoctorFragment" />
         <activity
@@ -74,5 +63,15 @@
             android:name=".ui.room.VideoService"
             android:foregroundServiceType="mediaProjection" />
     </application>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
 </manifest>

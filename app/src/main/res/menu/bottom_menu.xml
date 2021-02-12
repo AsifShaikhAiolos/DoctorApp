@@ -5,25 +5,25 @@
     <item
         android:id="@+id/action_home"
         android:enabled="true"
-        android:title="@string/bottom_tab_text_1"
-        android:icon="@drawable/ic_home"
+        android:title="@string/bottom_tab_doc_1"
+        android:icon="@drawable/ic_baseline_show_chart_24"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_search"
         android:enabled="true"
-        android:title="@string/bottom_tab_text_2"
-        android:icon="@drawable/ic_doctorlist"
+        android:title="@string/bottom_tab_doc_4"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_news"
         android:enabled="true"
         android:icon="@drawable/ic_booking"
-        android:title="@string/bottom_tab_text_3"
+        android:title="@string/bottom_tab_doc_2"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_notification"
         android:enabled="true"
-        android:title="@string/bottom_tab_text_4"
+        android:title="@string/bottom_tab_doc_3"
         android:icon="@drawable/ic_patienticon"
         app:showAsAction="always" />
 </menu>

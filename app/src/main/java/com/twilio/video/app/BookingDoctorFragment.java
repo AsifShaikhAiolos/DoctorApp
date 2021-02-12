@@ -63,6 +63,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     ListDoctorData doctorData;
     SlotAdapter slotAdapter;
 
+    List<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         weekAdapter = new WeekAdapter(getApplicationContext(), timeSlotData, this);
+//
         recyclerView.setAdapter(weekAdapter);
 
         Intent intent = getIntent();
@@ -94,7 +96,6 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 postBookDataServer();
             }
         });
@@ -112,12 +113,18 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             public void onResponse(Call<TimeSlotModel> call, Response<TimeSlotModel> response) {
 
                 timeSlotData.clear();
+
                 if (response.body() != null && response.body().getTimeSlotData() != null) {
 
                     for (TimeSlotData td : response.body().getTimeSlotData()) {
                         timeSlotData.add(td);
+
                     }
                 }
+
+                list = timeSlotData.get(0).getTime_slots();
+                Log.d("asi", list.toString());
+
                 weekAdapter.notifyDataSetChanged();
             }
 
