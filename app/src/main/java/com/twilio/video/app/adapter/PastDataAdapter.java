@@ -79,4 +79,3 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
     }
 
 }
-

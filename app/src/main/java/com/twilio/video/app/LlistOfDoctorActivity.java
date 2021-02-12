@@ -1,6 +1,7 @@
 package com.twilio.video.app;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.twilio.video.app.adapter.DoctorListAdapter;
+import com.twilio.video.app.adapter.SpecialityAdapter;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
@@ -38,6 +40,7 @@ public class LlistOfDoctorActivity extends AppCompatActivity
     RecyclerView recyclerView;
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
+    public Context context = this;
 
 
     @Override
@@ -53,7 +56,6 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         doctorListAdapter = new DoctorListAdapter(getApplicationContext(), listDoctorData, this);
         recyclerView.setAdapter(doctorListAdapter);
         getDoctorDataFromServer();
-
 
 
 
