@@ -63,6 +63,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     ListDoctorData doctorData;
     SlotAdapter slotAdapter;
 
+    List<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +82,12 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         weekAdapter = new WeekAdapter(getApplicationContext(), timeSlotData, this);
-        Log.d("list",timeSlotData.toString());
         recyclerView.setAdapter(weekAdapter);
-
 
         Intent intent = getIntent();
         if (intent != null) {
             doctorData = intent.getParcelableExtra("doctorModel");
-            docName.setText("Dr. " + doctorData.getName().getFirst_name());
+            docName.setText("Dr. "+doctorData.getName().getFirst_name());
         }
 
 
@@ -115,11 +114,11 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
                 timeSlotData.clear();
                 if (response.body() != null && response.body().getTimeSlotData() != null) {
+
                     for (TimeSlotData td : response.body().getTimeSlotData()) {
                         timeSlotData.add(td);
                     }
                 }
-
                 weekAdapter.notifyDataSetChanged();
             }
 
@@ -133,10 +132,12 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
     }
 
-    //booking data
+
     private void postBookDataServer() {
+
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
         Call<BookingModel> call = lgApi.bookAppointment(new BookingData(doctorData.get_id(), start_time, date));
         call.enqueue(new Callback<BookingModel>() {
             @Override
@@ -220,6 +221,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             slotRecyclerview.setNestedScrollingEnabled(false);
             slotRecyclerview.setHasFixedSize(true);
             slotRecyclerview.setAdapter(slotAdapter);
+
 //            Toast.makeText(context, "Position " + timeSlotData.get(position), Toast.LENGTH_SHORT).show();
         }
     }

@@ -19,7 +19,6 @@ import com.twilio.video.app.LlistOfDoctorActivity;
 import com.twilio.video.app.R;
 import com.twilio.video.app.adapter.DoctorListAdapter;
 import com.twilio.video.app.adapter.SpecialityAdapter;
-import com.twilio.video.app.adapter.TabAdapterOther;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;

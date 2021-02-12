@@ -1,6 +1,5 @@
 package com.twilio.video.app.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +8,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.twilio.video.app.AvailableFragment;
-import com.twilio.video.app.HomeActivity;
-import com.twilio.video.app.LlistOfDoctorActivity;
-import com.twilio.video.app.PastAppointFragment;
 import com.twilio.video.app.R;
-import com.twilio.video.app.SectionsPagerAdapter;
-import com.twilio.video.app.adapter.TabAdapterOther;
+import com.twilio.video.app.adapter.SectionsPagerAdapter;
 
 
 public class BookingFragment extends Fragment {

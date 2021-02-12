@@ -247,6 +247,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'com.squareup.rx.idler:rx2-idler:0.9.1'
+    implementation 'com.squareup:android-times-square:1.6.5@aar'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 
 

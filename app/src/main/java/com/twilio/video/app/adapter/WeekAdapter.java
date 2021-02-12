@@ -47,6 +47,7 @@ public class WeekAdapter extends RecyclerView.Adapter<WeekAdapter.WeekViewHolder
         context = holder.itemView.getContext();
         holder.docName.setText(data.get(position).getDate());
         int color = Integer.parseInt("bdbdbd", 16)+0xFFFFFF;
+        Log.d("asi", data.toString());
 
         if (select == position){
             holder.docName.setBackgroundResource(R.drawable.bordertextclick);
