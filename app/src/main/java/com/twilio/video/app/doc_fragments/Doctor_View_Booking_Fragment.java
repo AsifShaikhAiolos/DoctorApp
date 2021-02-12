@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 import com.twilio.video.app.R;
-import com.twilio.video.app.SectionsPagerAdapter;
+
 import com.twilio.video.app.docAdapter.Doc_Top_TabAdapter;
 
 

@@ -18,9 +18,4 @@
     <string name="bottom_tab_doc_4" translatable="false">Calender</string>
 
 
-    <string name="bottom_tab_doc_1" translatable="false">Dash</string>
-    <string name="bottom_tab_doc_2" translatable="false">calender</string>
-    <string name="bottom_tab_doc_3" translatable="false">Booking</string>
-    <string name="bottom_tab_doc_4" translatable="false">Profile</string>
-
 </resources>

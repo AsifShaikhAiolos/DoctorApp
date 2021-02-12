@@ -19,6 +19,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.twilio.video.app.doc_fragments.DashFragment;
+import com.twilio.video.app.doctor.CalenderFragment;
+import com.twilio.video.app.doctor.DoctorProfileFragment;
 import com.twilio.video.app.fragments.DoctorListFragment;
 import com.twilio.video.app.fragments.BookingFragment;
 import com.twilio.video.app.fragments.HomeFragment;
