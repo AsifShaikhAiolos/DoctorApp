@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.twilio.video.app.doc_fragments.DashFragment;
 import com.twilio.video.app.fragments.DoctorListFragment;
 import com.twilio.video.app.fragments.BookingFragment;
 import com.twilio.video.app.doc_fragments.Doctor_View_Booking_Fragment;
@@ -40,7 +41,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.id_navview);
 
 
-        loadFragment(new Doctor_View_Booking_Fragment());
+        loadFragment(new DashFragment());
 
 
         //code for navigation drawer
@@ -67,7 +68,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.action_home:
-                        selectedFragment = new Doctor_View_Booking_Fragment();
+                        selectedFragment = new DashFragment();
                         break;
                     case R.id.action_search:
                         selectedFragment = new DoctorListFragment();
