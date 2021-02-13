@@ -14,14 +14,15 @@ import com.twilio.video.app.R;
 
 public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.ViewHolder>{
 
-    String name[] = {"Heart","Brain","eyes","lugs","eye","Bone"};
+    String name[] = {"Cardiology","Neurology","Ophthalmology","Pulmonology","surgical gastroenterology","Rheumatology", "Dentist"};
     int icon[] = {
-            R.drawable.ic_love,
+            R.drawable.ic_heart_beat,
             R.drawable.ic_brain__1_,
             R.drawable.ic_ophthalmology,
             R.drawable.ic_lungs,
-            R.drawable.ic_eye,
-            R.drawable.ic_x_ray
+            R.drawable.ic_surgery_room,
+            R.drawable.ic_joint,
+            R.drawable.ic_dentist
     };
 
 
