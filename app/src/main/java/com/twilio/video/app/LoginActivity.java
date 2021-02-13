@@ -10,11 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.LoginData;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
+import com.twilio.video.app.doc_fragments.DoctorSettingActivity;
+import com.twilio.video.app.doc_fragments.DoctorSignUpActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView txtmail, txtpassword;
     Button btn_login;
     String get_mail;
-        String get_passwrod;
+    String get_passwrod;
+    AppCompatTextView textSignUp;
 
 
     @Override
@@ -35,7 +39,16 @@ public class LoginActivity extends AppCompatActivity {
 //hooks
         txtmail = findViewById(R.id.id_mail);
         txtpassword = findViewById(R.id.id_password);
+        textSignUp = findViewById(R.id.txtSignUp);
         btn_login = findViewById(R.id.btn_login);
+
+        textSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, DoctorSignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {

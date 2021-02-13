@@ -48,10 +48,10 @@ public class DashFragment extends Fragment {
 
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        HomeActivity home = new HomeActivity();
-//        home.setToolbarTitle("Dashborad");
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Dashboard");
+    }
+
 }

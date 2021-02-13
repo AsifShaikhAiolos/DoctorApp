@@ -39,7 +39,6 @@ public class CalenderFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.fragment_calender, container, false);
-        getActivity().setTitle("Calendar");
         fab = view.findViewById(R.id.editFab);
         calendar = (CalendarPickerView) view.findViewById(R.id.calendar);
         Date today = new Date();
@@ -69,6 +68,12 @@ public class CalenderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Calendar");
     }
 
 //    public void goToAttract(View v)

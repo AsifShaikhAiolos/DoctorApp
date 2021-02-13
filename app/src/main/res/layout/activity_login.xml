@@ -51,6 +51,7 @@
             android:id="@+id/et_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/EditTextInputLayoutStyle"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -88,12 +89,14 @@
             android:id="@+id/et_Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/EditTextInputLayoutStyle"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:hint="Enter Password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/id_password"
                 android:layout_width="match_parent"
@@ -152,6 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:id="@+id/txtSignUp"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_20sdp"

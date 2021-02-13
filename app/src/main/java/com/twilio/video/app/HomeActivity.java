@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
 
         //code for navigation drawer
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
 //        toggle = new ActionBarDrawerToggle(
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

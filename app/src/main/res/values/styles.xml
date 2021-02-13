@@ -98,5 +98,13 @@
         <item name="colorControlActivated">@color/yellow</item>
     </style>
 
+    <style name="EditTextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
+        <item name="android:fontFamily">@font/fontawesome_webfont</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="background">@drawable/bg_curve_rectangle</item>
+        <item name="errorTextColor">@color/colorApp</item>
+    </style>
+
 
 </resources>

@@ -59,6 +59,11 @@ public class SPManager {
         saveString(ACCESS_TOKEN, token);
     }
 
+    public void signOut(){
+        SharedPreferences.Editor editor = s.edit();
+        editor.clear().commit();
+    }
+
 
 
 }

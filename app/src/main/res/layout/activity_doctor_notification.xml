@@ -1,33 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".doc_fragments.DoctorNotificationActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorApp"
-        android:id="@+id/toolbar">
-
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_14sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_14sdp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
             android:text="Notification"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp"
-            android:layout_gravity="center"
-            android:id="@+id/toolbar_title" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_9sdp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                        android:id="@+id/IdProfile"-->
+<!--                        android:layout_width="70dp"-->
+<!--                        android:layout_height="76dp"-->
+<!--                        android:src="@drawable/doc_image2"-->
+<!--                        android:layout_margin="@dimen/_8sdp"-->
+<!--                        app:civ_border_width="2dp"-->
+<!--                        app:civ_border_color="#0000"/>-->
+
+                    <ImageView
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:id="@+id/IdProfile"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:src="@drawable/ic_outline_notifications_24"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@id/IdProfile"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/idDoctorName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/fontawesome_webfont"
+                            android:text="@string/asif_shaikh"
+                            android:textColor="#000"
+                            android:alpha="0.9"/>
 
 
-    </androidx.appcompat.widget.Toolbar>
+                        <TextView
+                            android:id="@+id/idDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="4dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/fontawesome_webfont"
+                            android:text="13-02-2021, 9AM"
+                            android:textColor="#000"
+                            android:alpha="0.9"/>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
