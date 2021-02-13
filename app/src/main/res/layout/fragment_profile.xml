@@ -34,11 +34,11 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_140sdp"
             android:id="@+id/ivProfile"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/doc_image2"/>
+            android:src="@drawable/profile_user"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivProfile"
-            android:text="Asif \nShaikh"
+            android:text="Vijay \nSharma"
             android:id="@+id/PatNameTxt"
             android:layout_marginTop="@dimen/_10sdp"
             android:textColor="@color/black"
@@ -58,7 +58,7 @@
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintTop_toBottomOf="@+id/PatNameTxt"
             app:layout_constraintStart_toEndOf="@+id/ivProfile"
-            android:text="+91 0000000000"
+            android:text="+91 9012345678"
             android:id="@+id/PatPhoneNoTxt"
             android:textSize="@dimen/_14ssp"
             />
@@ -75,6 +75,7 @@
 
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
