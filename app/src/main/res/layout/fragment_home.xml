@@ -1,175 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-       <androidx.appcompat.widget.AppCompatTextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/txtDoctor"
-           android:layout_margin="@dimen/_20sdp"
-           local:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           android:textColor="@color/black"
-           android:textSize="@dimen/_18ssp"
-           android:textStyle="bold"
-           android:text="Upcoming Bookings"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-       <com.google.android.material.card.MaterialCardView
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/_100sdp"
-           android:theme="@style/Theme.MaterialComponents.Light"
-           app:cardBackgroundColor="@color/white"
-           android:layout_marginTop="@dimen/_10sdp"
-           android:layout_margin="@dimen/_10sdp"
-           app:cardCornerRadius="11dp"
-           app:cardElevation="4dp"
-           android:id="@+id/doctorCard"
-           app:layout_constraintStart_toStartOf="parent"
-           local:layout_constraintTop_toBottomOf="@+id/txtDoctor">
-
-              <androidx.constraintlayout.widget.ConstraintLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent">
-
-                     <de.hdodenhof.circleimageview.CircleImageView
-                         android:id="@+id/IdProfileHome"
-                         android:layout_width="70dp"
-                         android:layout_height="76dp"
-                         android:src="@drawable/doc_image2"
-                         android:layout_margin="@dimen/_8sdp"
-                         app:civ_border_width="2dp"
-                         local:layout_constraintTop_toTopOf="parent"
-                         local:layout_constraintBottom_toBottomOf="parent"
-                         local:layout_constraintStart_toStartOf="parent"
-                         app:civ_border_color="#0000"/>
-
-                     <androidx.appcompat.widget.AppCompatTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/doctorNameText"
-                         android:layout_marginTop="@dimen/_30sdp"
-                         local:layout_constraintTop_toTopOf="parent"
-                         local:layout_constraintStart_toEndOf="@+id/IdProfileHome"
-                         android:textColor="@color/black"
-                         android:textSize="@dimen/_16ssp"
-                         android:layout_marginLeft="@dimen/_10sdp"
-                         android:text="Dr.Heart"/>
-
-                     <androidx.appcompat.widget.AppCompatTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/doctorSpecialityText"
-                         android:layout_marginLeft="@dimen/_10sdp"
-                         local:layout_constraintTop_toBottomOf="@+id/doctorNameText"
-                         local:layout_constraintStart_toEndOf="@+id/IdProfileHome"
-                         android:textColor="@color/black"
-                         android:textSize="@dimen/_10ssp"
-                         android:text="Heart"/>
-
-                     <androidx.appcompat.widget.AppCompatTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/dateTextHome"
-                         android:layout_marginTop="@dimen/_10sdp"
-                         android:layout_marginLeft="@dimen/_10sdp"
-                         android:layout_marginBottom="@dimen/_10sdp"
-                         local:layout_constraintBottom_toTopOf="@+id/timeTextHome"
-                         local:layout_constraintStart_toEndOf="@+id/doctorNameText"
-                         android:textColor="@color/black"
-                         android:textSize="@dimen/_12ssp"
-                         android:text="Date: 3 Jan 2021"/>
-
-                     <androidx.appcompat.widget.AppCompatTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/timeTextHome"
-                         android:layout_marginTop="@dimen/_10sdp"
-                         android:layout_marginLeft="@dimen/_10sdp"
-                         android:layout_marginBottom="@dimen/_10sdp"
-                         local:layout_constraintTop_toTopOf="parent"
-                         local:layout_constraintBottom_toBottomOf="parent"
-                         local:layout_constraintStart_toEndOf="@+id/doctorNameText"
-                         android:textColor="@color/black"
-                         android:textSize="@dimen/_12ssp"
-                         android:text="Time: 11:30 AM"/>
-
-                     <androidx.appcompat.widget.AppCompatTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/durationTextHome"
-                         android:layout_marginTop="@dimen/_10sdp"
-                         android:layout_marginLeft="@dimen/_10sdp"
-                         android:layout_marginBottom="@dimen/_10sdp"
-                         local:layout_constraintTop_toBottomOf="@+id/timeTextHome"
-                         local:layout_constraintStart_toEndOf="@+id/doctorNameText"
-                         android:textColor="@color/black"
-                         android:textSize="@dimen/_12ssp"
-                         android:text="Duration: 30 mins"/>
-
-                     <androidx.appcompat.widget.AppCompatImageView
-                         android:layout_width="@dimen/_20sdp"
-                         android:layout_height="@dimen/_20sdp"
-                         android:id="@+id/next"
-                         android:layout_marginRight="@dimen/_10sdp"
-                         local:layout_constraintTop_toTopOf="parent"
-                         local:layout_constraintEnd_toEndOf="parent"
-                         local:layout_constraintBottom_toBottomOf="parent"
-                         local:srcCompat="@drawable/ic_right_arrow"
-                         />
-
-              </androidx.constraintlayout.widget.ConstraintLayout>
-
-       </com.google.android.material.card.MaterialCardView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="Upcoming Bookings"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            local:layout_constraintTop_toTopOf="parent" />
 
 
-       <androidx.appcompat.widget.AppCompatTextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/txtSpeciality"
-           local:layout_constraintTop_toBottomOf="@+id/doctorCard"
-           android:layout_margin="@dimen/_20sdp"
-           app:layout_constraintStart_toStartOf="parent"
-           android:textColor="@color/black"
-           android:textStyle="bold"
-           android:textSize="@dimen/_18ssp"
-           android:text="Speciality"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/doctorCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:clickable="true"
+            android:elevation="@dimen/_4sdp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_2ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            local:layout_constraintTop_toBottomOf="@+id/txtDoctor">
 
-       <androidx.recyclerview.widget.RecyclerView
-           android:id="@+id/specialityRecyclerView"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           app:layout_constraintTop_toBottomOf="@+id/txtSpeciality"
-           app:layout_constraintStart_toStartOf="parent"
-           android:layout_margin="@dimen/_8sdp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp">
 
-       <androidx.appcompat.widget.AppCompatTextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/txtDoctorList"
-           local:layout_constraintTop_toBottomOf="@+id/specialityRecyclerView"
-           android:layout_margin="@dimen/_20sdp"
-           app:layout_constraintStart_toStartOf="parent"
-           android:textColor="@color/black"
-           android:textStyle="bold"
-           android:textSize="@dimen/_18ssp"
-           android:text="Doctor List"/>
-              <androidx.recyclerview.widget.RecyclerView
-                  android:id="@+id/doctorRecyclerView"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  app:layout_constraintTop_toBottomOf="@+id/txtDoctorList"
-                  app:layout_constraintStart_toStartOf="parent"
-                  android:layout_margin="@dimen/_8sdp"/>
+                <ImageView
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_52sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    app:srcCompat="@drawable/ic_videocall" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/IdProfile"
+                    android:layout_width="70dp"
+                    android:layout_height="76dp"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:src="@drawable/doc_image2"
+                    app:civ_border_color="#0000"
+                    app:civ_border_width="2dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/IdProfile"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/idDoctorNameUpcomming"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:alpha="0.9"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="@string/asif_shaikh"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/idDrSpeciality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/idDoctorName"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:alpha="0.6"
+                        android:fontFamily="@font/fontawesome_webfont"
+                        android:text="Cardiologist"
+                        android:textColor="#000" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/idUpcommingDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/idDoctorName"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:alpha="0.6"
+                            android:fontFamily="@font/fontawesome_webfont"
+                            android:text="14 Feb 2020"
+                            android:textColor="#000" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:background="#000" />
+
+                        <TextView
+                            android:id="@+id/satrtMeeting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/idDoctorName"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            android:alpha="0.6"
+                            android:fontFamily="@font/fontawesome_webfont"
+                            android:text="8:30 am"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/lytForViewMoreAdding2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            local:layout_constraintTop_toBottomOf="@+id/doctorCard">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:text="Speciality"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/id_more2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_26sdp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="view more"
+                android:textColor="@color/colorApp"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/specialityRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lytForViewMoreAdding2" />
+
+        <RelativeLayout
+            android:id="@+id/lytForViewMoreAdding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            local:layout_constraintTop_toBottomOf="@+id/specialityRecyclerView">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDoctorList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                android:text="Doctor List"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/id_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="view more"
+                android:textColor="@color/colorApp"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/doctorRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lytForViewMoreAdding" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

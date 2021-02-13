@@ -11,8 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -35,22 +37,26 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
 //
         toolbar = findViewById(R.id.toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.id_drawer_layout);
+//        drawer = (DrawerLayout) findViewById(R.id.id_drawer_layout);
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.id_navview);
 
 
         loadFragment(new HomeFragment());
 
 
-        //code for navigation drawer
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
 
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.syncState();
-        drawer.addDrawerListener(toggle);
+        //code for navigation drawer
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//
+//        toggle.setDrawerIndicatorEnabled(true);
+//        toggle.syncState();
+//        drawer.addDrawerListener(toggle);
 
 //        navigationView.bringToFront();
 //        navigationView.setNavigationItemSelectedListener(this);
@@ -59,6 +65,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         //getting bottom navigation view and attaching the listener
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
+
+
         navigation.bringToFront();
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -100,6 +108,21 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         return false;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nav_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.id_logOut) {
+             Toast.makeText(getApplicationContext(),"print",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     @Override
@@ -115,23 +138,23 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         ft.commit();
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        toggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        toggle.onConfigurationChanged(newConfig);
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return true;
+//    }
+//
+//    @Override
+//    protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        toggle.syncState();
+//    }
+//
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        toggle.onConfigurationChanged(newConfig);
+//    }
 //    @Override
 //    public void onBackPressed() {
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -141,6 +164,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //            super.onBackPressed();
 //        }
 //    }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

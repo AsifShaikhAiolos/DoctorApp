@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DoctorListFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.twilio.video.app.fragments.MainMoreSpecialityFragment">
+
     <EditText
         android:id="@+id/et_search"
         android:layout_width="match_parent"
@@ -15,13 +14,13 @@
         android:padding="@dimen/_8sdp"
         android:drawableRight="@drawable/ic_baseline_search_24"
         android:drawablePadding="@dimen/_8sdp"
-       android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/doctorRecyclerView"
+        android:id="@+id/doctorSpecialityMoreRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_8sdp"/>
