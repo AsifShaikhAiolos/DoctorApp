@@ -17,8 +17,8 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        />
+        android:layout_marginEnd="@dimen/_16sdp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/doctorSpecialityMoreRecyclerView"
         android:layout_width="match_parent"
