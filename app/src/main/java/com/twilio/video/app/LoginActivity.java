@@ -3,9 +3,13 @@ package com.twilio.video.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     String get_mail;
         String get_passwrod;
-
+    private static int SPLASH_DISPLAY_LENGTH =4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +41,37 @@ public class LoginActivity extends AppCompatActivity {
         txtpassword = findViewById(R.id.id_password);
         btn_login = findViewById(R.id.btn_login);
 
+//        PrefManager prefManager = new PrefManager(getApplicationContext());
+//        if (prefManager.isFirstTimeLaunch()) {
+//            prefManager.setFirstTimeLaunch(false);
+//            startActivity(new Intent(LoginActivity.this,LoginActivity.class));
+//            finish();
+//        }
+
+//        ImageView imgView=findViewById(R.id.appImage);
+//        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+//        imgView.setAnimation(slide_up);
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 get_mail = txtmail.getText().toString();
                 get_passwrod = txtpassword.getText().toString();
-
-
                 checkingLoginDetails();
             }
         });
 
+//        new Handler().postDelayed(new Runnable(){
+//            @Override
+//            public void run() {
+//                Intent mainIntent = new Intent(LoginActivity.this, LoginActivity.class);
+//                startActivity(mainIntent);
+//                finish();
+//            }
+//        }, SPLASH_DISPLAY_LENGTH);
     }
+
 
 
     private void checkingLoginDetails() {
