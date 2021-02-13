@@ -6,8 +6,4 @@
             android:title="logout"
             />
 
-        <item android:title="share"
-            android:id="@+id/id_share"
-          />
-
 </menu>

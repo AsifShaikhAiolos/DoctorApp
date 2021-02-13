@@ -11,7 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.twilio.video.app.Edit_View_ProfileActivity;
+import com.twilio.video.app.LoginActivity;
 import com.twilio.video.app.R;
+import com.twilio.video.app.SPManager;
 
 public class ProfileFragment extends Fragment {
 
@@ -34,6 +36,17 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        ConstraintLayout logOut=view.findViewById(R.id.logOut);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SPManager.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
