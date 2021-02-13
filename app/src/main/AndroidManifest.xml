@@ -12,7 +12,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".doc_fragments.DoctorSettingActivity"></activity>
+        <activity android:name=".doc_fragments.AccountActivity"></activity>
+        <activity android:name=".doc_fragments.DoctorSettingActivity" />
         <activity android:name=".doc_fragments.DoctorNotificationActivity" />
         <activity android:name=".doc_fragments.DoctorStatusActionActivity" />
         <activity android:name=".SplashScreenActivity" />

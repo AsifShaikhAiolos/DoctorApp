@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.twilio.video.app.HomeActivity;
 import com.twilio.video.app.R;
 import com.twilio.video.app.doctor.CalenderFragment;
 import com.twilio.video.app.fragments.DoctorListFragment;
@@ -47,9 +48,10 @@ public class DashFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getActivity().setTitle("Dashboard");
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        HomeActivity home = new HomeActivity();
+//        home.setToolbarTitle("Dashborad");
+//    }
 }

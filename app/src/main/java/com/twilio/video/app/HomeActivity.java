@@ -181,5 +181,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        drawer.closeDrawer(GravityCompat.START);
 //        return true;
 //    }
-
+public void setToolbarTitle(String name){
+        toolbar.setTitle(name);
+}
 }
