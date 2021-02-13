@@ -53,9 +53,11 @@ FloatingActionButton fabBook;
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 DoctorListFragment doctorListFragment = new DoctorListFragment();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, doctorListFragment).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().
+                        replace(R.id.fragment_container, doctorListFragment).addToBackStack(null).commit();
 
             }
         });

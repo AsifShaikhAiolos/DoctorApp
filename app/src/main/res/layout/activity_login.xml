@@ -46,23 +46,40 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/id_mail"
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_username"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/bg_curve_rectangle"
-            android:fontFamily="@font/fontawesome_webfont"
-            android:hint="userName@gmail.com"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="@dimen/_10sdp"
-            android:paddingTop="10dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="10dp"
-            android:textSize="@dimen/_15ssp"
-            app:boxBackgroundMode="none" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:hint="enter mail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_mail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:inputType="textEmailAddress"
+
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingTop="10dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="10dp"
+                android:textSize="@dimen/_15ssp"
+                app:boxBackgroundMode="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -74,23 +91,32 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_userpassword"
+            style="@style/EditTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_password"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:layout_margin="16dp"
-            android:background="@drawable/bg_curve_rectangle"
             android:fontFamily="@font/fontawesome_webfont"
-            android:hint="******"
+            android:hint="enter password"
             android:inputType="textPassword"
-            android:paddingLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_8sdp"
             android:paddingTop="10dp"
             android:paddingRight="16dp"
             android:paddingBottom="10dp"
             android:textSize="@dimen/_15ssp"
             app:boxBackgroundMode="none" />
-
-
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"

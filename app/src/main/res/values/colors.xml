@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#a5468c</color>
     <color name="colorNewcolorapp">#aa80b4</color>
     <color name="colorLightApp">#F7E7FB</color>
-    <color name="colorAccent">#b0bec5</color>
+    <color name="colorAccent">#aa80b4</color>
     <color name="colorgrey">#F8F7F7</color>
     <color name="white">#FFFFFF</color>
 
@@ -13,7 +13,7 @@
     <color name="textColorSecondary">#8a000000</color>
     <color name="colorApp">#a5468c</color>
     <color name="yellow">#E1F8E53D</color>
-
+    <color name="transparent">#00000000</color>
     <color name="hamburgerBlack">#a5468c</color>
     <!-- Login Screen Colors -->
     <color name="login_hint">#80ffffff</color>

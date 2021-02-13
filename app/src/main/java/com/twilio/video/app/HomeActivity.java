@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
 //
         toolbar = findViewById(R.id.toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.id_drawer_layout);
+//        drawer = (DrawerLayout) findViewById(R.id.id_drawer_layout);
 //        NavigationView navigationView = (NavigationView) findViewById(R.id.id_navview);
 
 
@@ -43,14 +43,14 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
 
         //code for navigation drawer
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.syncState();
-        drawer.addDrawerListener(toggle);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//
+//        toggle.setDrawerIndicatorEnabled(true);
+//        toggle.syncState();
+//        drawer.addDrawerListener(toggle);
 
 //        navigationView.bringToFront();
 //        navigationView.setNavigationItemSelectedListener(this);
@@ -115,23 +115,23 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         ft.commit();
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        toggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        toggle.onConfigurationChanged(newConfig);
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return true;
+//    }
+//
+//    @Override
+//    protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        toggle.syncState();
+//    }
+//
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        toggle.onConfigurationChanged(newConfig);
+//    }
 //    @Override
 //    public void onBackPressed() {
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
