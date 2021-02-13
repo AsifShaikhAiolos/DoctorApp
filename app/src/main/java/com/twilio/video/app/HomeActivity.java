@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        loadFragment(new DoctorListFragment());
+        loadFragment(new DashFragment());
 
 
         toolbar = findViewById(R.id.toolbar);
@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.action_home:
-                        selectedFragment = new DoctorListFragment();
+                        selectedFragment = new DashFragment();
                         break;
                     case R.id.action_search:
                         selectedFragment = new CalenderFragment();
