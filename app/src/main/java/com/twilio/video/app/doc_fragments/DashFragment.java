@@ -20,6 +20,7 @@ public class DashFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Dashboard");
         return inflater.inflate(R.layout.fragment_dash, container, false);
     }
 }
