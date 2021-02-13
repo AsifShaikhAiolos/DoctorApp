@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item android:title="doctor">
 
 
 
         <item android:id="@+id/id_logOut"
-            android:checkable="true"
-            android:title="logout" />
+            android:title="logout"
 
-    </item>
-    </group>
-<group android:checkableBehavior="single">
-<item android:title="Communicate">
-    <menu>
+            />
 
-
-        <item android:title="share"
+        <item
+            android:title="share"
             android:id="@+id/id_share"
-            android:checkable="true"
           />
-    </menu>
 </item>
-</group>
 </menu>

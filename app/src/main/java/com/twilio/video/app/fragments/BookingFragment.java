@@ -35,6 +35,8 @@ public class BookingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRetainInstance(true);
         View view =inflater.inflate(R.layout.fragment_booking, container, false);
+        getActivity().setTitle("Booking");
+
         TabLayout tabLayOut = (TabLayout) view.findViewById(R.id.tabLayout);
         SectionsPagerAdapter tabAdapter = new SectionsPagerAdapter(view.getContext(),getActivity().getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.tabLayoutViewPager);

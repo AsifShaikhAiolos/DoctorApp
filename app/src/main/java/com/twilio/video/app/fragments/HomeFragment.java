@@ -42,7 +42,7 @@ FloatingActionButton fabBook;
     RecyclerView recyclerView;
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
-    TextView more;
+    TextView more,more2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +50,9 @@ FloatingActionButton fabBook;
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         recyclerViewSpeciality = view.findViewById(R.id.specialityRecyclerView);
         more = view.findViewById(R.id.id_more);
+        more2 = view.findViewById(R.id.id_more2);
+
+
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +64,19 @@ FloatingActionButton fabBook;
 
             }
         });
+        more2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                MoreSpecialityFragment moreSpecialityFragment = new MoreSpecialityFragment();
+                activity.getSupportFragmentManager().beginTransaction().
+                        replace(R.id.fragment_container, moreSpecialityFragment).addToBackStack(null).commit();
+
+            }
+        });
+
+        getActivity().setTitle("Home");
 
         recyclerViewSpeciality.setHasFixedSize(true);
         recyclerViewSpeciality.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));

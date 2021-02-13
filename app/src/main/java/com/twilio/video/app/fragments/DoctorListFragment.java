@@ -39,6 +39,9 @@ public class DoctorListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_doctorlist, container, false);
+
+        getActivity().setTitle("Doctor List");
+
         listDoctorData = new ArrayList<>();
         recyclerView = view.findViewById(R.id.doctorRecyclerView);
 //        recyclerView.setHasFixedSize(true);

@@ -56,21 +56,18 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:hint="enter mail"
+            android:hint="Email ID"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2">
+            app:layout_constraintStart_toStartOf="parent">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/id_mail"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp"
-
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:inputType="textEmailAddress"
-
                 android:paddingLeft="@dimen/_8sdp"
                 android:paddingTop="10dp"
                 android:paddingRight="16dp"
@@ -108,7 +105,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_margin="16dp"
             android:fontFamily="@font/fontawesome_webfont"
-            android:hint="enter password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="@dimen/_8sdp"
             android:paddingTop="10dp"
@@ -157,7 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_6sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_20sdp"
                 android:text="Sign Up!"
