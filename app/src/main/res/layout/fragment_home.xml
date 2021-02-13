@@ -116,13 +116,14 @@
                          android:text="Duration: 30 mins"/>
 
                      <androidx.appcompat.widget.AppCompatImageView
-                         android:layout_width="@dimen/_40sdp"
-                         android:layout_height="@dimen/_50sdp"
+                         android:layout_width="@dimen/_20sdp"
+                         android:layout_height="@dimen/_20sdp"
                          android:id="@+id/next"
+                         android:layout_marginRight="@dimen/_10sdp"
                          local:layout_constraintTop_toTopOf="parent"
                          local:layout_constraintEnd_toEndOf="parent"
                          local:layout_constraintBottom_toBottomOf="parent"
-                         local:srcCompat="@drawable/ic_baseline_navigate_next_24"
+                         local:srcCompat="@drawable/ic_right_arrow"
                          />
 
               </androidx.constraintlayout.widget.ConstraintLayout>
