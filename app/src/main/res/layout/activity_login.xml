@@ -30,43 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
-            android:text="SignIn"
+            android:text="Sign In"
             android:textColor="@color/black"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/signinText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_20sdp"
-                android:text="Don't have an account?"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_20sdp"
-                android:text="Sign Up!"
-                android:textColor="@color/colorApp"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/signinText"
-                app:layout_constraintStart_toEndOf="@+id/signinText"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -139,6 +106,41 @@
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="@dimen/_16ssp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signinText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                android:text="Don't have an account?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                android:text="Sign Up!"
+                android:textColor="@color/colorApp"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/signinText"
+                app:layout_constraintStart_toEndOf="@+id/signinText"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <LinearLayout

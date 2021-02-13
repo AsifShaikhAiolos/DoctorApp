@@ -44,8 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                 get_mail = txtmail.getText().toString();
                 get_passwrod = txtpassword.getText().toString();
 
-
-                checkingLoginDetails();
+                if(get_mail.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Pelease enter your userName", Toast.LENGTH_LONG).show();
+                }else if(get_passwrod.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Pelease enter your password", Toast.LENGTH_LONG).show();
+                }else {
+                    checkingLoginDetails();
+                }
             }
         });
 
