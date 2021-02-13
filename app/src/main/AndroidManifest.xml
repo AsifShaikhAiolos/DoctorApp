@@ -21,9 +21,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SplashScreenActivity">
-
-        </activity>
+        <activity android:name=".SplashScreenActivity"/>
         <activity android:name=".community.debug.NewMainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />

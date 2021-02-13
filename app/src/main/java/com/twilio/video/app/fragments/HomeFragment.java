@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,12 +42,24 @@ FloatingActionButton fabBook;
     RecyclerView recyclerView;
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
+    TextView more;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         recyclerViewSpeciality = view.findViewById(R.id.specialityRecyclerView);
+        more = view.findViewById(R.id.id_more);
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                DoctorListFragment doctorListFragment = new DoctorListFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, doctorListFragment).addToBackStack(null).commit();
+
+            }
+        });
+
 
         recyclerViewSpeciality.setHasFixedSize(true);
         recyclerViewSpeciality.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));

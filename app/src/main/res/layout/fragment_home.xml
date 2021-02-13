@@ -150,22 +150,43 @@
            app:layout_constraintStart_toStartOf="parent"
            android:layout_margin="@dimen/_8sdp"/>
 
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/lytForViewMoreAdding"
+           local:layout_constraintTop_toBottomOf="@+id/specialityRecyclerView"
+           app:layout_constraintStart_toStartOf="parent">
        <androidx.appcompat.widget.AppCompatTextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:id="@+id/txtDoctorList"
-           local:layout_constraintTop_toBottomOf="@+id/specialityRecyclerView"
            android:layout_margin="@dimen/_20sdp"
-           app:layout_constraintStart_toStartOf="parent"
            android:textColor="@color/black"
            android:textStyle="bold"
            android:textSize="@dimen/_18ssp"
            android:text="Doctor List"/>
+
+
+       <TextView
+           android:id="@+id/id_more"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:foreground="?android:attr/selectableItemBackground"
+           android:layout_marginTop="0dp"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="16dp"
+           android:fontFamily="@font/fontawesome_webfont"
+           android:text="view more"
+           android:textColor="@color/colorApp"
+           android:textSize="16dp"
+           android:textStyle="bold" />
+       </RelativeLayout>
               <androidx.recyclerview.widget.RecyclerView
                   android:id="@+id/doctorRecyclerView"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  app:layout_constraintTop_toBottomOf="@+id/txtDoctorList"
+                  app:layout_constraintTop_toBottomOf="@+id/lytForViewMoreAdding"
                   app:layout_constraintStart_toStartOf="parent"
                   android:layout_margin="@dimen/_8sdp"/>
 
