@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class NewSplashScreen extends AppCompatActivity {
 //        }, 3000);
 
 //        RunAnimation();
-        TextView textViewAni=findViewById(R.id.textAni);
+        ImageView textViewAni=findViewById(R.id.textAni);
         final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
         textViewAni.setAnimation(slide_up);
 

@@ -4,12 +4,19 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="#fff">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,16 +33,21 @@
                 app:cardCornerRadius="4dp">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/bookingimg"
-                        android:layout_width="52dp"
-                        android:layout_height="45dp"
-                        android:layout_centerInParent="true"
-                       android:layout_margin="@dimen/_16sdp"
-                        android:src="@drawable/app_logo" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:gravity="center_horizontal"
+                        android:text="Number of booking"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/bookingtext"
@@ -44,10 +56,10 @@
                         android:layout_below="@+id/bookingimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
-                        android:text="Number of booking"
+                        android:text="232"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_20ssp"
                         android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -63,29 +75,49 @@
                 app:cardCornerRadius="4dp">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/doctorimg"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:layout_centerInParent="true"
-                       android:layout_marginBottom="@dimen/_16sdp"
-                        android:src="@drawable/app_logo" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
                     <TextView
-                        android:id="@+id/doctortext"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/doctorimg"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/doctorimg"
                         android:layout_margin="16dp"
                         android:text="Earnings"
+                        android:gravity="center_horizontal"
                         android:textColor="#000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_below="@+id/doctorimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_margin="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/rsSymbol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="\u20B9"
+                            android:textColor="#000"
+                            android:textSize="@dimen/_20ssp" />
+
+                        <TextView
+                            android:id="@+id/doctortext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="525"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:textColor="#000"
+                            android:textSize="@dimen/_20ssp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -101,7 +133,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/healthimg"
@@ -109,20 +141,8 @@
                         android:layout_height="52dp"
                         android:layout_centerInParent="true"
                         android:layout_margin="16dp"
-                        android:src="@drawable/app_logo" />
+                        android:src="@drawable/calendarimg" />
 
-                    <TextView
-                        android:id="@+id/healthtext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/healthimg"
-                        android:layout_margin="16dp"
-                        android:gravity="center_horizontal"
-                        android:text="Calender"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -138,15 +158,20 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
-                    <ImageView
+
+                    <TextView
                         android:id="@+id/precautionsimg"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="16dp"
-                        android:src="@drawable/app_logo" />
+                        android:gravity="center_horizontal"
+                        android:text="Upcoming"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/precautionstext"
@@ -155,10 +180,10 @@
                         android:layout_below="@+id/precautionsimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
-                        android:text="Upcoming"
+                        android:text="35"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_20ssp"
                         android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

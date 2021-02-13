@@ -25,10 +25,26 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorApp"
-            android:id="@+id/toolbar" />
+            android:background="@color/white"
+            android:id="@+id/toolbar">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
+
+        </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/fragment_container"

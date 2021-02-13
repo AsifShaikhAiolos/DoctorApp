@@ -39,6 +39,7 @@ public class CalenderFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.fragment_calender, container, false);
+        getActivity().setTitle("Calendar");
         fab = view.findViewById(R.id.editFab);
         calendar = (CalendarPickerView) view.findViewById(R.id.calendar);
         Date today = new Date();
