@@ -1,9 +1,12 @@
 package com.twilio.video.app.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,7 +32,7 @@ public class DoctorListFragment extends Fragment {
     RecyclerView recyclerView;
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
-
+    EditText et_search;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +44,30 @@ public class DoctorListFragment extends Fragment {
 //        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         doctorListAdapter = new DoctorListAdapter(view.getContext(), listDoctorData, getActivity());
+
+        et_search = view.findViewById(R.id.et_search);
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                doctorListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         recyclerView.setAdapter(doctorListAdapter);
+
+
+
+
+
         getDoctorDataFromServer();
         return  view;
     }

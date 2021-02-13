@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.timessquare.CalendarPickerView;
 import com.twilio.video.app.HomeActivity;
 import com.twilio.video.app.R;
+import com.twilio.video.app.doc_fragments.DoctorStatusActionActivity;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -36,12 +37,8 @@ public class CalenderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calender, container, false);
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        View view=inflater.inflate(R.layout.fragment_calender, container, false);
         fab = view.findViewById(R.id.editFab);
         calendar = (CalendarPickerView) view.findViewById(R.id.calendar);
         Date today = new Date();
@@ -57,16 +54,26 @@ public class CalenderFragment extends Fragment {
                         .MULTIPLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                goToAttract(v);
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), DoctorStatusActionActivity.class);
+                startActivity(intent);
             }
         });
+
+        return view;
     }
 
-    public void goToAttract(View v)
-    {
-        Intent intent = new Intent(getActivity(), EditDoctorActivity.class);
-        startActivity(intent);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
+
+//    public void goToAttract(View v)
+//    {
+//        Intent intent = new Intent(getActivity(), EditDoctorActivity.class);
+//        startActivity(intent);
+//    }
 
 }

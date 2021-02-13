@@ -9,21 +9,21 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
 android:layout_width="match_parent"
-android:layout_height="wrap_content"
-    >
+android:layout_height="wrap_content">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_height="@dimen/_40sdp"
         android:background="@color/colorApp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/idDoctorProfile"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_22sdp"
             android:layout_marginLeft="@dimen/_20sdp"
             android:src="@drawable/doc_image2"
             app:civ_border_color="#0000"
@@ -55,7 +55,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/viewIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_25sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,7 +88,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
         android:id="@+id/viewOne"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -106,7 +107,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notificationIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_28sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +140,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.3"
         android:id="@+id/view2"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -157,7 +159,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/settingIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_28sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -190,7 +192,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
         android:id="@+id/view3"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -208,7 +211,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/paymentIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_28sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -240,7 +243,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
         android:id="@+id/view4"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -259,7 +263,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/reviewIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_28sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -292,7 +296,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
         android:id="@+id/view5"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -310,7 +315,7 @@ android:layout_height="wrap_content"
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/logoutIcon"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_28sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -344,7 +349,8 @@ android:layout_height="wrap_content"
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.25dp"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
         android:id="@+id/view6"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"

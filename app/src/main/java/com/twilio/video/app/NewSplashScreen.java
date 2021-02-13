@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.trncic.library.DottedProgressBar;
 
 public class NewSplashScreen extends AppCompatActivity {
-    private static int SPLASH_DISPLAY_LENGTH = 1000;
+    private static int SPLASH_DISPLAY_LENGTH =4000;
 
     DottedProgressBar bar;
     @Override
@@ -33,25 +33,17 @@ public class NewSplashScreen extends AppCompatActivity {
             finish();
         }
 
-//
-
-//
-//        TextView textViewAni=findViewById(R.id.textAni);
-//        ProgressBar progressBar=findViewById(R.id.progress_bar);
-//        textViewAni.setText("+0");
 //        textViewAni.postDelayed(new Runnable() {
 //            public void run() {
-//                textViewAni.setVisibility(View.GONE);
-//                    progressBar.setVisibility(View.VISIBLE);
+////                textViewAni.setVisibility(View.GONE);
+////                    progressBar.setVisibility(View.VISIBLE);
 //            }
 //        }, 3000);
 
 //        RunAnimation();
-//        TextView textViewAni=findViewById(R.id.textAni);
-////        final Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
-//        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
-//        textViewAni.setAnimation(slide_up);
-////        textViewAni.setAnimation(slide_up);
+        TextView textViewAni=findViewById(R.id.textAni);
+        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
+        textViewAni.setAnimation(slide_up);
 
         new Handler().postDelayed(new Runnable(){
             @Override
@@ -63,12 +55,4 @@ public class NewSplashScreen extends AppCompatActivity {
         }, SPLASH_DISPLAY_LENGTH);
     }
 
-    private void RunAnimation()
-    {
-        Animation a = AnimationUtils.loadAnimation(this, R.anim.textani);
-        a.reset();
-        TextView tv = (TextView) findViewById(R.id.textAni);
-        tv.clearAnimation();
-        tv.startAnimation(a);
-    }
 }

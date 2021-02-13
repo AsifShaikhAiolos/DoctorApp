@@ -5,15 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,7 +47,7 @@ public class LlistOfDoctorActivity extends AppCompatActivity
     DoctorListAdapter doctorListAdapter;
     List<ListDoctorData> listDoctorData;
     public Context context = this;
-
+    EditText et_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +56,32 @@ public class LlistOfDoctorActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.doctorRecyclerView);
 
         listDoctorData = new ArrayList<>();
-
+        et_search = findViewById(R.id.et_search);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         doctorListAdapter = new DoctorListAdapter(getApplicationContext(), listDoctorData, this);
         recyclerView.setAdapter(doctorListAdapter);
+
+
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                doctorListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
         getDoctorDataFromServer();
 
 
@@ -132,5 +159,14 @@ public class LlistOfDoctorActivity extends AppCompatActivity
 //        break;
 //    }
 //        return true;
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.search, menu);
 
+    final MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    searchView.setOnQueryTextListener((SearchView.OnQueryTextListener) LlistOfDoctorActivity.this);
+
+    return true;
+}
 }
