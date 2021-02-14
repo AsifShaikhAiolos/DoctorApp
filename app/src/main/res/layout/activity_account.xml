@@ -17,18 +17,6 @@
             android:paddingTop="@dimen/_16sdp"
             android:paddingEnd="@dimen/_14sdp">
 
-                <!--        <androidx.appcompat.widget.Toolbar-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="?attr/actionBarSize"-->
-                <!--            app:layout_constraintTop_toTopOf="parent"-->
-                <!--            app:layout_constraintStart_toStartOf="parent"-->
-                <!--            android:background="@color/white"-->
-                <!--            app:title="Account Details"-->
-                <!--            app:titleTextColor="@color/black"-->
-                <!--            android:id="@+id/toolbar" />-->
-
-
-
                 <TextView
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
@@ -119,7 +107,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/idALName"/>
 
                 <EditText
-                    android:id="@+id/idAsp"
+                    android:id="@+id/docEmail"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -128,7 +116,7 @@
                     android:inputType="text"
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingTop="10dp"
-                    android:hint="Enter Speciality"
+                    android:hint="Enter Email"
                     android:paddingRight="16dp"
                     app:layout_constraintTop_toBottomOf="@+id/lblsp"
                     android:paddingBottom="10dp"
@@ -148,7 +136,7 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idAsp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/docEmail"/>
 
                 <EditText
                     android:id="@+id/idAContact"

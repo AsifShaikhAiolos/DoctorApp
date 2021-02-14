@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewSplashScreen extends AppCompatActivity {
-    private static int SPLASH_DISPLAY_LENGTH =3200;
+    private static int SPLASH_DISPLAY_LENGTH =1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
