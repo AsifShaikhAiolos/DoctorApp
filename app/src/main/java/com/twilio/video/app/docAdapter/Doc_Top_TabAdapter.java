@@ -31,13 +31,13 @@ public class Doc_Top_TabAdapter extends FragmentStatePagerAdapter {
         Fragment fragment=null;
         switch (position){
             case 0:
-                fragment=new Doc_Past_Appt_Fragment();
+                fragment=new PastAppointFragment();
                 break;
             case 1:
-                fragment=new Doc_Upcoming_Appt_Fragment();
+                fragment=new AvailableFragment();
                 break;
             case 2:
-                fragment=new Doc_Past_Appt_Fragment();
+                fragment=new PastAppointFragment();
                 break;
         }
         return fragment;

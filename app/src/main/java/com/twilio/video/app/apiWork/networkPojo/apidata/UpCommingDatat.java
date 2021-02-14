@@ -2,7 +2,6 @@ package com.twilio.video.app.apiWork.networkPojo.apidata;
 
 public class UpCommingDatat {
 
-
     String _id;
     String user_id;
     String doctor_id;

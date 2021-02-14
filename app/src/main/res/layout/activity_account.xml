@@ -8,26 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".doc_fragments.AccountActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginBottom="@dimen/_40sdp"
             android:paddingBottom="@dimen/_40sdp"
             android:paddingStart="@dimen/_14sdp"
             android:paddingTop="@dimen/_16sdp"
             android:paddingEnd="@dimen/_14sdp">
-
-                <!--        <androidx.appcompat.widget.Toolbar-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="?attr/actionBarSize"-->
-                <!--            app:layout_constraintTop_toTopOf="parent"-->
-                <!--            app:layout_constraintStart_toStartOf="parent"-->
-                <!--            android:background="@color/white"-->
-                <!--            app:title="Account Details"-->
-                <!--            app:titleTextColor="@color/black"-->
-                <!--            android:id="@+id/toolbar" />-->
-
-
 
                 <TextView
                     android:id="@+id/toolbar"
@@ -56,7 +45,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
                 <EditText
-                    android:id="@+id/idAFName"
+                    android:id="@+id/edfirstName"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -66,6 +55,7 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingTop="10dp"
                     android:hint="Enter First Name"
+                    android:textColor="#000"
                     android:paddingRight="16dp"
                     app:layout_constraintTop_toBottomOf="@+id/lblFName"
                     android:paddingBottom="10dp"
@@ -84,10 +74,10 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idAFName"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edfirstName"/>
 
                 <EditText
-                    android:id="@+id/idALName"
+                    android:id="@+id/edLastName"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -104,7 +94,34 @@
                     app:boxBackgroundMode="none" />
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Mail"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edLastName"/>
 
+                <EditText
+                    android:id="@+id/edMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/bg_curve_rectangle"
+                    android:fontFamily="@font/fontawesome_webfont"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="10dp"
+                    android:hint="Enter Mail"
+                    android:paddingRight="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/lblsp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/_14ssp"
+                    app:boxBackgroundMode="none" />
                 <TextView
                     android:id="@+id/lblsp"
                     android:layout_width="match_parent"
@@ -116,10 +133,10 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idALName"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edLastName"/>
 
                 <EditText
-                    android:id="@+id/idAsp"
+                    android:id="@+id/edDocSpecaility"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -148,10 +165,10 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idAsp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edDocSpecaility"/>
 
                 <EditText
-                    android:id="@+id/idAContact"
+                    android:id="@+id/edPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -178,10 +195,10 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idAContact"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edPhoneNumber"/>
 
                 <EditText
-                    android:id="@+id/idAQualification"
+                    android:id="@+id/edQualification"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -208,10 +225,10 @@
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/idAQualification"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edQualification"/>
 
                 <EditText
-                    android:id="@+id/idAExperience"
+                    android:id="@+id/edExperience"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="@drawable/bg_curve_rectangle"
@@ -219,7 +236,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:inputType="number"
                     android:paddingLeft="@dimen/_10sdp"
-                    android:hint="Enter Year Of Experience"
+                    android:hint="Enter Year of Experience"
                     android:paddingTop="10dp"
                     android:paddingRight="16dp"
                     app:layout_constraintTop_toBottomOf="@+id/experienceTxt"
@@ -233,7 +250,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center"
-                    app:layout_constraintTop_toBottomOf="@+id/idAExperience"
+                    app:layout_constraintTop_toBottomOf="@+id/edExperience"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginLeft="@dimen/_16sdp"
@@ -251,6 +268,6 @@
 
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 </ScrollView>
