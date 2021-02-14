@@ -11,26 +11,43 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="search doctor"
+            android:background="@drawable/bg_curve_rectangle"
+            android:padding="@dimen/_8sdp"
+            android:drawableRight="@drawable/ic_baseline_search_24"
+            android:drawablePadding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtDoctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_20sdp"
+           android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
             android:text="Upcoming Bookings"
             android:textColor="@color/black"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            local:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/et_search" />
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/doctorCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_4sdp"
             android:clickable="true"
@@ -193,7 +210,8 @@
                 android:id="@+id/txtDoctorList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:text="Doctor List"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
@@ -205,8 +223,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="26dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:foreground="?android:attr/selectableItemBackground"

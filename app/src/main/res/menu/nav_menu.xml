@@ -2,18 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="doctor">
-
-
-
         <item android:id="@+id/id_logOut"
             android:title="logout"
-
             />
 
-        <item
-            android:title="share"
-            android:id="@+id/id_share"
-          />
-</item>
 </menu>
