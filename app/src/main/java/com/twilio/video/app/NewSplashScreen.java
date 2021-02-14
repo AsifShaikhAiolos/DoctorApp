@@ -37,9 +37,9 @@ public class NewSplashScreen extends AppCompatActivity {
 //        }, 3000);
 
 //        RunAnimation();
-        ImageView textViewAni=findViewById(R.id.textAni);
-        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
-        textViewAni.setAnimation(slide_up);
+//        ImageView textViewAni=findViewById(R.id.textAni);
+//        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
+//        textViewAni.setAnimation(slide_up);
 
         new Handler().postDelayed(new Runnable(){
             @Override
