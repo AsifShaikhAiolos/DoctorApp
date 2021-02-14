@@ -13,9 +13,9 @@
     <string name="bottom_tab_text_3" translatable="false">Booking</string>
     <string name="bottom_tab_text_4" translatable="false">Profile</string>
     <string name="bottom_tab_doc_1" translatable="false">Dashboard</string>
-    <string name="bottom_tab_doc_2" translatable="false">Booking</string>
+    <string name="bottom_tab_doc_2" translatable="false">My Bookings</string>
     <string name="bottom_tab_doc_3" translatable="false">Profile</string>
-    <string name="bottom_tab_doc_4" translatable="false">Calender</string>
+    <string name="bottom_tab_doc_4" translatable="false">Calendar</string>
 
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,11 +37,9 @@ public class NewSplashScreen extends AppCompatActivity {
 //        }, 3000);
 
 //        RunAnimation();
-        ImageView imgView=findViewById(R.id.appImage);
-        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
-        imgView.setAnimation(slide_up);
-
-
+        ImageView textViewAni=findViewById(R.id.textAni);
+        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
+        textViewAni.setAnimation(slide_up);
 
         new Handler().postDelayed(new Runnable(){
             @Override

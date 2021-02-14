@@ -70,4 +70,10 @@ public class BookingFragment extends Fragment {
 //            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
 //        }
 //    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("My Booking History");
+    }
 }

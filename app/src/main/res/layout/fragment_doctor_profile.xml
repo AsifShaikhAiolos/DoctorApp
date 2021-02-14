@@ -75,14 +75,14 @@ android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon1"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -91,6 +91,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.5"
         android:id="@+id/viewOne"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"
@@ -101,6 +102,7 @@ android:layout_height="wrap_content">
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:id="@+id/txtNotification"
         app:layout_constraintTop_toBottomOf="@+id/viewAndEdit">
 
@@ -120,21 +122,21 @@ android:layout_height="wrap_content">
             app:layout_constraintTop_toTopOf="@id/notificationIcon"
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintStart_toEndOf="@+id/notificationIcon"
-            android:text="Notification"
+            android:text="Notifications"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="@+id/notificationIcon"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon2"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -143,6 +145,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.3"
         android:id="@+id/view2"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"
@@ -154,6 +157,7 @@ android:layout_height="wrap_content">
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:id="@+id/txtSetting"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/txtNotification">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -179,12 +183,13 @@ android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon3"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
 
 
@@ -195,6 +200,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.5"
         android:id="@+id/view3"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"
@@ -206,6 +212,7 @@ android:layout_height="wrap_content">
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:id="@+id/txtPayment"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/txtSetting">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -230,12 +237,13 @@ android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon4"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
 
 
@@ -246,6 +254,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.5"
         android:id="@+id/view4"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"
@@ -257,6 +266,7 @@ android:layout_height="wrap_content">
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:id="@+id/txtReview"
         app:layout_constraintTop_toBottomOf="@+id/txtPayment">
 
@@ -276,19 +286,20 @@ android:layout_height="wrap_content">
             app:layout_constraintTop_toTopOf="@id/reviewIcon"
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintStart_toEndOf="@+id/reviewIcon"
-            android:text="Review"
+            android:text="Reviews"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="@+id/reviewIcon"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon5"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
 
 
@@ -299,6 +310,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.5"
         android:id="@+id/view5"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"
@@ -310,6 +322,7 @@ android:layout_height="wrap_content">
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:id="@+id/txtLogout"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/txtReview">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -328,20 +341,21 @@ android:layout_height="wrap_content">
             app:layout_constraintTop_toTopOf="@id/logoutIcon"
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintStart_toEndOf="@+id/logoutIcon"
-            android:text="logout"
+            android:text="Logout"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="@+id/logoutIcon"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextIcon6"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:padding="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="invisible"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:layout_margin="@dimen/_10sdp"
             />
 
 
@@ -352,6 +366,7 @@ android:layout_height="wrap_content">
         android:layout_height="0.1dp"
         android:alpha="0.5"
         android:id="@+id/view6"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"

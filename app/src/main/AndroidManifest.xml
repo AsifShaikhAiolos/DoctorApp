@@ -12,10 +12,12 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".doc_fragments.DoctorStatusActionActivity"></activity>
-
-        <activity android:name=".SplashScreenActivity"></activity>
-
+        <activity android:name=".doc_fragments.DoctorSignUpActivity"></activity>
+        <activity android:name=".doc_fragments.AccountActivity" />
+        <activity android:name=".doc_fragments.DoctorSettingActivity" />
+        <activity android:name=".doc_fragments.DoctorNotificationActivity" />
+        <activity android:name=".doc_fragments.DoctorStatusActionActivity" />
+        <activity android:name=".SplashScreenActivity" />
         <activity android:name=".NewSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +29,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LlistOfDoctorActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".BookingDoctorFragment" />
         <activity

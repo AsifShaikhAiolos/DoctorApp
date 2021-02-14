@@ -1,16 +1,28 @@
 package com.twilio.video.app.doctor;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.twilio.video.app.LoginActivity;
 import com.twilio.video.app.R;
+import com.twilio.video.app.SPManager;
+import com.twilio.video.app.doc_fragments.AccountActivity;
+import com.twilio.video.app.doc_fragments.DoctorNotificationActivity;
+import com.twilio.video.app.doc_fragments.DoctorSettingActivity;
+import com.twilio.video.app.doc_fragments.DoctorStatusActionActivity;
 
 public class DoctorProfileFragment extends Fragment {
+
+    ConstraintLayout notify, setting, logout, viewEdit;
 
 
     public DoctorProfileFragment() {
@@ -27,5 +39,50 @@ public class DoctorProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        notify = view.findViewById(R.id.txtNotification);
+        setting = view.findViewById(R.id.txtSetting);
+        logout = view.findViewById(R.id.txtLogout);
+        viewEdit = view.findViewById(R.id.viewAndEdit);
+
+        viewEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        notify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DoctorNotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DoctorSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                SPManager sp = getContext().getSharedPreferences(getContext().getPackageName(), getContext().MODE_PRIVATE);
+//                sp.edit().clear().commit();
+                SPManager.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                Toast.makeText(getActivity(), "logout", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Profile");
     }
 }

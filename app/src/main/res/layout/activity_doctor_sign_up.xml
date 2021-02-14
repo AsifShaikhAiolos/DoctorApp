@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".doc_fragments.DoctorSignUpActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:paddingBottom="@dimen/_40sdp"
+        android:paddingStart="@dimen/_14sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_14sdp">
+
+        <!--        <androidx.appcompat.widget.Toolbar-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="?attr/actionBarSize"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            android:background="@color/white"-->
+        <!--            app:title="Account Details"-->
+        <!--            app:titleTextColor="@color/black"-->
+        <!--            android:id="@+id/toolbar" />-->
+
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_10sdp"
+            app:srcCompat="@drawable/ic_lilac_insights_logo" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/idAProfile"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_76sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/doc_image2"
+            android:layout_margin="@dimen/_8sdp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#0000"/>
+
+        <TextView
+            android:id="@+id/lblFName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="First Name"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idAProfile"/>
+
+        <EditText
+            android:id="@+id/idFName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="10dp"
+            android:hint="Enter First Name"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/lblFName"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+
+        <TextView
+            android:id="@+id/lblLName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Last Name"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idFName"/>
+
+        <EditText
+            android:id="@+id/idLName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="10dp"
+            android:hint="Enter Last Name"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/lblLName"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+
+
+        <TextView
+            android:id="@+id/lblsp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Speciality"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLName"/>
+
+        <EditText
+            android:id="@+id/idsp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="10dp"
+            android:hint="Enter Speciality"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/lblsp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+
+
+        <TextView
+            android:id="@+id/contactTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Contact Number"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idsp"/>
+
+        <EditText
+            android:id="@+id/idContact"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="number"
+            android:paddingLeft="@dimen/_10sdp"
+            android:hint="Enter Contact Number"
+            android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/contactTxt"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+        <TextView
+            android:id="@+id/qualificationTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Qualification"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idContact"/>
+
+        <EditText
+            android:id="@+id/idQualification"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="10dp"
+            android:hint="Enter Qualification"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/qualificationTxt"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+        <TextView
+            android:id="@+id/experienceTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Experience"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idQualification"/>
+
+        <EditText
+            android:id="@+id/idExperience"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="number"
+            android:paddingLeft="@dimen/_10sdp"
+            android:hint="Enter Year Of Experience"
+            android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/experienceTxt"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/_14ssp"
+            app:boxBackgroundMode="none" />
+
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/idExperience"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_buttonshape"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:gravity="center"
+            android:text="Update"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="@dimen/_16ssp" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

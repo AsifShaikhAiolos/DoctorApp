@@ -70,6 +70,12 @@ public class CalenderFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle("Calendar");
+    }
+
 //    public void goToAttract(View v)
 //    {
 //        Intent intent = new Intent(getActivity(), EditDoctorActivity.class);
