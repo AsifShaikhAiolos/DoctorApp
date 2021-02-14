@@ -78,6 +78,8 @@ public class AccountActivity extends AppCompatActivity {
                             listDoctorData.add(d);
                         }
 
+
+
                     } else {
                         Log.e("errorchecking",response.body().toString());
                     }

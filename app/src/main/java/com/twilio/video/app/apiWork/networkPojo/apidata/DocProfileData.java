@@ -14,10 +14,66 @@ public class DocProfileData {
     int number_of_slots;
     int __v;
     int duration;
-    int updatedAt;
+//    int updatedAt;
     Name name;
 
-    public DocProfileData(String _id, String address, String city, String email, String phone_number, String pin_code, String prefix, String state, String user_id, int gender, int number_of_slots, int __v, int duration, int updatedAt, Name name) {
+    public String get_id() {
+        return _id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public String getPin_code() {
+        return pin_code;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public int getNumber_of_slots() {
+        return number_of_slots;
+    }
+
+    public int get__v() {
+        return __v;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public DocProfileData(String _id, String address, String city, String email, String phone_number, String pin_code, String prefix, String state, String user_id, int gender, int number_of_slots, int __v, int duration, Name name) {
         this._id = _id;
         this.address = address;
         this.city = city;
@@ -31,7 +87,7 @@ public class DocProfileData {
         this.number_of_slots = number_of_slots;
         this.__v = __v;
         this.duration = duration;
-        this.updatedAt = updatedAt;
+//        this.updatedAt = updatedAt;
         this.name = name;
     }
 
@@ -87,9 +143,9 @@ public class DocProfileData {
         this.duration = duration;
     }
 
-    public void setUpdatedAt(int updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+//    public void setUpdatedAt(int updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
 
     public void setName(Name name) {
         this.name = name;
