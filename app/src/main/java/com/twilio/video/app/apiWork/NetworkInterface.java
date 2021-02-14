@@ -6,6 +6,7 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.DashModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
@@ -47,6 +48,11 @@ public interface NetworkInterface {
 
     @GET("appointment/upcoming")
     Call<UpcommingModel> getUpcommingList();
+
+
+    @FormUrlEncoded
+    @POST("doctor/dashboard")
+    Call<DashModel> checkDash(@Field("email")String email, @Field("password") String password);
 
 
 }

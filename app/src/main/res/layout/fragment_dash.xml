@@ -107,7 +107,7 @@
                             android:textSize="@dimen/_20ssp" />
 
                         <TextView
-                            android:id="@+id/doctortext"
+                            android:id="@+id/earntext"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="525"

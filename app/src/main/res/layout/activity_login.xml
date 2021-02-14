@@ -168,5 +168,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_300sdp"-->
+<!--            android:scaleType="fitXY"-->
+<!--            app:srcCompat="@drawable/bg_logo_splash"-->
+<!--            />-->
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
