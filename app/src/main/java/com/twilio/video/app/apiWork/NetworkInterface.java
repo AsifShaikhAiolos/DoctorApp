@@ -67,16 +67,25 @@ public interface NetworkInterface {
     @FormUrlEncoded
 
 
-    @POST("user/getDoctorProfile")
-    Call<RegisterModel> getUpdateDoctorProfileData(
+    @POST("doctor/create")
+    Call<RegisterModel> getRegisterDoctor(
             @Field("first_name")String first_name,
             @Field("last_name") String last_name,
             @Field("email") String email,
+            @Field("password") String password,
             @Field("phone_number") String phone_number,
             @Field("speciality") String speciality,
             @Field("qualification") String qualification,
-            @Field("experience") String experience
-
-    );
+            @Field("experience") String experience,
+            @Field("address") String address,
+            @Field("pin_code") String pin_code,
+            @Field("city") String city,
+            @Field("state") String state,
+            @Field("prefix") String prefix,
+            @Field("gender") String gender,
+            @Field("start_time") String start_time,
+            @Field("duration") String duration,
+            @Field("number_of_slots") String number_of_slots
+            );
 
 }
