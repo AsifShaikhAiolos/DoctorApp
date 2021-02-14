@@ -8,6 +8,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.CheckBox;
 import android.view.View;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,21 +22,25 @@ public class DoctorStatusActionActivity extends AppCompatActivity {
     Button btn;
     RadioGroup radioGroup;
     RadioButton genderradioButton;
+    androidx.appcompat.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_status_action);
         btn = (Button) findViewById(R.id.btnSave);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        radioGroup=(RadioGroup) findViewById(R.id.radioGroup);
-        genderradioButton = (RadioButton) findViewById(selectedId);
-//        dayOff = (CheckBox) findViewById(R.id.checkman);
-//        dayOn = (CheckBox) findViewById(R.id.check2);
-//        dayOff.setChecked(false);
-//        dayOn.setChecked(false);
-//        btn.setEnabled(false);
-        btn.setVisibility(View.INVISIBLE);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        int selectedId = radioGroup.getCheckedRadioButtonId();
+//        radioGroup=(RadioGroup) findViewById(R.id.radioGroup);
+//        genderradioButton = (RadioButton) findViewById(selectedId);
+
+        btn.setVisibility(View.VISIBLE);
 
 
 
@@ -44,41 +49,20 @@ public class DoctorStatusActionActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 // Do something
-                if(selectedId==-1){
-                    Toast.makeText(DoctorStatusActionActivity.this,"Nothing selected", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(DoctorStatusActionActivity.this,genderradioButton.getText(), Toast.LENGTH_SHORT).show();
-                }
+//                if(selectedId==-1){
+//                    Toast.makeText(DoctorStatusActionActivity.this,"Nothing selected", Toast.LENGTH_SHORT).show();
+//                }
+//                else{
+//                    Toast.makeText(DoctorStatusActionActivity.this,genderradioButton.getText(), Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
-//        dayOff.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn.setEnabled(true);
-//                btn.setVisibility(v.VISIBLE);
-//                if (dayOn.isChecked()) {
-//                    dayOff.setChecked(true);
-//                    dayOn.setChecked(false);
-//                } else {
-//                    dayOff.setChecked(true);
-//                }
-//            }
-//        });
-//
-//        dayOn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn.setEnabled(true);
-//                btn.setVisibility(v.VISIBLE);
-//                if (dayOff.isChecked()) {
-//                    dayOff.setChecked(false);
-//                    dayOn.setChecked(true);
-//                } else {
-//                    dayOn.setChecked(true);
-//                }
-//            }
-//        });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

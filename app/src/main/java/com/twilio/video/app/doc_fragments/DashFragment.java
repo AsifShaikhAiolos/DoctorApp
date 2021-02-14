@@ -65,6 +65,8 @@ public class DashFragment extends Fragment {
             }
         });
 
+        checkingDashDetails();
+
     }
 
     @Override
@@ -73,7 +75,7 @@ public class DashFragment extends Fragment {
         getActivity().setTitle("Dashboard");
     }
 
-    private void checkingLoginDetails() {
+    private void checkingDashDetails() {
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
@@ -82,7 +84,7 @@ public class DashFragment extends Fragment {
             @Override
             public void onResponse(Call<DashModel> call, Response<DashModel> response) {
                 if (response.body()!=null){
-                    if (response.body().getStatus().equalsIgnoreCase("success")) {
+                    if(response.body().getStatus().equalsIgnoreCase("success")) {
 //setTokentoprefernece
                         nob.setText(String.valueOf(response.body().getData().getNumber_of_bookings()));
                         ear.setText(response.body().getData().getTotal_earnings());
