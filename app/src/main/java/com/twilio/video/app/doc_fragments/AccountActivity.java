@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +16,7 @@ import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorProfileUpdateModel;
 import com.twilio.video.app.apiWork.networkPojo.apidata.Name;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.RegisterModel;
 
 import java.util.List;
 
@@ -26,9 +26,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class AccountActivity extends AppCompatActivity {
- EditText edName,edMail,edphone_number,edSpeciality,edExperience,edQualification;
+ EditText edNameFirst,edMail,edphone_number,edSpeciality,edExperience,edQualification,edNameLast;
 
-    String sname,smail, sphone_number, sspeciality,sexperince,squalification;
+    String sFirstname,sLastName,smail, sphone_number, sspeciality,sexperince,squalification;
     Name name;
     List<DoctorDataListForDoctor> listDoctorData;
 
@@ -38,7 +38,8 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        edName=findViewById(R.id.edfirstName);
+        edNameFirst =findViewById(R.id.edfirstName);
+        edNameLast =findViewById(R.id.edLastName);
         edphone_number=findViewById(R.id.edPhoneNumber);
         edSpeciality=findViewById(R.id.edDocSpecaility);
         edExperience=findViewById(R.id.edExperience);
@@ -52,6 +53,7 @@ public class AccountActivity extends AppCompatActivity {
         btn_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                getUpdateDoctorProfile();
             }
         });
 
@@ -72,7 +74,7 @@ public class AccountActivity extends AppCompatActivity {
 
                        String name = response.body().getData().toString();
 
-                       edName.setText(name);
+                       edNameFirst.setText(name);
                        Log.e("errorchecking", name);
                    }
 
@@ -90,10 +92,5 @@ public class AccountActivity extends AppCompatActivity {
        });
     }
 
-    private void getUpdateDoctorProfile(){
-        Retrofit retrofit = RetrofitClient.getRetrofit();
-        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
-
-    }
 
 }

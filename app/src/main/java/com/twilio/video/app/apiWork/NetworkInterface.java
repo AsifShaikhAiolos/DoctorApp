@@ -12,6 +12,7 @@ import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.RegisterModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.VideoModel;
@@ -64,13 +65,18 @@ public interface NetworkInterface {
     @POST("user/getDoctorProfile")
     Call<DoctorProfileUpdateModel> getDoctorProfileData(@Field("email")String email, @Field("password") String password);
     @FormUrlEncoded
+
+
     @POST("user/getDoctorProfile")
-    Call<DoctorProfileUpdateModel> getUpdateDoctorProfileData(
+    Call<RegisterModel> getUpdateDoctorProfileData(
             @Field("first_name")String first_name,
             @Field("last_name") String last_name,
             @Field("email") String email,
             @Field("phone_number") String phone_number,
-            @Field("speciality") String speciality
+            @Field("speciality") String speciality,
+            @Field("qualification") String qualification,
+            @Field("experience") String experience
+
     );
 
 }

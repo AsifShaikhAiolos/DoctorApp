@@ -6,25 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".doc_fragments.DoctorSignUpActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_40sdp"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/_40sdp"
         android:paddingStart="@dimen/_14sdp"
         android:paddingTop="@dimen/_16sdp"
         android:paddingEnd="@dimen/_14sdp">
-
-        <!--        <androidx.appcompat.widget.Toolbar-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="?attr/actionBarSize"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            android:background="@color/white"-->
-        <!--            app:title="Account Details"-->
-        <!--            app:titleTextColor="@color/black"-->
-        <!--            android:id="@+id/toolbar" />-->
-
 
 
         <ImageView
@@ -67,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idAProfile"/>
 
         <EditText
-            android:id="@+id/idFName"
+            android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -98,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idFName"/>
 
         <EditText
-            android:id="@+id/idLName"
+            android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -130,7 +120,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idLName"/>
 
         <EditText
-            android:id="@+id/idsp"
+            android:id="@+id/etSpeciality"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -162,7 +152,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idsp"/>
 
         <EditText
-            android:id="@+id/idContact"
+            android:id="@+id/etContactNumber"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -192,7 +182,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idContact"/>
 
         <EditText
-            android:id="@+id/idQualification"
+            android:id="@+id/etQualification"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -222,7 +212,7 @@
             app:layout_constraintTop_toBottomOf="@+id/idQualification"/>
 
         <EditText
-            android:id="@+id/idExperience"
+            android:id="@+id/etExperience"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:background="@drawable/bg_curve_rectangle"
@@ -262,6 +252,6 @@
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>
