@@ -22,10 +22,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
-    TextView txtmail, txtpassword;
+    TextView txtmail, txtpassword, sign;
     Button btn_login;
     String get_mail;
-        String get_passwrod;
+    String get_passwrod;
 
 
     @Override
@@ -36,6 +36,17 @@ public class LoginActivity extends AppCompatActivity {
         txtmail = findViewById(R.id.id_mail);
         txtpassword = findViewById(R.id.id_password);
         btn_login = findViewById(R.id.btn_login);
+        sign = findViewById(R.id.signUp);
+
+
+        sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                    SPManager.getInstance().setAccessToken(response.body().getData());
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
+                    finish();
                     Log.e("errorchecking",response.body().toString());
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                 } else {

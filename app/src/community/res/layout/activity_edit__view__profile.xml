@@ -95,7 +95,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:hint="Enter First Name"
                 android:paddingLeft="8dp"
                 android:paddingTop="10dp"
@@ -126,7 +126,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="8dp"
                 android:hint="Enter Last Name"
                 android:paddingTop="10dp"
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Husband's/ Father Name"
+                android:text="Email"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
@@ -154,7 +154,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="8dp"
                 android:hint="Enter Last Name"
                 android:paddingTop="10dp"
@@ -235,7 +235,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:paddingLeft="8dp"
                 android:hint="Enter Contact Number"
                 android:paddingTop="10dp"
@@ -265,7 +265,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="8dp"
                 android:hint="Enter City"
                 android:paddingTop="10dp"
@@ -295,7 +295,7 @@
                 android:background="@drawable/bg_curve_rectangle"
                 android:fontFamily="@font/fontawesome_webfont"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="8dp"
                 android:paddingTop="10dp"
                 android:hint="Enter State"
@@ -331,4 +331,5 @@
     </LinearLayout>
 
     </LinearLayout>
+
     </ScrollView>

@@ -9,14 +9,16 @@ public class ListDoctorData implements Parcelable {
     String  number_of_slots;
     String city;
     String _id;
+    String speciality;
     Name name;
 
-    public ListDoctorData(String email, String phone_number, String number_of_slots, String city, String _id, Name name) {
+    public ListDoctorData(String email, String phone_number, String number_of_slots, String city, String _id, Name name, String speciality) {
         this.email = email;
         this.phone_number = phone_number;
         this.number_of_slots = number_of_slots;
         this.city = city;
         this._id = _id;
+        this.speciality = speciality;
         this.name = name;
     }
 
@@ -26,6 +28,7 @@ public class ListDoctorData implements Parcelable {
         number_of_slots = in.readString();
         city = in.readString();
         _id = in.readString();
+        speciality = in.readString();
         name = in.readParcelable(Name.class.getClassLoader());
     }
 
@@ -36,6 +39,7 @@ public class ListDoctorData implements Parcelable {
         dest.writeString(number_of_slots);
         dest.writeString(city);
         dest.writeString(_id);
+        dest.writeString(speciality);
         dest.writeParcelable(name, flags);
     }
 
@@ -55,6 +59,14 @@ public class ListDoctorData implements Parcelable {
             return new ListDoctorData[size];
         }
     };
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
     public String getEmail() {
         return email;

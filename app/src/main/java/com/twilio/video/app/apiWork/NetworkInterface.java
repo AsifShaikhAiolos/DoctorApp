@@ -3,12 +3,15 @@ package com.twilio.video.app.apiWork;
 import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.SignModel;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.Dashborad;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.PastModelAPI;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.ProfileMoel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.VideoModel;
@@ -47,6 +50,25 @@ public interface NetworkInterface {
 
     @GET("appointment/upcoming")
     Call<UpcommingModel> getUpcommingList();
+
+
+    @FormUrlEncoded
+    @POST("user/patientDashboard")
+    Call<Dashborad> checkDash(@Field("email")String email, @Field("password") String password);
+
+
+    @FormUrlEncoded
+    @POST("user/signup")
+    Call<SignModel> checkUser(@Field("first_name")String first_name,
+                              @Field("last_name")String last_name,
+                              @Field("email")String email,
+                              @Field("password") String password,
+                              @Field("user_type")String user_type);
+
+
+    @FormUrlEncoded
+    @POST("user/getPatientProfile")
+    Call<ProfileMoel> checkProfile(@Field("email")String email, @Field("password") String password);
 
 
 }

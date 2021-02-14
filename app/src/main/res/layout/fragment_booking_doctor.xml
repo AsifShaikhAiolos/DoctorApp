@@ -111,6 +111,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select Time"
+            android:visibility="gone"
+            android:id="@+id/selectTime"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="16dp"
@@ -152,11 +154,72 @@
             android:textSize="@dimen/_15ssp"
             app:boxBackgroundMode="none" />
 
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btnFamilyMember"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/bg_buttonshape"
+                android:text="Add Family Member" />
+
+            <Button
+                android:id="@+id/btnFillQu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_buttonshape"
+                android:text="Fill Questionnaire" />
+
+        </LinearLayout>
+
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_50sdp"-->
+<!--            android:id="@+id/btnFamilyMember"-->
+<!--            android:textSize="@dimen/_16ssp"-->
+<!--            android:padding="8dp"-->
+<!--            android:textColor="#fff"-->
+<!--            android:layout_marginStart="@dimen/_32sdp"-->
+<!--            android:layout_marginEnd="@dimen/_32sdp"-->
+<!--            android:layout_marginTop="@dimen/_8sdp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="@drawable/bg_buttonshape"-->
+<!--            android:text="Add Family Member" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_50sdp"-->
+<!--            android:id="@+id/btnFillQu"-->
+<!--            android:textSize="@dimen/_16ssp"-->
+<!--            android:padding="8dp"-->
+<!--            android:textColor="#fff"-->
+<!--            android:layout_marginStart="@dimen/_32sdp"-->
+<!--            android:layout_marginEnd="@dimen/_32sdp"-->
+<!--            android:layout_marginTop="@dimen/_8sdp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="@drawable/bg_buttonshape"-->
+<!--            android:text="FillQuestionnaire" />-->
+
         <Button
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/patientedit_layout"
             android:id="@+id/btnBooking"
             android:textSize="16dp"
             android:padding="8dp"
@@ -165,12 +228,26 @@
             android:layout_marginEnd="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:textAlignment="center"
-            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textStyle="bold"
             android:background="@drawable/bg_buttonshape"
             android:text="Book Appointment" />
+
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16ssp"
+                android:text="I accept Terms &amp; Conditions" />
+
+        </LinearLayout>
 
 <!--        <TextView-->
 <!--            android:layout_width="match_parent"-->

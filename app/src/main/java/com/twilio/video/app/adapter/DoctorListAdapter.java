@@ -46,6 +46,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     public void onBindViewHolder(@NonNull final DoctorViewHolder holder, final int position) {
         context = holder.itemView.getContext();
         holder.docName.setText(DoctorData.get(position).getName().getFirst_name());
+        holder.sp.setText(DoctorData.get(position).getSpeciality());
 //        holder.docPhone.setText(data.get(position).getPhone_number());
 //        holder.docSlotTime.setText(data.get(position).getNumber_of_slots());
 
@@ -101,12 +102,14 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
     public class DoctorViewHolder extends RecyclerView.ViewHolder {
         CardView crdDoctor;
-        TextView docName,docPhone, docSlotTime;
+        TextView docName,docPhone, docSlotTime, sp,year;
 
         public DoctorViewHolder(@NonNull View itemView) {
             super(itemView);
             crdDoctor = itemView.findViewById(R.id.crdDoctorProfile);
             docName = itemView.findViewById(R.id.idDoctorName);
+            sp = itemView.findViewById(R.id.idDrSpeciality);
+            year = itemView.findViewById(R.id.idyearExpText);
 //            docPhone = itemView.findViewById(R.id.idPhoneNumber);
             docSlotTime = itemView.findViewById(R.id.idnumber_of_slots);
         }

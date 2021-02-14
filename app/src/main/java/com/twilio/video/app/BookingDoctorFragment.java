@@ -4,18 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.os.PersistableBundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,14 +23,11 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.TimeSlotData;
-import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
-import com.twilio.video.app.apiWork.networkPojo.apimodel.ListDoctorModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.VideoModel;
 import com.twilio.video.app.ui.login.CommunityLoginActivity;
-import com.twilio.video.app.ui.room.RoomViewEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +40,9 @@ import retrofit2.Retrofit;
 public class BookingDoctorFragment extends AppCompatActivity implements EventListenere {
     Context context;
     TextView Slotstime, docName;
-    TextView txtnewsDescription;
+    TextView txtnewsDescription, time;
 
-    Button btnBooking;
+    Button btnBooking, fq, addFml;
     String doctor_id;
     String start_time;
     String date;
@@ -73,6 +65,25 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
         btnBooking = findViewById(R.id.btnBooking);
         docName = findViewById(R.id.docName);
+        fq = findViewById(R.id.btnFillQu);
+        addFml = findViewById(R.id.btnFamilyMember);
+        time = findViewById(R.id.selectTime);
+
+        fq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), FillQuestActivity.class);
+                startActivity(i);
+            }
+        });
+
+        addFml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MyFamilyActivity.class);
+                startActivity(i);
+            }
+        });
 
 
         timeSlotData = new ArrayList<>();
@@ -94,7 +105,6 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 postBookDataServer();
             }
         });
@@ -144,6 +154,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
                 if (response.body() != null) {
                     Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 //                    Log.e("ERROR CHECKING", response.body().getMessage());
                 } else
@@ -213,6 +224,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         List<String> list = timeSlotDataModel.getTime_slots();
         Log.e("Tag","enter onclick time");
         if (list != null) {
+            time.setVisibility(View.VISIBLE);
             Log.e("","list size"+list.size());
             slotRecyclerview = findViewById(R.id.slotTimeRecyclerView);
             slotAdapter = new SlotAdapter(context, list,this);

@@ -35,7 +35,8 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
         String d = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docST.setText(sd);
         holder.docET.setText(ed);
-        holder.docD.setText(d);
+        holder.sp.setText(data.get(position).getDoc_speciality());
+        holder.docD.setText(data.get(position).getDoctor_name());
     }
 
     @Override
@@ -44,12 +45,13 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView docST,docET, docD;
+        TextView docST,docET, docD, sp;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             docST = itemView.findViewById(R.id.idPastTime);
             docET = itemView.findViewById(R.id.idPastDate);
+            sp = itemView.findViewById(R.id.idDrSpeciality);
             docD = itemView.findViewById(R.id.idDoctorNamepast);
         }
     }

@@ -12,44 +12,45 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.twilio.video.app.R;
 
-public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.ViewHolder>{
+public class FamilyMemberAdapter extends RecyclerView.Adapter<FamilyMemberAdapter.ViewHolder>{
 
-    String name[] = {"Genetic Counselling","Clinical Genetics","Psychological Counselling"};
-    int icon[] = {
-            R.drawable.ic_genetics7,
-            R.drawable.ic_gmo2,
-            R.drawable.ic_genetics8,
-    };
+    String myName[] = {"Family Member 1,Male,25","Family Member 1,FeMale,30"};
+    String myPhone[] = {"+91 0000000000","+91 0000000000"};
+    String myEmail[] = {"e.g@gmail.com","e.g@gmail.com"};
+    String myRelative[] = {"Borther","Sister"};
+
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.specility_lyt, parent, false);
+        View view = layoutInflater.inflate(R.layout.myfamilymembers, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String SepName = name[position];
-        int SepIcon = icon[position];
-        holder.tx.setText(SepName);
-        holder.iv.setImageResource(SepIcon);
+        holder.name.setText(myName[position]);
+        holder.phone.setText(myPhone[position]);
+        holder.email.setText(myEmail[position]);
+        holder.relative.setText(myRelative[position]);
     }
 
     @Override
     public int getItemCount() {
-        return name.length;
+        return myName.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-            AppCompatImageView iv;
-            AppCompatTextView tx;
+        TextView name,phone,email,relative;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            iv = itemView.findViewById(R.id.specialityIcon);
-            tx = itemView.findViewById(R.id.specialityText);
+            name = itemView.findViewById(R.id.myName);
+            phone = itemView.findViewById(R.id.myNumber);
+            relative = itemView.findViewById(R.id.myRelative);
+            email = itemView.findViewById(R.id.myEmail);
         }
     }
 }

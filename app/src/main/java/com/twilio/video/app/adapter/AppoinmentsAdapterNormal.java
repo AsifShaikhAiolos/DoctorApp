@@ -68,6 +68,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
         holder.docName.setText(data.get(position).getDoctor_name());
         holder.docST.setText(appointmentdate);
         holder.docD.setText(appointmenttime);
+        holder.sp.setText(data.get(position).getDoc_speciality());
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +84,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView docName,docD, docST;
+        TextView docName,docD, docST,sp;
         CardView card;
 
         public ViewHolder(@NonNull View itemView) {
@@ -91,6 +92,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
             docName = itemView.findViewById(R.id.idDoctorNameUpcomming);
             docST = itemView.findViewById(R.id.satrtMeeting);
             docD = itemView.findViewById(R.id.idUpcommingDate);
+            sp = itemView.findViewById(R.id.idDrSpeciality);
             card = itemView.findViewById(R.id.crdDoctorProfileUpcomming);
         }
     }

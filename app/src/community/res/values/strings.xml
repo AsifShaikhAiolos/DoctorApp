@@ -10,7 +10,7 @@
     <string name="login_screen_expired_passcode_error">Password expired.</string>
     <string name="bottom_tab_text_1" translatable="false">Home</string>
     <string name="bottom_tab_text_2" translatable="false">Doctors</string>
-    <string name="bottom_tab_text_3" translatable="false">My Booking</string>
+    <string name="bottom_tab_text_3" translatable="false">My Bookings</string>
     <string name="bottom_tab_text_4" translatable="false">Profile</string>
 
 </resources>

@@ -2,7 +2,6 @@ package com.twilio.video.app.apiWork.networkPojo.apidata;
 
 public class UpCommingDatat {
 
-
     String _id;
     String user_id;
     String doctor_id;
@@ -10,10 +9,11 @@ public class UpCommingDatat {
     String createdAt;
     String updatedAt;
     String room_name;
+    String doc_speciality;
     String doctor_name;
     UpcommingTimeSlotDatat time_slot;
 
-    public UpCommingDatat(String _id, String user_id, String doctor_id, String status, String createdAt, String updatedAt, String room_name, String doctor_name, UpcommingTimeSlotDatat time_slot) {
+    public UpCommingDatat(String _id, String user_id, String doctor_id, String status, String createdAt, String updatedAt, String room_name, String doc_speciality, String doctor_name, UpcommingTimeSlotDatat time_slot) {
         this._id = _id;
         this.user_id = user_id;
         this.doctor_id = doctor_id;
@@ -21,6 +21,7 @@ public class UpCommingDatat {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.room_name = room_name;
+        this.doc_speciality = doc_speciality;
         this.doctor_name = doctor_name;
         this.time_slot = time_slot;
     }
@@ -79,6 +80,14 @@ public class UpCommingDatat {
 
     public void setRoom_name(String room_name) {
         this.room_name = room_name;
+    }
+
+    public String getDoc_speciality() {
+        return doc_speciality;
+    }
+
+    public void setDoc_speciality(String doc_speciality) {
+        this.doc_speciality = doc_speciality;
     }
 
     public String getDoctor_name() {

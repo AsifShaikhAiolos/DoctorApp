@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_10sdp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center"
         tools:context=".RegistrationActivity">
 
         <ImageView
@@ -20,6 +24,7 @@
             android:layout_height="@dimen/_80sdp"
             android:id="@+id/doctorprofileimg"
             android:layout_marginBottom="28dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:padding="@dimen/_10sdp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_lilac_insights_logo" />
@@ -29,7 +34,6 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
             android:textColor="@color/black"
@@ -46,9 +50,9 @@
             android:background="@drawable/bg_curve_rectangle"
             android:fontFamily="@font/fontawesome_webfont"
             android:hint="Name"
-            android:inputType="number"
+            android:inputType="text"
             app:boxBackgroundMode="none"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -59,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Email"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
             android:textColor="@color/black"
@@ -75,10 +79,10 @@
             android:layout_marginRight="16dp"
             android:background="@drawable/bg_curve_rectangle"
             android:hint="Username@gmail.com"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             app:boxBackgroundMode="none"
             android:fontFamily="@font/fontawesome_webfont"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -89,7 +93,7 @@
             android:layout_height="wrap_content"
             android:text="Phone Number"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
             android:textColor="@color/black"
@@ -108,7 +112,7 @@
             android:inputType="number"
             app:boxBackgroundMode="none"
             android:fontFamily="@font/fontawesome_webfont"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -119,7 +123,7 @@
             android:layout_height="wrap_content"
             android:text="Password"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
             android:textColor="@color/black"
@@ -138,7 +142,7 @@
             android:inputType="textPassword"
             app:boxBackgroundMode="none"
             android:fontFamily="@font/fontawesome_webfont"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -149,7 +153,7 @@
             android:layout_height="wrap_content"
             android:text="Re-Enter Password"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
             android:textColor="@color/black"
@@ -168,7 +172,7 @@
             android:inputType="textPassword"
             app:boxBackgroundMode="none"
             android:fontFamily="@font/fontawesome_webfont"
-            android:paddingLeft="32dp"
+            android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -212,3 +216,4 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -18,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Account"
+        android:visibility="gone"
         android:id="@+id/accountTxt"
         android:layout_marginTop="@dimen/_25sdp"
         android:textColor="@color/black"
@@ -125,7 +126,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="My Record"
+            android:text="My Records"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -168,7 +169,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Manage Family Member"
+            android:text="Manage Family Members"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -325,6 +326,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:visibility="gone"
         android:id="@+id/aboutUs"
         app:layout_constraintTop_toBottomOf="@+id/view6">
 
@@ -357,6 +359,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.25dp"
         android:id="@+id/view7"
+        android:visibility="gone"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@color/black"

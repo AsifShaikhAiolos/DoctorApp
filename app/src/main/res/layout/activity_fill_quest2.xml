@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".FillQuestActivity">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".FillQuestActivity">
+
+    <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:title="Edit Profile"
+        app:titleTextColor="@color/white"
+    android:background="@color/colorApp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_8sdp">
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"
+            android:text="@string/q_1"/>
+
+        <EditText
+            android:id="@+id/edit_text_q_1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Answer"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text|textMultiLine"
+            android:gravity="top"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black"
+                android:text="@string/q_2"/>
+
+
+            <RadioGroup
+                android:id="@+id/rg5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/rg5r1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:text="@string/yes"/>
+
+                <RadioButton
+                    android:id="@+id/rg5r2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/edit_text_q_2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Answer"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text|textMultiLine"
+            android:gravity="top"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:text="@string/q_3"/>
+
+        <EditText
+            android:id="@+id/edit_text_q_3"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Answer"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="text|textMultiLine"
+            android:gravity="top"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit"
+            android:textSize="@dimen/_14ssp"
+            android:padding="8dp"
+            android:textColor="#fff"
+            android:layout_marginStart="@dimen/_32sdp"
+            android:layout_marginEnd="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:background="@drawable/bg_buttonshape"
+            android:text="Submit" />
+        
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+</ScrollView>
