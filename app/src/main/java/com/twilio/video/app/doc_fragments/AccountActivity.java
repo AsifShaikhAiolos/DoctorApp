@@ -14,9 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.twilio.video.app.R;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
+import com.twilio.video.app.apiWork.networkPojo.apidata.DocProfileData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorProfileUpdateModel;
 import com.twilio.video.app.apiWork.networkPojo.apidata.Name;
+import com.twilio.video.app.apiWork.networkPojo.apidata.UpCommingDatat;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.DashModel;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.DocProfile;
 
 import java.util.List;
 
@@ -30,7 +34,7 @@ public class AccountActivity extends AppCompatActivity {
 
     String sname,smail, sphone_number, sspeciality,sexperince,squalification;
     Name name;
-    List<DoctorDataListForDoctor> listDoctorData;
+    List<DocProfileData> listDoctorData;
 
     Button btn_Update;
     @Override
@@ -47,53 +51,83 @@ public class AccountActivity extends AppCompatActivity {
         btn_Update=findViewById(R.id.btnUpdate);
 
 //        edName.setText("name");
-        getDoctorProfile();
-
+//        getDoctorProfile();
         btn_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             }
         });
 
+        checkingProfileDetails();
+
     }
 
-
-    private void  getDoctorProfile(){
-       Retrofit retrofit = RetrofitClient.getRetrofit();
-       final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
-
-       Call<DoctorProfileUpdateModel> call = lgApi.getDoctorProfileData("","");
-       call.enqueue(new Callback<DoctorProfileUpdateModel>() {
-           @Override
-           public void onResponse(Call<DoctorProfileUpdateModel> call, Response<DoctorProfileUpdateModel> response) {
-               if (response.body() != null) {
-
-                   if(response.body().getStatus().equalsIgnoreCase("success")){
-
-                       String name = response.body().getData().toString();
-
-                       edName.setText(name);
-                       Log.e("errorchecking", name);
-                   }
-
-
-                       Toast.makeText(AccountActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
-////
-               }
-           }
-
-           @Override
-           public void onFailure(Call<DoctorProfileUpdateModel> call, Throwable t) {
-               Toast.makeText(AccountActivity.this, t.toString(), Toast.LENGTH_LONG).show();
-               Log.e("errorchecking",t.toString());
-           }
-       });
-    }
-
-    private void getUpdateDoctorProfile(){
+    private void checkingProfileDetails() {
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
+        Call<DocProfile> call = lgApi.checkProfile("", "");
+        call.enqueue(new Callback<DocProfile>() {
+            @Override
+            public void onResponse(Call<DocProfile> call, Response<DocProfile> response) {
+                if (response.body()!=null){
+                    listDoctorData.clear();
+                    if(response.body().getStatus().equalsIgnoreCase("success")) {
+//setTokentoprefernece
+                        for (DocProfileData d : response.body().getData()) {
+                            listDoctorData.add(d);
+                        }
+
+                    } else {
+                        Log.e("errorchecking",response.body().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DocProfile> call, Throwable t) {
+                Log.e("errorchecking",t.toString());
+            }
+        });
     }
+
+
+//    private void  getDoctorProfile(){
+//       Retrofit retrofit = RetrofitClient.getRetrofit();
+//       final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+//
+//       Call<DoctorProfileUpdateModel> call = lgApi.getDoctorProfileData("","");
+//       call.enqueue(new Callback<DoctorProfileUpdateModel>() {
+//           @Override
+//           public void onResponse(Call<DoctorProfileUpdateModel> call, Response<DoctorProfileUpdateModel> response) {
+//               if (response.body() != null) {
+//
+//                   if(response.body().getStatus().equalsIgnoreCase("success")){
+//
+//                       String name = response.body().getData().toString();
+//
+//                       edName.setText(name);
+//                       Log.e("errorchecking", name);
+//                   }
+//
+//
+//                       Toast.makeText(AccountActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
+//////
+//               }
+//           }
+//
+//           @Override
+//           public void onFailure(Call<DoctorProfileUpdateModel> call, Throwable t) {
+//               Toast.makeText(AccountActivity.this, t.toString(), Toast.LENGTH_LONG).show();
+//               Log.e("errorchecking",t.toString());
+//           }
+//       });
+//    }
+//
+//    private void getUpdateDoctorProfile(){
+//        Retrofit retrofit = RetrofitClient.getRetrofit();
+//        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+//
+//    }
 
 }
