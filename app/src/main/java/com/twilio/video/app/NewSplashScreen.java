@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewSplashScreen extends AppCompatActivity {
-    private static int SPLASH_DISPLAY_LENGTH =3200;
+    private static int SPLASH_DISPLAY_LENGTH =3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class NewSplashScreen extends AppCompatActivity {
         if (prefManager.isFirstTimeLaunch()) {
             prefManager.setFirstTimeLaunch(false);
             startActivity(new Intent(NewSplashScreen.this,LoginActivity.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
         }
 
@@ -36,9 +37,9 @@ public class NewSplashScreen extends AppCompatActivity {
 //        }, 3000);
 
 //        RunAnimation();
-        ImageView imgView=findViewById(R.id.appImage);
-        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
-        imgView.setAnimation(slide_up);
+//        ImageView imgView=findViewById(R.id.appImage);
+//        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+//        imgView.setAnimation(slide_up);
 
 
 
