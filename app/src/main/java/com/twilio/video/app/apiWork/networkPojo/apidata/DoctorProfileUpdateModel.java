@@ -15,7 +15,13 @@ public class DoctorProfileUpdateModel {
     private String message;
     @SerializedName("data")
     @Expose
-    private List<DoctorDataListForDoctor> data = null;
+    private List<DoctorDataListForDoctor> data;
+
+    public DoctorProfileUpdateModel(String status, String message, List<DoctorDataListForDoctor> data) {
+        this.status = status;
+        this.message = message;
+        this.data = data;
+    }
 
     public String getStatus() {
         return status;

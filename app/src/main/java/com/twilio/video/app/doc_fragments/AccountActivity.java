@@ -1,27 +1,22 @@
 package com.twilio.video.app.doc_fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.twilio.video.app.HomeActivity;
-import com.twilio.video.app.LoginActivity;
 import com.twilio.video.app.R;
-import com.twilio.video.app.SPManager;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorProfileUpdateModel;
-import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.Name;
-import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 
 import java.util.List;
 
@@ -31,9 +26,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class AccountActivity extends AppCompatActivity {
- EditText edName,edMail,edphone_number,edAddress,edCity;
-    String email, phone_number, address,docName;
-      Name name;
+ EditText edName,edMail,edphone_number,edSpeciality,edExperience,edQualification;
+
+    String sname,smail, sphone_number, sspeciality,sexperince,squalification;
+    Name name;
     List<DoctorDataListForDoctor> listDoctorData;
 
     Button btn_Update;
@@ -42,48 +38,47 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        edName=findViewById(R.id.idAFName);
-        edphone_number=findViewById(R.id.idAContact);
-        edMail=findViewById(R.id.docEmail);
+        edName=findViewById(R.id.edfirstName);
+        edphone_number=findViewById(R.id.edPhoneNumber);
+        edSpeciality=findViewById(R.id.edDocSpecaility);
+        edExperience=findViewById(R.id.edExperience);
+        edQualification=findViewById(R.id.edQualification);
+        edMail=findViewById(R.id.edMail);
         btn_Update=findViewById(R.id.btnUpdate);
+
+//        edName.setText("name");
+        getDoctorProfile();
 
         btn_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                getUpdateDoctorProfile();
             }
         });
 
     }
 
 
-   void  getUpdateDoctorProfile(){
+    private void  getDoctorProfile(){
        Retrofit retrofit = RetrofitClient.getRetrofit();
        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
-       Call<DoctorProfileUpdateModel> call = lgApi.getDoctorProfileData();
+       Call<DoctorProfileUpdateModel> call = lgApi.getDoctorProfileData("","");
        call.enqueue(new Callback<DoctorProfileUpdateModel>() {
            @Override
            public void onResponse(Call<DoctorProfileUpdateModel> call, Response<DoctorProfileUpdateModel> response) {
-               if (response.body()!=null){
-                   if (response.body().getStatus().equalsIgnoreCase("success")) {
-//setTokentoprefernece
+               if (response.body() != null) {
 
-                       SPManager.getInstance().setAccessToken(response.body().getStatus());
-                            edName.setText(response.body().getData().get(1).getEmail());
+                   if(response.body().getStatus().equalsIgnoreCase("success")){
 
-//                       phone_number=edphone_number.getText().toString();
-//                       email=edMail.getText().toString();
-//                       docName=edName.getText().toString();
+                       String name = response.body().getData().toString();
 
-
-
-                       Toast.makeText(AccountActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                   } else {
-                       Toast.makeText(AccountActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                       Log.e("errorchecking",response.body().toString());
+                       edName.setText(name);
+                       Log.e("errorchecking", name);
                    }
+
+
+                       Toast.makeText(AccountActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
+////
                }
            }
 
@@ -94,4 +89,11 @@ public class AccountActivity extends AppCompatActivity {
            }
        });
     }
+
+    private void getUpdateDoctorProfile(){
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+    }
+
 }

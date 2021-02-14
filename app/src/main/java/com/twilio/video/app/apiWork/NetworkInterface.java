@@ -1,6 +1,7 @@
 package com.twilio.video.app.apiWork;
 
 import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorProfileUpdateModel;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
@@ -59,8 +60,17 @@ public interface NetworkInterface {
 //                                                          @Field("city")String city,
 //                                                          @Field("name")Name name
 //    );
-
-    @GET("user/getDoctorProfile")
-    Call<DoctorProfileUpdateModel> getDoctorProfileData();
+    @FormUrlEncoded
+    @POST("user/getDoctorProfile")
+    Call<DoctorProfileUpdateModel> getDoctorProfileData(@Field("email")String email, @Field("password") String password);
+    @FormUrlEncoded
+    @POST("user/getDoctorProfile")
+    Call<DoctorProfileUpdateModel> getUpdateDoctorProfileData(
+            @Field("first_name")String first_name,
+            @Field("last_name") String last_name,
+            @Field("email") String email,
+            @Field("phone_number") String phone_number,
+            @Field("speciality") String speciality
+    );
 
 }

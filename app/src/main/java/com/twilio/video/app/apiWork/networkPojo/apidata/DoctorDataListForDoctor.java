@@ -1,9 +1,12 @@
 package com.twilio.video.app.apiWork.networkPojo.apidata;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DoctorDataListForDoctor {
+public class DoctorDataListForDoctor implements Parcelable {
     @SerializedName("name")
     @Expose
     private Name name;
@@ -192,4 +195,36 @@ public class DoctorDataListForDoctor {
         this.userId = userId;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+    protected DoctorDataListForDoctor(Parcel in) {
+        email = in.readString();
+//        phone_number = in.readString();
+//        number_of_slots = in.readString();
+        city = in.readString();
+//        _id = in.readString();
+        name = in.readParcelable(Name.class.getClassLoader());
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(email);
+        dest.writeString(city);
+        dest.writeParcelable(name, flags);
+    }
+
+    public static final Creator<DoctorDataListForDoctor> CREATOR = new Creator<DoctorDataListForDoctor>() {
+        @Override
+        public DoctorDataListForDoctor createFromParcel(Parcel in) {
+            return new DoctorDataListForDoctor(in);
+        }
+
+        @Override
+        public DoctorDataListForDoctor[] newArray(int size) {
+            return new DoctorDataListForDoctor[size];
+        }
+    };
 }
