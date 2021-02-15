@@ -47,7 +47,13 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     @Override
     public void onBindViewHolder(@NonNull final DoctorViewHolder holder, final int position) {
         context = holder.itemView.getContext();
-        holder.docName.setText(DoctorData.get(position).getName().getFirst_name());
+        String name;
+        if (DoctorData.get(position).getName().getLast_name() == null){
+            name = "Dr. " + DoctorData.get(position).getName().getFirst_name();
+        }else {
+            name = "Dr. " + DoctorData.get(position).getName().getFirst_name() + " " + DoctorData.get(position).getName().getLast_name();
+        }
+        holder.docName.setText(name);
         holder.sp.setText(DoctorData.get(position).getSpeciality());
         Picasso.get().load(DoctorData.get(position).getProfile_pic()).into(holder.iv);
 //        holder.year.setText(DoctorData.get(position).getExperience());

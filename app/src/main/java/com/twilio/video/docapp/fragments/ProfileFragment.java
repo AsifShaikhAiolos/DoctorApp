@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -14,8 +15,17 @@ import com.twilio.video.docapp.Edit_View_ProfileActivity;
 import com.twilio.video.docapp.LoginActivity;
 import com.twilio.video.docapp.R;
 import com.twilio.video.docapp.SPManager;
+import com.twilio.video.docapp.apiWork.NetworkInterface;
+import com.twilio.video.docapp.apiWork.RetrofitClient;
+import com.twilio.video.docapp.apiWork.networkPojo.apimodel.ProfileMoel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ProfileFragment extends Fragment {
+    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,6 +37,7 @@ public class ProfileFragment extends Fragment {
         getActivity().setTitle("Profile");
 
         ConstraintLayout editProfile=view.findViewById(R.id.editProfile);
+        textView=view.findViewById(R.id.PatNameTxt);
 
 
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -48,8 +59,39 @@ public class ProfileFragment extends Fragment {
             }
         }
         );
+        getProfile();
 
         return view;
+    }
+
+    private void getProfile() {
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+        Call<ProfileMoel> call = lgApi.checkProfile("","");
+        call.enqueue(new Callback<ProfileMoel>() {
+            @Override
+            public void onResponse(Call<ProfileMoel> call, Response<ProfileMoel> response) {
+                if (response.body() != null){
+//                    edName.setText(response.body().getData().get(0).getName().getFirst_name());
+//                    edLastName.setText(response.body().getData().get(0).getName().getLast_name());
+//                    edMail.setText(response.body().getData().get(0).email);
+                    String name = response.body().getData().get(0).getName().getFirst_name();
+                    String last = response.body().getData().get(0).getName().getLast_name();
+
+                    textView.setText(name + "\n" + last);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileMoel> call, Throwable t) {
+                if (!call.isCanceled()) {
+                    t.printStackTrace();
+                }
+            }
+        });
+
     }
 
 
