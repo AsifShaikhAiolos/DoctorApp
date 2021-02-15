@@ -1,0 +1,285 @@
+package com.twilio.video.docapp;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.twilio.video.docapp.adapter.SlotAdapter;
+import com.twilio.video.docapp.adapter.WeekAdapter;
+import com.twilio.video.docapp.apiWork.NetworkInterface;
+import com.twilio.video.docapp.apiWork.RetrofitClient;
+import com.twilio.video.docapp.apiWork.networkPojo.apidata.BookingData;
+import com.twilio.video.docapp.apiWork.networkPojo.apidata.DoctorIdData;
+import com.twilio.video.docapp.apiWork.networkPojo.apidata.ListDoctorData;
+import com.twilio.video.docapp.apiWork.networkPojo.apidata.TimeSlotData;
+import com.twilio.video.docapp.apiWork.networkPojo.apidata.VideoID;
+import com.twilio.video.docapp.apiWork.networkPojo.apimodel.BookingModel;
+import com.twilio.video.docapp.apiWork.networkPojo.apimodel.TimeSlotModel;
+import com.twilio.video.docapp.apiWork.networkPojo.apimodel.VideoModel;
+import com.twilio.video.docapp.ui.login.CommunityLoginActivity;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+public class BookingDoctorFragment extends AppCompatActivity implements EventListenere {
+    Context context;
+    TextView Slotstime, docName;
+    TextView txtnewsDescription, time;
+
+    Button btnBooking, fq, addFml;
+    String doctor_id;
+    String start_time;
+    String date;
+    String email;
+    String phone_number;
+    String number_of_slots;
+    RecyclerView recyclerView, slotRecyclerview,rv;
+    WeekAdapter weekAdapter;
+    List<TimeSlotData> timeSlotData;
+    ListDoctorData doctorData;
+    SlotAdapter slotAdapter;
+    FloatingActionButton fab;
+    List<Bitmap> bitmaps;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_booking_doctor);
+
+        btnBooking = findViewById(R.id.btnBooking);
+        docName = findViewById(R.id.docName);
+        fq = findViewById(R.id.btnFillQu);
+        addFml = findViewById(R.id.btnFamilyMember);
+        time = findViewById(R.id.selectTime);
+        fab = findViewById(R.id.add_alarm_fab);
+        rv = findViewById(R.id.RelativeRecyclerView);
+
+        fq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, 1);
+            }
+        });
+
+        fq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), FillQuestActivity.class);
+                startActivity(i);
+            }
+        });
+
+        addFml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MyFamilyActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+        timeSlotData = new ArrayList<>();
+        recyclerView = findViewById(R.id.WeekRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        weekAdapter = new WeekAdapter(getApplicationContext(), timeSlotData, this);
+        recyclerView.setAdapter(weekAdapter);
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            doctorData = intent.getParcelableExtra("doctorModel");
+            docName.setText("Dr. "+doctorData.getName().getFirst_name());
+        }
+
+
+        context = this;
+        btnBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postBookDataServer();
+            }
+        });
+        getSlotFromServer();
+    }
+
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+//    {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 100 && resultCode == -1 && data.getData() != null)
+//        {
+//            Uri chosenImageUri = data.getData();
+//            Bitmap mBitmap = null;
+//            mBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), chosenImageUri);
+//            bitmaps.add(mBitmap);
+//            Toast.makeText(BookingDoctorFragment.this, bitmaps.toString(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+//    public void chooseImage(){
+//        Intent i = Intent(Intent.ACTION_GET_CONTENT);
+//        i.getType("image/*");
+////         mimeType = arrayOf("image/jpeg","image/jpg","image/png")
+////        i.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
+////        i.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+//        startActivityForResult(i,100);
+//    }
+
+    private void getSlotFromServer() {
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+        DoctorIdData doctorIdData = new DoctorIdData(doctorData.get_id());
+        Call<TimeSlotModel> call = lgApi.createDoctorTimeSlot(doctorIdData);
+        call.enqueue(new Callback<TimeSlotModel>() {
+            @Override
+            public void onResponse(Call<TimeSlotModel> call, Response<TimeSlotModel> response) {
+
+                timeSlotData.clear();
+                if (response.body() != null && response.body().getTimeSlotData() != null) {
+
+                    for (TimeSlotData td : response.body().getTimeSlotData()) {
+                        timeSlotData.add(td);
+                    }
+                }
+                weekAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<TimeSlotModel> call, Throwable t) {
+                if (!call.isCanceled()) {
+                    t.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+
+    private void postBookDataServer() {
+
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+        Call<BookingModel> call = lgApi.bookAppointment(new BookingData(doctorData.get_id(), start_time, date));
+        call.enqueue(new Callback<BookingModel>() {
+            @Override
+            public void onResponse(Call<BookingModel> call, Response<BookingModel> response) {
+                if (response.body() != null) {
+                    Intent intent = new Intent(BookingDoctorFragment.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+//                    Log.e("ERROR CHECKING", response.body().getMessage());
+                } else
+                    Toast.makeText(getApplicationContext(),"Please Book An Appoiment", Toast.LENGTH_LONG).show();
+//                Log.e("ERROR CHECKING", response.body().getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<BookingModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+    private void startAppointment(String appointmentId) {
+
+        Retrofit retrofit = RetrofitClient.getRetrofit();
+        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+        Call<VideoModel> call = lgApi.createVideoCall(new  VideoID(appointmentId));
+        call.enqueue(new Callback<VideoModel>() {
+            @Override
+            public void onResponse(Call<VideoModel> call, Response<VideoModel> response) {
+
+                if (response.body() != null) {
+
+                   if("success".equalsIgnoreCase(response.body().getStatus())){
+                       Intent intent= new Intent(getApplicationContext(), CommunityLoginActivity.class);
+                       intent.putExtra("roomName",response.body().getData().getRoom_name());
+                       intent.putExtra("passCode",response.body().getData().getPasscode());
+                       intent.putExtra("userName",response.body().getData().getUser_name());
+
+
+                       startActivity(intent);
+                   }
+                       //sucess
+//                       String roomName = displayName
+//                       if (response.body().getData().getRoom_name() != null) {
+
+//                          String roomName = response.body().getData().getRoom_name();
+//
+//                           RoomViewEvent viewEvent = RoomViewEvent.Connect(displayName ?: "", roomName)
+//                           roomViewModel.processInput(viewEvent)
+//                       }
+//                   }else {
+//                       //failed
+//                   }
+                } else
+                    Toast.makeText(context,"something went wrong", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<VideoModel> call, Throwable t) {
+                Toast.makeText(context, t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
+    @Override
+    public void onParentClick(TimeSlotData timeSlotDataModel, int position) {
+        date=timeSlotDataModel.getDate();
+        List<String> list = timeSlotDataModel.getTime_slots();
+        Log.e("Tag","enter onclick time");
+        if (list != null) {
+            time.setVisibility(View.VISIBLE);
+            Log.e("","list size"+list.size());
+            slotRecyclerview = findViewById(R.id.slotTimeRecyclerView);
+            slotAdapter = new SlotAdapter(context, list,this);
+            slotRecyclerview.setLayoutManager(new GridLayoutManager(context, 4));
+            slotRecyclerview.setNestedScrollingEnabled(false);
+            slotRecyclerview.setHasFixedSize(true);
+            slotRecyclerview.setAdapter(slotAdapter);
+
+//            Toast.makeText(context, "Position " + timeSlotData.get(position), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onChildClickClick(String selectedTime, int position) {
+
+        start_time=selectedTime;
+    }
+}

@@ -11,12 +11,12 @@
         android:title="@string/settings_screen_bandwidth_profile_mode"
         android:negativeButtonText="@null"
         app:iconSpaceReserved="false"/>
-    <com.twilio.video.app.data.NumberPreference
+    <com.twilio.video.docapp.data.NumberPreference
         style="@style/AppTheme.Preference.DialogPreference"
         android:key="pref_bandwidth_profile_max_subscription_bitrate"
         android:title="@string/settings_screen_max_subscription_bitrate"
         app:iconSpaceReserved="false"/>
-    <com.twilio.video.app.data.NumberPreference
+    <com.twilio.video.docapp.data.NumberPreference
         style="@style/AppTheme.Preference.DialogPreference"
         android:key="pref_bandwidth_profile_max_video_tracks"
         android:title="@string/settings_screen_max_video_tracks"

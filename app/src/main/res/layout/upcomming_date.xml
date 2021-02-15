@@ -33,7 +33,7 @@
                 app:srcCompat="@drawable/ic_videocall"
                 android:layout_alignParentRight="true" />
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/IdProfile"
+                android:id="@+id/IdupProfile"
                 android:layout_width="70dp"
                 android:layout_height="76dp"
                 android:src="@drawable/doc_image2"
@@ -43,7 +43,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/IdProfile"
+                android:layout_toRightOf="@id/IdupProfile"
                 android:orientation="vertical">
 
                 <TextView

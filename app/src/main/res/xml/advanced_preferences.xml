@@ -51,7 +51,7 @@
             android:summary="%s"
             android:title="@string/settings_screen_audio_codecs"
             app:iconSpaceReserved="false"/>
-        <com.twilio.video.app.data.NumberPreference
+        <com.twilio.video.docapp.data.NumberPreference
             style="@style/AppTheme.Preference.DialogPreference"
             android:key="pref_max_audio_bitrate"
             android:title="@string/settings_screen_max_audio_bitrate"
@@ -67,7 +67,7 @@
             android:title="@string/settings_screen_vp8_simulcast"
             android:defaultValue="false"
             app:iconSpaceReserved="false"/>
-        <com.twilio.video.app.data.NumberPreference
+        <com.twilio.video.docapp.data.NumberPreference
             style="@style/AppTheme.Preference.DialogPreference"
             android:key="pref_max_video_bitrate"
             android:title="@string/settings_screen_max_video_bitrate"

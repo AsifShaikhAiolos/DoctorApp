@@ -17,7 +17,8 @@
         android:layout_height="?attr/actionBarSize"
         app:title="Edit Profile"
         android:elevation="@dimen/_2sdp"
-        android:background="@color/white"/>
+        app:titleTextColor="@color/white"
+        android:background="@color/colorApp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

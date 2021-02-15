@@ -44,7 +44,7 @@
 <!--            android:background="@drawable/bg_btn_shape"-->
 <!--            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />-->
 
-        <com.twilio.video.app.ui.room.ClearableEditText
+        <com.twilio.video.docapp.ui.room.ClearableEditText
             android:id="@+id/room_name"
             style="@style/AppTheme.Lobby.ClearableEditText"
             android:layout_width="match_parent"

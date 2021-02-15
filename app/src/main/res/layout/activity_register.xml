@@ -32,7 +32,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="First Name"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_gravity="start"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -57,6 +57,37 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="16dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_lname"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_curve_rectangle"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:hint="Name"
+            android:inputType="text"
+            app:boxBackgroundMode="none"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"

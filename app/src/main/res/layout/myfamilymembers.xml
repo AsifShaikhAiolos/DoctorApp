@@ -11,6 +11,7 @@
         android:layout_height="@dimen/_120sdp">
 
         <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:orientation="vertical"

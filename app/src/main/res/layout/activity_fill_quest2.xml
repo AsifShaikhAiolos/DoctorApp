@@ -42,6 +42,10 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Answer"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:background="@drawable/edit_borader"
             android:layout_marginTop="@dimen/_10sdp"
             android:inputType="text|textMultiLine"
             android:gravity="top"/>
@@ -74,13 +78,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_5sdp"
+                    android:buttonTint="@color/colorApp"
                     android:text="@string/yes"/>
 
                 <RadioButton
                     android:id="@+id/rg5r2"
+                    android:buttonTint="@color/colorApp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no" />
+
             </RadioGroup>
 
 
@@ -91,8 +98,12 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Answer"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
             android:inputType="text|textMultiLine"
+            android:background="@drawable/edit_borader"
             android:gravity="top"/>
 
         <TextView
@@ -108,7 +119,11 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Answer"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:background="@drawable/edit_borader"
             android:inputType="text|textMultiLine"
             android:gravity="top"/>
 
@@ -130,10 +145,6 @@
             android:text="Submit" />
         
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>
 </ScrollView>
