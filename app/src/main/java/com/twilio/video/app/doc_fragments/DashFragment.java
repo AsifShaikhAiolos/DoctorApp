@@ -1,6 +1,8 @@
 package com.twilio.video.app.doc_fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -44,16 +47,14 @@ public class DashFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dash, container, false);
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+               View view= inflater.inflate(R.layout.fragment_dash, container, false);
         crdCalender = view.findViewById(R.id.crdCalender);
         nob = view.findViewById(R.id.bookingtext);
         ear = view.findViewById(R.id.earntext);
         up = view.findViewById(R.id.precautionstext);
+//        ActionBar bar = view.getSupportActionBar();
+//        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
 
         crdCalender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,13 @@ public class DashFragment extends Fragment {
         });
 
         checkingDashDetails();
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
 
     }
 

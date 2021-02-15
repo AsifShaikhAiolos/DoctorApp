@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 android:minHeight="?attr/actionBarSize"
+                android:background="@color/white"
                 app:popupTheme="@style/AppTheme.Lobby.PopupMenu" />
 
             <include android:id="@+id/join_room" layout="@layout/join_room" />

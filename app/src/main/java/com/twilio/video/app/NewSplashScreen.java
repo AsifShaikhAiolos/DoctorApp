@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewSplashScreen extends AppCompatActivity {
-    private static int SPLASH_DISPLAY_LENGTH =1000;
+    private static int SPLASH_DISPLAY_LENGTH =4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class NewSplashScreen extends AppCompatActivity {
             public void run() {
                 Intent mainIntent = new Intent(NewSplashScreen.this, LoginActivity.class);
                 startActivity(mainIntent);
+//                overridePendingTransition(R.anim.fadein,0);
                 finish();
             }
         }, SPLASH_DISPLAY_LENGTH);

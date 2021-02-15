@@ -16,7 +16,7 @@ import com.twilio.video.app.R;
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{ R.string.tab_text_2,R.string.tab_text_1};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -29,13 +29,13 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment=null;
         switch (position){
             case 0:
-                fragment=new PastAppointFragment();
-                break;
-            case 1:
                 fragment=new AvailableFragment();
                 break;
-            case 2:
+            case 1:
                 fragment=new PastAppointFragment();
+                break;
+            case 2:
+                fragment=new AvailableFragment();
                 break;
         }
         return fragment;

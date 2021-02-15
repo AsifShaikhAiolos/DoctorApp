@@ -65,10 +65,10 @@ public interface NetworkInterface {
 //    );
     @FormUrlEncoded
     @POST("user/getDoctorProfile")
-    Call<DoctorProfileUpdateModel> getDoctorProfileData(@Field("email")String email, @Field("password") String password);
+    Call<DoctorDataListForDoctor> getDoctorProfileData(@Field("email")String email, @Field("password") String password);
+
+
     @FormUrlEncoded
-
-
     @POST("doctor/create")
     Call<RegisterModel> getRegisterDoctor(
             @Field("first_name")String first_name,

@@ -30,5 +30,4 @@ public class TimeSlotData {
         this.time_slots = time_slots;
     }
 
-
 }

@@ -51,36 +51,35 @@ public class DoctorSignUpActivity extends AppCompatActivity {
 
     private void getUpdateDoctorProfile(){
 
-        sFirstname= edNameFirst.getText().toString();
-        sLastName= edNameLast.getText().toString();
-        smail=edMail.getText().toString();
-        sphone_number=edphone_number.getText().toString();
-        sspeciality=edSpeciality.getText().toString();
-        sexperince=edExperience.getText().toString();
-        squalification=edQualification.getText().toString();
-
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
         Call<RegisterModel> call = lgApi.getRegisterDoctor(sFirstname,sLastName,smail,sphone_number,
-                sspeciality,sexperince,squalification,"","","","","",
-                "","",""
-                        ,"","");
+                sspeciality,sexperince,squalification,"","","",
+                "","","","",""
+        ,"","");
         call.enqueue(new Callback<RegisterModel>() {
             @Override
             public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
                 if (response.body()!=null){
-//                    if (response.body().getStatus().equalsIgnoreCase("success")) {
+                    if (response.body().getStatus().equalsIgnoreCase("success")) {
+                    sFirstname= edNameFirst.getText().toString();
+                    sLastName= edNameLast.getText().toString();
+                    smail=edMail.getText().toString();
+                    sphone_number=edphone_number.getText().toString();
+                    sspeciality=edSpeciality.getText().toString();
+                    sexperince=edExperience.getText().toString();
+                    squalification=edQualification.getText().toString();
 
 
                         Log.e("errorchecking",response.body().toString());
 
                         Toast.makeText(DoctorSignUpActivity.this, response.body().getStatus(), Toast.LENGTH_LONG).show();
-//                    }
-//                    else {
-//                        Toast.makeText(DoctorSignUpActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-//                        Log.e("errorchecking",response.body().toString());
-//                    }
+                    }
+                    else {
+                        Toast.makeText(DoctorSignUpActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                        Log.e("errorchecking",response.body().toString());
+                    }
                 }
             }
 

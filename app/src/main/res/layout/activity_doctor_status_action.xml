@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorApp"
         app:titleTextColor="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/toolbar" />
 
 
@@ -61,9 +62,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:checked="false"
                 android:textSize="@dimen/_16ssp"
-                android:text="DayOff" />
+                android:text="Unavailable" />
 
             <RadioButton
                 android:id="@+id/radio2"
@@ -71,7 +72,7 @@
                 android:layout_weight="1"
                 android:textSize="@dimen/_16ssp"
                 android:layout_height="wrap_content"
-                android:text="DayOn" />
+                android:text="Available" />
         </RadioGroup>
     </LinearLayout>
 

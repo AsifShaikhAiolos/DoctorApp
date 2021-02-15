@@ -17,6 +17,7 @@ import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DocProfileData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorProfileUpdateModel;
+import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.Name;
 import com.twilio.video.app.apiWork.networkPojo.apidata.UpCommingDatat;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.DashModel;
@@ -58,7 +59,7 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        checkingProfileDetails();
+        getDoctorProfile();
 
     }
 
@@ -71,18 +72,21 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DocProfile> call, Response<DocProfile> response) {
                 if (response.body()!=null){
-                    listDoctorData.clear();
-                    if(response.body().getStatus().equalsIgnoreCase("success")) {
-//setTokentoprefernece
-                        for (DocProfileData d : response.body().getData()) {
-                            listDoctorData.add(d);
-                        }
+//                    listDoctorData.clear();
 
 
-
-                    } else {
-                        Log.e("errorchecking",response.body().toString());
-                    }
+//                    edMail.setText(getString(DocProfileData));
+//                    if(response.body().getStatus().equalsIgnoreCase("success")) {
+////setTokentoprefernece
+////                        for (DocProfileData d : response.body().getData()) {
+////                            listDoctorData.add(d);
+////                        }
+////
+//
+//
+//                    } else {
+//                        Log.e("errorchecking",response.body().toString());
+//                    }
                 }
             }
 
@@ -94,42 +98,43 @@ public class AccountActivity extends AppCompatActivity {
     }
 
 
-//    private void  getDoctorProfile(){
-//       Retrofit retrofit = RetrofitClient.getRetrofit();
-//       final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
-//
-//       Call<DoctorProfileUpdateModel> call = lgApi.getDoctorProfileData("","");
-//       call.enqueue(new Callback<DoctorProfileUpdateModel>() {
-//           @Override
-//           public void onResponse(Call<DoctorProfileUpdateModel> call, Response<DoctorProfileUpdateModel> response) {
-//               if (response.body() != null) {
-//
+    private void  getDoctorProfile(){
+       Retrofit retrofit = RetrofitClient.getRetrofit();
+       final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
+
+       Call<DoctorDataListForDoctor> call = lgApi.getDoctorProfileData("","");
+       call.enqueue(new Callback<DoctorDataListForDoctor>() {
+           @Override
+           public void onResponse(Call<DoctorDataListForDoctor> call, Response<DoctorDataListForDoctor> response) {
+               if (response.body() != null) {
+                   List<DoctorDataListForDoctor> d;
+//                       edName.setText(d.getName().getFirst_name());
+
+
 //                   if(response.body().getStatus().equalsIgnoreCase("success")){
 //
-//                       String name = response.body().getData().toString();
+////                       for (int i = 0; i < response.body().getStatus().length(); i++){
+////                           String name = response.body().getData().get(i).getEmail();
+////                           edName.setText(name);
+////                           Log.e("errorchecking", name);
+////                       }
 //
-//                       edName.setText(name);
-//                       Log.e("errorchecking", name);
+//
 //                   }
-//
-//
-//                       Toast.makeText(AccountActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
-//////
-//               }
-//           }
-//
-//           @Override
-//           public void onFailure(Call<DoctorProfileUpdateModel> call, Throwable t) {
-//               Toast.makeText(AccountActivity.this, t.toString(), Toast.LENGTH_LONG).show();
-//               Log.e("errorchecking",t.toString());
-//           }
-//       });
-//    }
-//
-//    private void getUpdateDoctorProfile(){
-//        Retrofit retrofit = RetrofitClient.getRetrofit();
-//        final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
-//
-//    }
+
+
+                       Toast.makeText(AccountActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
+////
+               }
+           }
+
+           @Override
+           public void onFailure(Call<DoctorDataListForDoctor> call, Throwable t) {
+               Toast.makeText(AccountActivity.this, t.toString(), Toast.LENGTH_LONG).show();
+               Log.e("errorchecking",t.toString());
+           }
+       });
+    }
+
 
 }

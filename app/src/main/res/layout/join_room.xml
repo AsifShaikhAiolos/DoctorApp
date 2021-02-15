@@ -27,7 +27,8 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:padding="8dp"
-            android:text="Call Now"
+            android:text="Join Now"
+            android:layout_centerInParent="true"
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="16dp" />
