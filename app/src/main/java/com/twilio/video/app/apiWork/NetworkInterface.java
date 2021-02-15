@@ -76,17 +76,17 @@ public interface NetworkInterface {
             @Field("email") String email,
             @Field("password") String password,
             @Field("phone_number") String phone_number,
-            @Field("speciality") String speciality,
-            @Field("qualification") String qualification,
-            @Field("experience") String experience,
             @Field("address") String address,
             @Field("pin_code") String pin_code,
             @Field("city") String city,
             @Field("state") String state,
+            @Field("speciality") String speciality,
             @Field("prefix") String prefix,
             @Field("gender") String gender,
             @Field("start_time") String start_time,
             @Field("duration") String duration,
+            @Field("qualification") String qualification,
+            @Field("experience") String experience,
             @Field("number_of_slots") String number_of_slots
             );
 

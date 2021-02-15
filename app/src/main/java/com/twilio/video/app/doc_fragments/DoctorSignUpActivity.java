@@ -50,26 +50,25 @@ public class DoctorSignUpActivity extends AppCompatActivity {
     }
 
     private void getUpdateDoctorProfile(){
+        sFirstname= edNameFirst.getText().toString();
+        sLastName= edNameLast.getText().toString();
+        smail=edMail.getText().toString();
+        sphone_number=edphone_number.getText().toString();
+        sspeciality=edSpeciality.getText().toString();
+        sexperince=edExperience.getText().toString();
+        squalification=edQualification.getText().toString();
 
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
-        Call<RegisterModel> call = lgApi.getRegisterDoctor(sFirstname,sLastName,smail,sphone_number,
-                sspeciality,sexperince,squalification,"","","",
-                "","","","",""
-        ,"","");
+        Call<RegisterModel> call = lgApi.getRegisterDoctor(sFirstname,sLastName,smail,"",
+                sphone_number,"","","","",sspeciality,"","","",
+                "",squalification,sexperince,"");
         call.enqueue(new Callback<RegisterModel>() {
             @Override
             public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
                 if (response.body()!=null){
                     if (response.body().getStatus().equalsIgnoreCase("success")) {
-                    sFirstname= edNameFirst.getText().toString();
-                    sLastName= edNameLast.getText().toString();
-                    smail=edMail.getText().toString();
-                    sphone_number=edphone_number.getText().toString();
-                    sspeciality=edSpeciality.getText().toString();
-                    sexperince=edExperience.getText().toString();
-                    squalification=edQualification.getText().toString();
 
 
                         Log.e("errorchecking",response.body().toString());

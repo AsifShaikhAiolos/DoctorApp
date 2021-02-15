@@ -33,9 +33,7 @@ import retrofit2.Retrofit;
 public class AccountActivity extends AppCompatActivity {
  EditText edName,edMail,edphone_number,edSpeciality,edExperience,edQualification;
 
-    String sname,smail, sphone_number, sspeciality,sexperince,squalification;
-    Name name;
-    List<DocProfileData> listDoctorData;
+
 
     Button btn_Update;
     @Override
@@ -58,8 +56,8 @@ public class AccountActivity extends AppCompatActivity {
             public void onClick(View v) {
             }
         });
-
-        getDoctorProfile();
+        checkingProfileDetails();
+//        getDoctorProfile();
 
     }
 
@@ -71,20 +69,20 @@ public class AccountActivity extends AppCompatActivity {
         call.enqueue(new Callback<DocProfile>() {
             @Override
             public void onResponse(Call<DocProfile> call, Response<DocProfile> response) {
-                if (response.body()!=null){
+                if (response.body().getData()!=null){
 //                    listDoctorData.clear();
+                    if(response.body().getData()!=null&&response.body().getData().size()>0) {
+                        Toast.makeText(getApplicationContext(),"Data Empty",Toast.LENGTH_LONG).show();
+                     DocProfileData docProfileData=   response.body().getData().get(0);
 
+                     edMail.setText(docProfileData.getEmail());
+                     edName.setText(docProfileData.getName().getFirst_name());
+                     edSpeciality.setText(docProfileData.getPrefix());
+                     edQualification.setText(docProfileData.getPrefix());
 
-//                    edMail.setText(getString(DocProfileData));
-//                    if(response.body().getStatus().equalsIgnoreCase("success")) {
-////setTokentoprefernece
-////                        for (DocProfileData d : response.body().getData()) {
-////                            listDoctorData.add(d);
-////                        }
-////
-//
-//
-//                    } else {
+                    }
+
+         } else {
 //                        Log.e("errorchecking",response.body().toString());
 //                    }
                 }
