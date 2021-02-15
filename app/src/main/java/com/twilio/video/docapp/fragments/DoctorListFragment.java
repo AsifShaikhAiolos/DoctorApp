@@ -63,8 +63,9 @@ public class DoctorListFragment extends Fragment {
 //
         if(Sname != null){
             et_search.setText(Sname);
-            doctorListAdapter.getFilter().filter(Sname);
+
         }
+
         et_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -101,7 +102,6 @@ public class DoctorListFragment extends Fragment {
         call.enqueue(new Callback<ListDoctorModel>() {
             @Override
             public void onResponse(Call<ListDoctorModel> call, Response<ListDoctorModel> response) {
-
                 listDoctorData.clear();
                 if (response.body() != null && response.body().getData() != null) {
 

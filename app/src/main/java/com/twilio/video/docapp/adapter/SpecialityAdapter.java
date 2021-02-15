@@ -47,7 +47,13 @@ public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.Vi
         holder.crd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                next(SepName);
+                if (SepName == "Genetic Counselling"){
+                    next("Clinical Geneticist");
+                }else if (SepName == "Clinical Genetics"){
+                    next("Genetic Counselor");
+                }else {
+                    next("Emotional & Psychological Counselor");
+                }
             }
         });
 

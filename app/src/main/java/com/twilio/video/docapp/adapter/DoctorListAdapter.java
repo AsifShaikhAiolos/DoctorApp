@@ -77,6 +77,11 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         return  DoctorData.size();
     }
 
+//    public void setWhole(){
+//        List<ListDoctorData> data = new ArrayList<>();
+//        for
+//
+//    }
 
     @Override
     public Filter getFilter() {
