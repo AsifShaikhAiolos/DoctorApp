@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.twilio.video.docapp.BookingDoctorFragment;
 import com.twilio.video.docapp.R;
 import com.twilio.video.docapp.apiWork.networkPojo.apidata.ListDoctorData;
@@ -47,6 +49,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         context = holder.itemView.getContext();
         holder.docName.setText(DoctorData.get(position).getName().getFirst_name());
         holder.sp.setText(DoctorData.get(position).getSpeciality());
+        Picasso.get().load(DoctorData.get(position).getProfile_pic()).into(holder.iv);
+//        holder.year.setText(DoctorData.get(position).getExperience());
 //        holder.docPhone.setText(data.get(position).getPhone_number());
 //        holder.docSlotTime.setText(data.get(position).getNumber_of_slots());
  //   ///    Glide.with(context).load(DoctorData.get(position).()).apply(RequestOptions.centerCropTransform()).into(holder.doctorProfile);
@@ -66,8 +70,6 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     public int getItemCount() {
         return  DoctorData.size();
     }
-
-
 
 
     @Override
@@ -103,6 +105,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     public class DoctorViewHolder extends RecyclerView.ViewHolder {
         CardView crdDoctor;
         TextView docName,docPhone, docSlotTime, sp,year;
+        ImageView iv;
 
         public DoctorViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -112,6 +115,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             year = itemView.findViewById(R.id.idyearExpText);
 //            docPhone = itemView.findViewById(R.id.idPhoneNumber);
             docSlotTime = itemView.findViewById(R.id.idnumber_of_slots);
+            iv = itemView.findViewById(R.id.IdProfile);
         }
     }
 

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.squareup.picasso.Picasso;
 import com.twilio.video.docapp.HomeActivity;
 import com.twilio.video.docapp.R;
 import com.twilio.video.docapp.apiWork.NetworkInterface;
@@ -32,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -68,7 +70,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        String appointmenttime = TimeConvertor(data.get(position).getTime_slot().getStart_time());
+        String appointmenttime = getStandardTime(data.get(position).getTime_slot().getStart_time());
         String appointmentdate = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docName.setText(data.get(position).getDoctor_name());
         holder.docST.setText(appointmentdate);
@@ -78,9 +80,11 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
 //                .centerCrop()
 //                .into(holder.imageView);
 
-        Glide.with(context)
-                .load(data.get(position).getProfile_pic())
-                .into(holder.imageView);
+//        Glide.with(context.getApplicationContext())
+//                .load(data.get(position).getProfile_pic())
+//                .into(holder.imageView);
+
+        Picasso.get().load(data.get(position).getProfile_pic()).into(holder.iv);
 
         Log.d("tag", data.get(position).getProfile_pic());
         holder.sp.setText(data.get(position).getDoc_speciality());
@@ -101,7 +105,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView docName,docD, docST,sp;
         CardView card;
-        CircleImageView imageView;
+      ImageView iv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -110,7 +114,7 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
             docD = itemView.findViewById(R.id.idUpcommingDate);
             sp = itemView.findViewById(R.id.idDrSpeciality);
             card = itemView.findViewById(R.id.crdDoctorProfileUpcomming);
-            imageView = itemView.findViewById(R.id.IdupProfile);
+            iv = itemView.findViewById(R.id.IdupProfile);
         }
     }
 
@@ -124,6 +128,21 @@ public class AppoinmentsAdapterNormal extends RecyclerView.Adapter<AppoinmentsAd
             e.printStackTrace();
             return d;
         }
+    }
+
+    private String getStandardTime(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        df.setTimeZone(TimeZone.getDefault());
+        String formattedDate = df.format(date);
+        return TimeConvertor(formattedDate) ;
     }
 
     public String TimeConvertor(String d){

@@ -2,12 +2,8 @@ package com.twilio.video.docapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -55,13 +51,12 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     String email;
     String phone_number;
     String number_of_slots;
-    RecyclerView recyclerView, slotRecyclerview,rv;
+    RecyclerView recyclerView, slotRecyclerview;
     WeekAdapter weekAdapter;
     List<TimeSlotData> timeSlotData;
     ListDoctorData doctorData;
     SlotAdapter slotAdapter;
     FloatingActionButton fab;
-    List<Bitmap> bitmaps;
 
 
     @Override
@@ -77,16 +72,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         addFml = findViewById(R.id.btnFamilyMember);
         time = findViewById(R.id.selectTime);
         fab = findViewById(R.id.add_alarm_fab);
-        rv = findViewById(R.id.RelativeRecyclerView);
 
-        fq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, 1);
-            }
-        });
 
         fq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,27 +116,6 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         getSlotFromServer();
     }
 
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-//    {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 100 && resultCode == -1 && data.getData() != null)
-//        {
-//            Uri chosenImageUri = data.getData();
-//            Bitmap mBitmap = null;
-//            mBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), chosenImageUri);
-//            bitmaps.add(mBitmap);
-//            Toast.makeText(BookingDoctorFragment.this, bitmaps.toString(), Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
-//    public void chooseImage(){
-//        Intent i = Intent(Intent.ACTION_GET_CONTENT);
-//        i.getType("image/*");
-////         mimeType = arrayOf("image/jpeg","image/jpg","image/png")
-////        i.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
-////        i.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-//        startActivityForResult(i,100);
-//    }
 
     private void getSlotFromServer() {
         Retrofit retrofit = RetrofitClient.getRetrofit();

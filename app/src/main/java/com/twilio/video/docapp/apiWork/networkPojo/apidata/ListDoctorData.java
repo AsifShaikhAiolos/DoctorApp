@@ -10,9 +10,11 @@ public class ListDoctorData implements Parcelable {
     String city;
     String _id;
     String speciality;
+    String profile_pic;
     Name name;
 
-    public ListDoctorData(String email, String phone_number, String number_of_slots, String city, String _id, Name name, String speciality) {
+    public ListDoctorData(String email, String phone_number, String number_of_slots,
+                          String city, String _id, Name name, String speciality, String profile_pic) {
         this.email = email;
         this.phone_number = phone_number;
         this.number_of_slots = number_of_slots;
@@ -20,6 +22,7 @@ public class ListDoctorData implements Parcelable {
         this._id = _id;
         this.speciality = speciality;
         this.name = name;
+        this.profile_pic = profile_pic;
     }
 
     protected ListDoctorData(Parcel in) {
@@ -28,6 +31,7 @@ public class ListDoctorData implements Parcelable {
         number_of_slots = in.readString();
         city = in.readString();
         _id = in.readString();
+        profile_pic = in.readString();
         speciality = in.readString();
         name = in.readParcelable(Name.class.getClassLoader());
     }
@@ -39,6 +43,7 @@ public class ListDoctorData implements Parcelable {
         dest.writeString(number_of_slots);
         dest.writeString(city);
         dest.writeString(_id);
+        dest.writeString(profile_pic);
         dest.writeString(speciality);
         dest.writeParcelable(name, flags);
     }
@@ -59,6 +64,15 @@ public class ListDoctorData implements Parcelable {
             return new ListDoctorData[size];
         }
     };
+
+
+    public String getProfile_pic() {
+        return profile_pic;
+    }
+
+    public void getProfile_pic(String profile_pic) {
+        this.profile_pic = profile_pic;
+    }
 
     public String getSpeciality() {
         return speciality;

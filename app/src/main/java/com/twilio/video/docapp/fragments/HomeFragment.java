@@ -202,7 +202,7 @@ FloatingActionButton fabBook;
                     up.setVisibility(View.VISIBLE);
                     crd.setVisibility(View.VISIBLE);
                     id = response.body().getData().getUpcoming_appointment().get(0).get_id();
-                    appointmenttime = TimeConvertor(response.body().getData().getUpcoming_appointment().get(0).getTime_slot().getStart_time());
+                    appointmenttime = getStandardTime(response.body().getData().getUpcoming_appointment().get(0).getTime_slot().getStart_time());
                     appointmentdate = DateConvertor(response.body().getData().getUpcoming_appointment().get(0).getTime_slot().getDate());
                     doctorName.setText(response.body().getData().getUpcoming_appointment().get(0).getDoctor_name());
                     sp.setText(response.body().getData().getUpcoming_appointment().get(0).getDoc_speciality());
@@ -233,6 +233,34 @@ FloatingActionButton fabBook;
             return d;
         }
     }
+
+    private String getStandardTime(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        df.setTimeZone(TimeZone.getDefault());
+        String formattedDate = df.format(date);
+        return TimeConvertor(formattedDate) ;
+    }
+
+//    public String TimeConvertor(String d){
+//        try {
+//            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+////            outputFormat.setTimeZone(TimeZone.getTimeZone("Asia/Calcutta"));
+//            SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
+//            Date date = inputFormat.parse(d);
+//            return outputFormat.format(date);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return d;
+//        }
+//    }
 
     public String TimeConvertor(String d){
         try {

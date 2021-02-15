@@ -246,8 +246,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'com.squareup.rx.idler:rx2-idler:0.9.1'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
-    implementation 'com.github.bumptech.glide:glide:4.6.1'
-
+//    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }
