@@ -50,6 +50,7 @@ public class DoctorListFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_doctorlist, container, false);
 
         getActivity().setTitle("Doctor List");
+        getDoctorDataFromServer();
 
         listDoctorData = new ArrayList<>();
         recyclerView = view.findViewById(R.id.doctorRecyclerView);
@@ -63,7 +64,7 @@ public class DoctorListFragment extends Fragment {
 //
         if(Sname != null){
             et_search.setText(Sname);
-
+            doctorListAdapter.getList(listDoctorData);
         }
 
         et_search.addTextChangedListener(new TextWatcher() {
@@ -82,12 +83,6 @@ public class DoctorListFragment extends Fragment {
             }
         });
         recyclerView.setAdapter(doctorListAdapter);
-
-
-
-
-
-        getDoctorDataFromServer();
         return  view;
     }
 

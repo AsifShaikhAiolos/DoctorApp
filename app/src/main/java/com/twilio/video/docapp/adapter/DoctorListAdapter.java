@@ -3,6 +3,7 @@ package com.twilio.video.docapp.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,6 +83,21 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 //        for
 //
 //    }
+
+    public void getList(List<ListDoctorData> listDoctorData){
+        String name = "Clinical Geneticist";
+        List<ListDoctorData> filteredList = new ArrayList<>();
+        for(ListDoctorData row : listDoctorData){
+            Log.d("this", row.getSpeciality().toString());
+            if (row.getSpeciality().toLowerCase() == name.toLowerCase()){
+                filteredList.add(row);
+            }
+        }
+        Log.d("data", listDoctorData.toString());
+        DoctorData = filteredList;
+        Log.d("thi", DoctorData.toString());
+        notifyDataSetChanged();
+    }
 
     @Override
     public Filter getFilter() {
