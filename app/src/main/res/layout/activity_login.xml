@@ -158,5 +158,13 @@
 <!--            app:srcCompat="@drawable/bg_logo_splash"-->
 <!--            />-->
 
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:scaleType="fitXY"
+            android:alpha="0.4"
+            app:srcCompat="@drawable/bg_splash_logo"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

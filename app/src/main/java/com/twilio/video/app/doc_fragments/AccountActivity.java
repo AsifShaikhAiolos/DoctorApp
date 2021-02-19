@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.twilio.video.app.R;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
@@ -31,7 +33,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class AccountActivity extends AppCompatActivity {
- EditText edName,edMail,edphone_number,edSpeciality,edExperience,edQualification;
+ EditText edName,edLastName,edMail,edphone_number,edSpeciality,edExperience,edQualification;
 
 
 
@@ -42,18 +44,21 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
 
         edName=findViewById(R.id.edfirstName);
+        edLastName=findViewById(R.id.edLastName);
         edphone_number=findViewById(R.id.edPhoneNumber);
         edSpeciality=findViewById(R.id.edDocSpecaility);
         edExperience=findViewById(R.id.edExperience);
         edQualification=findViewById(R.id.edQualification);
         edMail=findViewById(R.id.edMail);
         btn_Update=findViewById(R.id.btnUpdate);
+//        Glide.with(getApplicationContext()).load(DocPro.get(position).()).apply(RequestOptions.centerCropTransform()).into(holder.doctorProfile);
 
 //        edName.setText("name");
 //        getDoctorProfile();
         btn_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
             }
         });
         checkingProfileDetails();
@@ -77,8 +82,11 @@ public class AccountActivity extends AppCompatActivity {
 
                      edMail.setText(docProfileData.getEmail());
                      edName.setText(docProfileData.getName().getFirst_name());
-                     edSpeciality.setText(docProfileData.getPrefix());
-                     edQualification.setText(docProfileData.getPrefix());
+                     edLastName.setText(docProfileData.getName().getLast_name());
+                     edSpeciality.setText(docProfileData.getSpeciality());
+                     edQualification.setText(docProfileData.getQualification());
+                     edExperience.setText(docProfileData.getExperience());
+                     edphone_number.setText(docProfileData.getPhone_number());
 
                     }
 

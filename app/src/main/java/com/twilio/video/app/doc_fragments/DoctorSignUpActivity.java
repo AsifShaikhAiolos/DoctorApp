@@ -61,9 +61,10 @@ public class DoctorSignUpActivity extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getRetrofit();
         final NetworkInterface lgApi = retrofit.create(NetworkInterface.class);
 
-        Call<RegisterModel> call = lgApi.getRegisterDoctor(sFirstname,sLastName,smail,"",
-                sphone_number,"","","","",sspeciality,"","","",
-                "",squalification,sexperince,"");
+        Call<RegisterModel> call = lgApi.getRegisterDoctor(sFirstname,sLastName,smail,"123456",
+                sphone_number,"solapur","412003","solapur","maharastra",sspeciality,"dr.",
+                "male","10:00",
+                "30",squalification,sexperince,"10");
         call.enqueue(new Callback<RegisterModel>() {
             @Override
             public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {

@@ -52,6 +52,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         p = parent;
+
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.upcomming_date, parent, false);
         return new ViewHolder(view);
@@ -62,6 +63,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
         String appointmenttime = TimeConvertor(data.get(position).getTime_slot().getStart_time());
         String appointmentdate = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docName.setText(data.get(position).getDoctor_name());
+//        holder.docSpeciality.setText(data.get(position).get());
         holder.docST.setText(appointmentdate);
         holder.docD.setText(appointmenttime);
         holder.card.setOnClickListener(new View.OnClickListener() {
@@ -79,13 +81,14 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView docName,docD, docST;
+        TextView docName,docD, docST,docSpeciality;
         CardView card;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             docName = itemView.findViewById(R.id.idDoctorNameUpcomming);
             docST = itemView.findViewById(R.id.satrtMeeting);
+            docSpeciality = itemView.findViewById(R.id.idDrSpeciality);
             docD = itemView.findViewById(R.id.idUpcommingDate);
             card = itemView.findViewById(R.id.crdDoctorProfileUpcomming);
         }

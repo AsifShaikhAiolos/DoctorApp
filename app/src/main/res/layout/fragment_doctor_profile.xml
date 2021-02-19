@@ -9,7 +9,8 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+    >
 
     <View
         android:layout_width="match_parent"
@@ -37,6 +38,7 @@ android:layout_height="wrap_content">
             android:layout_height="wrap_content"
             android:textSize="@dimen/_18ssp"
             android:textColor="@color/black"
+
             android:layout_marginTop="@dimen/_5sdp"
             android:text="Asif shaikh"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -56,10 +58,11 @@ android:layout_height="wrap_content">
             android:id="@+id/viewIcon"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_4sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/ic_baseline_person_outline_24"
+            app:srcCompat="@drawable/ic_user"
             />
 
         <TextView
@@ -113,7 +116,8 @@ android:layout_height="wrap_content">
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_outline_notifications_24"
+            app:srcCompat="@drawable/ic_bell"
+            android:padding="@dimen/_4sdp"
             />
 
         <TextView
@@ -167,7 +171,8 @@ android:layout_height="wrap_content">
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_outline_settings_24"
+            app:srcCompat="@drawable/ic_settings"
+            android:padding="@dimen/_4sdp"
             />
 
         <TextView
@@ -222,7 +227,8 @@ android:layout_height="wrap_content">
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_outline_payment_24" />
+            android:padding="@dimen/_4sdp"
+            app:srcCompat="@drawable/ic_wallet" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -308,7 +314,7 @@ android:layout_height="wrap_content">
     <View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
-        android:alpha="0.5"
+        android:alpha="0.2"
         android:id="@+id/view5"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
@@ -332,7 +338,8 @@ android:layout_height="wrap_content">
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_outline_logout_24"
+            app:srcCompat="@drawable/ic_exit"
+            android:padding="@dimen/_4sdp"
             />
 
         <TextView

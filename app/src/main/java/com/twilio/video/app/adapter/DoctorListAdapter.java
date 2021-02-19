@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.twilio.video.app.BookingDoctorFragment;
 import com.twilio.video.app.R;
 import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
@@ -48,6 +51,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         holder.docName.setText(DoctorData.get(position).getName().getFirst_name());
 //        holder.docPhone.setText(data.get(position).getPhone_number());
 //        holder.docSlotTime.setText(data.get(position).getNumber_of_slots());
+//        Glide.with(context).load(DoctorData.get(position).()).apply(RequestOptions.centerCropTransform()).into(holder.doctorProfile);
 
         holder.crdDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +106,12 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     public class DoctorViewHolder extends RecyclerView.ViewHolder {
         CardView crdDoctor;
         TextView docName,docPhone, docSlotTime;
+        ImageView doctorProfile;
 
         public DoctorViewHolder(@NonNull View itemView) {
             super(itemView);
             crdDoctor = itemView.findViewById(R.id.crdDoctorProfile);
+            doctorProfile = itemView.findViewById(R.id.IdProfile);
             docName = itemView.findViewById(R.id.idDoctorName);
 //            docPhone = itemView.findViewById(R.id.idPhoneNumber);
             docSlotTime = itemView.findViewById(R.id.idnumber_of_slots);

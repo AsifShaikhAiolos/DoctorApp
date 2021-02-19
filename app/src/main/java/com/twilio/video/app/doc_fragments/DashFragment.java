@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -53,6 +54,8 @@ public class DashFragment extends Fragment {
         nob = view.findViewById(R.id.bookingtext);
         ear = view.findViewById(R.id.earntext);
         up = view.findViewById(R.id.precautionstext);
+//        Toolbar toolbar=view.findViewById(R.id.toolbar2);
+//        toolbar.setBackground(getResources().getColor(R.color.green));
 //        ActionBar bar = view.getSupportActionBar();
 //        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
 
@@ -80,7 +83,8 @@ public class DashFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle("Dashboard");
+//        getActivity().setTitle("Dashboard");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
 
     private void checkingDashDetails() {

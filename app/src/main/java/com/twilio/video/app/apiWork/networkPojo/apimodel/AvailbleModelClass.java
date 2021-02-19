@@ -1,20 +1,20 @@
 package com.twilio.video.app.apiWork.networkPojo.apimodel;
 
-import com.twilio.video.app.apiWork.networkPojo.apidata.LoginData;
+import com.twilio.video.app.apiWork.networkPojo.apidata.Dataclass;
+import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 
 import java.util.List;
 
-public class LoginModel {
+public class AvailbleModelClass {
     String status;
     String message;
-    String data;
+    List<Dataclass> data;
 
-    public LoginModel(String status, String message, String data) {
+    public AvailbleModelClass(String status, String message, List<Dataclass> data) {
         this.status = status;
         this.message = message;
         this.data = data;
     }
-
 
     public String getStatus() {
         return status;
@@ -32,11 +32,11 @@ public class LoginModel {
         this.message = message;
     }
 
-    public String getData() {
+    public List<Dataclass> getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(List<Dataclass> data) {
         this.data = data;
     }
 }

@@ -1,5 +1,6 @@
 package com.twilio.video.app.apiWork;
 
+import com.twilio.video.app.apiWork.networkPojo.DoctorAvailability;
 import com.twilio.video.app.apiWork.networkPojo.apidata.BookingData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorDataListForDoctor;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DoctorIdData;
@@ -8,6 +9,7 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.ListDoctorData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.Name;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoData;
 import com.twilio.video.app.apiWork.networkPojo.apidata.VideoID;
+import com.twilio.video.app.apiWork.networkPojo.apimodel.AvailbleModelClass;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.BookingModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.DashModel;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.DocProfile;
@@ -54,6 +56,8 @@ public interface NetworkInterface {
     @GET("appointment/docUpcoming")
     Call<UpcommingModel> getUpcommingList();
 
+
+
 //update doctor profile
 //    @FormUrlEncoded
 //    @POST("user/getDoctorProfile")
@@ -98,4 +102,12 @@ public interface NetworkInterface {
     @POST("user/getDoctorProfile")
     Call<DocProfile> checkProfile(@Field("email")String email, @Field("password") String password);
 
+    //for doctor availabe/unavalbe
+
+    @POST("doctor/setDocAvailability")
+    Call<AvailbleModelClass> getAvaibilityDoctor(@Body DoctorAvailability body);
+
+
+    @GET("appointment/docUpcoming")
+    Call<AvailbleModelClass> getcodedata();
 }

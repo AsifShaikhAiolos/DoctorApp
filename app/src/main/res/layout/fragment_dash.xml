@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="#fff">
-
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar2"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        app:title="Dashboard"
+        android:layout_height="?attr/actionBarSize"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2"
         android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
            android:layout_gravity="center">
 
             <androidx.cardview.widget.CardView
@@ -44,10 +54,10 @@
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
                         android:text="Number of Bookings"
-
+                        android:fontFamily="@font/fontawesome_webfont"
                         android:textAlignment="center"
                         android:textColor="@color/colorApp"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -57,7 +67,7 @@
                         android:layout_below="@+id/bookingimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
-                        android:text="232"
+                        android:text="0"
                         android:textAlignment="center"
                         android:textColor="#000"
                         android:textSize="@dimen/_20ssp"
@@ -85,6 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:fontFamily="@font/fontawesome_webfont"
                         android:text="Earnings"
                         android:gravity="center_horizontal"
                         android:textColor="@color/colorApp"
@@ -169,6 +180,7 @@
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
                         android:text="Upcoming Bookings"
+                        android:fontFamily="@font/fontawesome_webfont"
                         android:textAlignment="center"
                         android:textColor="@color/colorApp"
                         android:textSize="16sp"
@@ -181,7 +193,7 @@
                         android:layout_below="@+id/precautionsimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
-                        android:text="35"
+                        android:text="0"
                         android:textAlignment="center"
                         android:textColor="#000"
                         android:textSize="@dimen/_20ssp"
@@ -189,5 +201,13 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_marginBottom="-120dp"
+            android:scaleType="fitXY"
+            android:alpha="0.4"
+            app:srcCompat="@drawable/bg_splash_logo"
+            />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
