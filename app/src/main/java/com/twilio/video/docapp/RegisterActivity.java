@@ -45,11 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (password.getText().toString() == cpassword.getText().toString()){
-                    checkingUserDetails();
-                }else {
-                    Toast.makeText(RegisterActivity.this,"your passwor and confrim passwor does not match", Toast.LENGTH_SHORT).show();
-                }
+//                if (password.getText().toString() == cpassword.getText().toString()){
+//
+//                }else {
+//                    Toast.makeText(RegisterActivity.this,"your passwor and confrim passwor does not match", Toast.LENGTH_SHORT).show();
+//                }
+                checkingUserDetails();
             }
         });
 

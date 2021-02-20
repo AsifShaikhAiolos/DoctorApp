@@ -52,7 +52,7 @@ public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.Vi
                 }else if (SepName == "Clinical Genetics"){
                     next("Genetic Counselor");
                 }else {
-                    next("Emotional & Psychological Counselor");
+                    next("Psychological Counselling");
                 }
             }
         });

@@ -3,6 +3,7 @@ package com.twilio.video.docapp.fragments;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,10 +63,7 @@ public class DoctorListFragment extends Fragment {
 
 //        String name =
 //
-        if(Sname != null){
-            et_search.setText(Sname);
-            doctorListAdapter.getList(listDoctorData);
-        }
+
 
         et_search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -103,6 +101,10 @@ public class DoctorListFragment extends Fragment {
                     for (ListDoctorData d : response.body().getData()) {
                         listDoctorData.add(d);
                     }
+                }
+                if(Sname != null){
+                    et_search.setText(Sname);
+                    doctorListAdapter.getList(listDoctorData);
                 }
                 doctorListAdapter.notifyDataSetChanged();
             }

@@ -11,9 +11,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.twilio.video.docapp.apiWork.NetworkInterface;
 import com.twilio.video.docapp.apiWork.RetrofitClient;
 import com.twilio.video.docapp.apiWork.networkPojo.apimodel.LoginModel;
+import com.twilio.video.docapp.apiWork.networkPojo.error.LoginModelError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Collection;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,26 +83,23 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                if (response.body()!=null){
-                if (response.body().getStatus().equalsIgnoreCase("success")) {
-//setTokentoprefernece
-                   SPManager.getInstance().setAccessToken(response.body().getData());
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                    Log.e("errorchecking",response.body().toString());
-//                    Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                } else {
+                if (response.isSuccessful()){
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                    Log.e("errorchecking",response.body().toString());
+                    if (response.body()!=null){
+                        SPManager.getInstance().setAccessToken(response.body().getData());
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                        Log.e("errorchecking",response.body().toString());
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, "User Not Exits", Toast.LENGTH_LONG).show();
                 }
-            }
             }
 
             @Override
             public void onFailure(Call<LoginModel> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, t.toString(), Toast.LENGTH_LONG).show();
-                Log.e("errorchecking",t.toString());
             }
         });
     }

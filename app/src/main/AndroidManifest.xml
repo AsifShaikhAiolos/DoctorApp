@@ -20,6 +20,7 @@
         <activity android:name="com.twilio.video.docapp.RegisterActivity" />
         <activity android:name="com.twilio.video.docapp.HomeActivity" />
         <activity android:name="com.twilio.video.docapp.LlistOfDoctorActivity" />
+        <activity android:name="com.twilio.video.docapp.LogIn" />
         <activity android:name="com.twilio.video.docapp.NewSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
