@@ -182,29 +182,75 @@
 
         </LinearLayout>
 
+
+        <HorizontalScrollView
+            android:id="@+id/scroller"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+
         <LinearLayout
             android:layout_margin="@dimen/_10sdp"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:padding="@dimen/_10sdp"
             android:orientation="horizontal">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_alarm_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:fabSize="normal"
-                app:srcCompat="@drawable/ic_add" />
+            <ImageView
+                android:id="@+id/reportImg1"
+                android:scaleType="fitXY"
+                android:background="@drawable/dotted_line"
+                android:src="@drawable/add_icon"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RelativeRecyclerView"
-                android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8sdp"/>
+
+            <ImageView
+                android:id="@+id/reportImg2"
+                android:scaleType="fitXY"
+                android:background="@drawable/dotted_line"
+                android:src="@drawable/add_icon"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"/>
+            <ImageView
+                android:id="@+id/reportImg3"
+                android:scaleType="fitXY"
+                android:background="@drawable/dotted_line"
+                android:src="@drawable/add_icon"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"/>
+            <ImageView
+                android:id="@+id/reportImg4"
+                android:scaleType="fitXY"
+                android:background="@drawable/dotted_line"
+                android:src="@drawable/add_icon"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"/>
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/add_alarm_fab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="24dp"-->
+<!--                app:fabSize="normal"-->
+<!--                app:srcCompat="@drawable/ic_add" />-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/RelativeRecyclerView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/_8sdp"/>-->
 
         </LinearLayout>
+
+        </HorizontalScrollView>
 
 <!--        <TextView-->
 <!--            android:layout_width="match_parent"-->

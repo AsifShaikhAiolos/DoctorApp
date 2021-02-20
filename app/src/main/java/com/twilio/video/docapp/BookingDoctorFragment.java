@@ -2,14 +2,20 @@ package com.twilio.video.docapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,6 +36,7 @@ import com.twilio.video.docapp.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.docapp.apiWork.networkPojo.apimodel.VideoModel;
 import com.twilio.video.docapp.ui.login.CommunityLoginActivity;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +64,10 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     ListDoctorData doctorData;
     SlotAdapter slotAdapter;
     FloatingActionButton fab;
+    ImageView rp1,rp2,rp3,rp4;
+    public static final int GALLERY_PICTURE = 1;
+    private static Uri _imagefileUri;
+    int s = -1;
 
 
     @Override
@@ -71,7 +82,44 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         fq = findViewById(R.id.btnFillQu);
         addFml = findViewById(R.id.btnFamilyMember);
         time = findViewById(R.id.selectTime);
-        fab = findViewById(R.id.add_alarm_fab);
+//        fab = findViewById(R.id.add_alarm_fab);
+        rp1 = findViewById(R.id.reportImg1);
+        rp2 = findViewById(R.id.reportImg2);
+        rp3 = findViewById(R.id.reportImg3);
+        rp4 = findViewById(R.id.reportImg4);
+
+
+        rp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               choiceImage();
+               s = 1;
+            }
+        });
+
+        rp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceImage();
+                s = 2;
+            }
+        });
+
+        rp3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceImage();
+                s = 3;
+            }
+        });
+
+        rp4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceImage();
+                s = 4;
+            }
+        });
 
 
         fq.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +164,34 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         getSlotFromServer();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == GALLERY_PICTURE && resultCode == RESULT_OK){
+            _imagefileUri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imagefileUri);
+                switch(s){
+                    case 1:
+                        rp1.setImageBitmap(bitmap);
+                        break;
+                    case 2:
+                        rp2.setImageBitmap(bitmap);
+                        break;
+                    case 3:
+                        rp3.setImageBitmap(bitmap);
+                        break;
+                    case 4:
+                        rp4.setImageBitmap(bitmap);
+                        break;
+                    default:
+                        break;
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     private void getSlotFromServer() {
         Retrofit retrofit = RetrofitClient.getRetrofit();
@@ -247,4 +323,12 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
         start_time=selectedTime;
     }
+
+    public void choiceImage(){
+        Intent g = new Intent();
+        g.setType("image/*");
+        g.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(g, "Select image"), GALLERY_PICTURE);
+    }
+
 }
