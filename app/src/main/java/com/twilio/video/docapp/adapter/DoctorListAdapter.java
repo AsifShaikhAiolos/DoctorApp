@@ -84,8 +84,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 //
 //    }
 
-    public void getList(List<ListDoctorData> listDoctorData){
-        String name = "Clinical Geneticist";
+    public void getList(List<ListDoctorData> listDoctorData, String name){
         List<ListDoctorData> filteredList = new ArrayList<>();
         for(ListDoctorData row : listDoctorData){
             Log.d("this", row.getSpeciality().toString());

@@ -48,9 +48,9 @@ public class SpecialityAdapter extends RecyclerView.Adapter<SpecialityAdapter.Vi
             @Override
             public void onClick(View v) {
                 if (SepName == "Genetic Counselling"){
-                    next("Clinical Geneticist");
-                }else if (SepName == "Clinical Genetics"){
                     next("Genetic Counselor");
+                }else if (SepName == "Clinical Genetics"){
+                    next("Clinical Geneticist");
                 }else {
                     next("Psychological Counselling");
                 }

@@ -104,7 +104,7 @@ public class DoctorListFragment extends Fragment {
                 }
                 if(Sname != null){
                     et_search.setText(Sname);
-                    doctorListAdapter.getList(listDoctorData);
+                    doctorListAdapter.getList(listDoctorData, Sname);
                 }
                 doctorListAdapter.notifyDataSetChanged();
             }
