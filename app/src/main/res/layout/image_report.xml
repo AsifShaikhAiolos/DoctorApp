@@ -1,27 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/reportImg"
-        android:scaleType="fitXY"
-        android:background="@drawable/dotted_line"
-        android:src="@drawable/add_icon"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/_10sdp"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_120sdp"/>
+        android:padding="@dimen/_6sdp">
 
-    <ImageView
-        android:id="@+id/cancel"
-        android:src="@drawable/ic_baseline_cancel_24"
-        android:layout_marginTop="@dimen/_5sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/reportImg1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDocumentLabel"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:paddingBottom="@dimen/_4sdp"
+            android:singleLine="true"
+            app:layout_constraintStart_toStartOf="@id/rlDocument"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Front" />
+
+
+        <RelativeLayout
+            android:id="@+id/rlDocument"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:background="#DCDDE3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDocumentLabel">
+
+            <LinearLayout
+                android:id="@+id/llDocSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/reportImg"
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp" />
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="ADD"-->
+<!--                    android:textSize="@dimen/_8ssp"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/txtDocumentLabel"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/txtDocumentUploadLbl" />-->
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDocument"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                 />
+
+            <RelativeLayout
+                android:id="@+id/llReplaceImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99070B45"
+               >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="tick_lottie.json"
+                        app:lottie_loop="false" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="change"
+                        android:textAllCaps="true"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="@dimen/_8ssp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDocumentName"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:paddingTop="@dimen/_4sdp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/rlDocument"
+            app:layout_constraintStart_toStartOf="@id/rlDocument"
+            app:layout_constraintTop_toBottomOf="@id/rlDocument"
+            tools:text="File name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

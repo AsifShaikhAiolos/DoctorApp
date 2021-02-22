@@ -1,11 +1,13 @@
 package com.twilio.video.docapp;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.FileUtils;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +23,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.twilio.video.docapp.adapter.SlotAdapter;
 import com.twilio.video.docapp.adapter.WeekAdapter;
@@ -36,6 +41,7 @@ import com.twilio.video.docapp.apiWork.networkPojo.apimodel.TimeSlotModel;
 import com.twilio.video.docapp.apiWork.networkPojo.apimodel.VideoModel;
 import com.twilio.video.docapp.ui.login.CommunityLoginActivity;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -50,6 +56,10 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     Context context;
     TextView Slotstime, docName;
     TextView txtnewsDescription, time;
+    private int CAMERA = 1111;
+    private int GALLERY = 1121;
+    private int FILE = 1131;
+    public String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
 
     Button btnBooking, fq, addFml;
     String doctor_id;
@@ -65,7 +75,6 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     SlotAdapter slotAdapter;
     FloatingActionButton fab;
     ImageView rp1,rp2,rp3,rp4;
-    public static final int GALLERY_PICTURE = 1;
     private static Uri _imagefileUri;
     int s = -1;
 
@@ -73,6 +82,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+//        items = new CharSequence[]{"Take Photo", "Open Gallery", "Select Document"};
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_booking_doctor);
@@ -92,7 +102,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         rp1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               choiceImage();
+               choicePick();
                s = 1;
             }
         });
@@ -100,7 +110,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         rp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceImage();
+                choicePick();
                 s = 2;
             }
         });
@@ -108,7 +118,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         rp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceImage();
+                choicePick();
                 s = 3;
             }
         });
@@ -116,7 +126,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         rp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceImage();
+                choicePick();
                 s = 4;
             }
         });
@@ -167,7 +177,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == GALLERY_PICTURE && resultCode == RESULT_OK){
+        if(requestCode == GALLERY && resultCode == RESULT_OK){
             _imagefileUri = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imagefileUri);
@@ -189,6 +199,56 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
                 }
             }catch (IOException e){
                 e.printStackTrace();
+            }
+        }else if(requestCode == FILE && resultCode == RESULT_OK){
+            Uri fileUri = data.getData();
+            String filePath = fileUri.toString();
+            File f = new File(filePath);
+            String path = f.getAbsolutePath();
+            long size = f.length();
+            Toast.makeText(BookingDoctorFragment.this, String.valueOf(size),Toast.LENGTH_SHORT).show();
+            if (f.canExecute()) {
+                Toast.makeText(BookingDoctorFragment.this, "file not supported", Toast.LENGTH_SHORT).show();
+            } else {
+                if (size > 5000000) {
+                    Toast.makeText(BookingDoctorFragment.this, "Please upload document with less than 5MB size",Toast.LENGTH_SHORT).show();
+                } else {
+//                        mViewModel.setBase64image(new File(filePath));
+                    switch(s){
+                        case 1:
+                            rp1.setImageResource(R.drawable.ic_files);
+                            break;
+                        case 2:
+                            rp2.setImageResource(R.drawable.ic_files);
+                            break;
+                        case 3:
+                            rp3.setImageResource(R.drawable.ic_files);
+                            break;
+                        case 4:
+                            rp4.setImageResource(R.drawable.ic_files);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }else {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            switch(s){
+                case 1:
+                    rp1.setImageBitmap(bitmap);
+                    break;
+                case 2:
+                    rp2.setImageBitmap(bitmap);
+                    break;
+                case 3:
+                    rp3.setImageBitmap(bitmap);
+                    break;
+                case 4:
+                    rp4.setImageBitmap(bitmap);
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -328,7 +388,56 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         Intent g = new Intent();
         g.setType("image/*");
         g.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(g, "Select image"), GALLERY_PICTURE);
+        startActivityForResult(Intent.createChooser(g, "Select image"), GALLERY);
+    }
+
+
+    public void choicePick(){
+       new MaterialDialog.Builder(BookingDoctorFragment.this)
+               .title("Select image type")
+               .items(R.array.uploadImages)
+               .itemsIds(R.array.itemIds)
+               .itemsCallback(new MaterialDialog.ListCallback() {
+                   @Override
+                   public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                       switch (which){
+                           case 0:
+                               cameraIntent();
+                               break;
+                           case 1:
+                               choiceImage();
+//                               genRandom();
+//                               Intent intent2 = new Intent(
+//                                       android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                               _imagefileUri = Uri.fromFile(getFile());
+//
+//                               intent2.putExtra(MediaStore.EXTRA_OUTPUT, _imagefileUri);
+//                               startActivityForResult(intent2, CAPTURE_PHOTO);
+                               break;
+                           case 2:
+                                fileIntent();
+                               break;
+                       }
+                   }
+               })
+               .show();
+    }
+
+    private void cameraIntent() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA);
+    }
+
+    private void fileIntent() {
+        String[] mimeTypes = {"application/pdf"};
+        Intent intent = new Intent();
+        //intent.setType("image/*");
+        intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
+        if (mimeTypes.length > 0) {
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+        }
+        intent.setAction(Intent.ACTION_GET_CONTENT);//
+        startActivityForResult(Intent.createChooser(intent, "Select File"), FILE);
     }
 
 }

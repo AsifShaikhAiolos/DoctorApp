@@ -54,7 +54,9 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         }else {
             name = "Dr. " + DoctorData.get(position).getName().getFirst_name() + " " + DoctorData.get(position).getName().getLast_name();
         }
+        String y = DoctorData.get(position).getExperience() + " yrs";
         holder.docName.setText(name);
+        holder.year.setText(y);
         holder.sp.setText(DoctorData.get(position).getSpeciality());
         Picasso.get().load(DoctorData.get(position).getProfile_pic()).into(holder.iv);
 //        holder.year.setText(DoctorData.get(position).getExperience());
