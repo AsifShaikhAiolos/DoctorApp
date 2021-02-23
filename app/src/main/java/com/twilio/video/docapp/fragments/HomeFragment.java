@@ -54,6 +54,7 @@ FloatingActionButton fabBook;
     TextView more,more2, doctorName, doctorSpecility, date, time, up,sp;
     CardView crd;
     String formattedDate,localTime,appointmenttime,appointmentdate,id;
+    HomeActivity nAct = new HomeActivity();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +81,9 @@ FloatingActionButton fabBook;
                 DoctorListFragment doctorListFragment = new DoctorListFragment();
                 activity.getSupportFragmentManager().beginTransaction().
                         replace(R.id.fragment_container, doctorListFragment).addToBackStack(null).commit();
+
+//                nAct.navigation.setSelectedItemId(R.id.action_search);
+
 
             }
         });

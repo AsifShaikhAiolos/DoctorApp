@@ -17,6 +17,7 @@ import com.twilio.video.docapp.apiWork.NetworkInterface;
 import com.twilio.video.docapp.apiWork.RetrofitClient;
 import com.twilio.video.docapp.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.docapp.apiWork.networkPojo.error.LoginModelError;
+import com.twilio.video.docapp.util.Crypto;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     String get_mail;
     String get_passwrod;
+    Crypto crypto = new Crypto();
 
 
     @Override
@@ -86,11 +88,14 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                     if (response.body()!=null){
-                        SPManager.getInstance().setAccessToken(response.body().getData());
+                        String data = response.body().getData();
+                        SPManager.getInstance().setAccessToken(crypto.encrypt(data.getBytes(), "token"));
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(intent);
                         finish();
-                        Log.e("errorchecking",response.body().toString());
+                        Log.e("errorchecking",response.body().getData().toString());
+                        Log.e("errorchecking",crypto.encrypt(data.getBytes(), "token"));
+                        Log.e("errorchecking",SPManager.getInstance().getAccessToken());
                     }
                 } else {
                     Toast.makeText(LoginActivity.this, "User Not Exits", Toast.LENGTH_LONG).show();

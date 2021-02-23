@@ -3,15 +3,42 @@ package com.twilio.video.docapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.twilio.video.docapp.util.Crypto;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
+import javax.crypto.spec.SecretKeySpec;
+
 public class SPManager {
     private static SPManager myManager;
     private SharedPreferences s;
     private String IS_LOGIN = "isLogin";
-    private String IS_LOGOUT = "isLogin";
+    private String IS_LOGOUT = "isLogout";
     private String ACCESS_TOKEN = "at";
     Context _context;
+    Crypto crypto = new Crypto();
+    String masterkeys;
+
     private SPManager(Context context) {
+
         s = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+//        try{
+//            masterkeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+//            s = EncryptedSharedPreferences.create(
+//                    "files",
+//                    masterkeys,
+//                    nAct.getAppication(),
+//                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+//                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+//            );
+//        } catch (GeneralSecurityException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     public static SPManager getInstance() {
@@ -53,7 +80,7 @@ public class SPManager {
 
 
     public String getAccessToken() {
-        return retrieveString(ACCESS_TOKEN);
+        return crypto.decrypt(retrieveString(ACCESS_TOKEN), "token");
     }
 
     public void setAccessToken(String token) {
@@ -75,5 +102,10 @@ public class SPManager {
         SharedPreferences.Editor editor = s.edit();
         editor.clear().commit();
     }
+
+//
+//    public String encrypt(String data){
+//        SecretKeySpec key = generatekey()
+//    }
 
 }

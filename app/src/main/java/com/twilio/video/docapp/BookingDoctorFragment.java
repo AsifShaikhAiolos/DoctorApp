@@ -59,6 +59,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     private int CAMERA = 1111;
     private int GALLERY = 1121;
     private int FILE = 1131;
+
     public String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
 
     Button btnBooking, fq, addFml;
@@ -77,6 +78,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
     ImageView rp1,rp2,rp3,rp4;
     private static Uri _imagefileUri;
     int s = -1;
+    List<Uri> uriPdf;
 
 
     @Override
@@ -150,6 +152,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
 
 
         timeSlotData = new ArrayList<>();
+        uriPdf = new ArrayList<>();
         recyclerView = findViewById(R.id.WeekRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -179,6 +182,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GALLERY && resultCode == RESULT_OK){
             _imagefileUri = data.getData();
+            uriPdf.add(_imagefileUri);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), _imagefileUri);
                 switch(s){
@@ -202,11 +206,12 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
             }
         }else if(requestCode == FILE && resultCode == RESULT_OK){
             Uri fileUri = data.getData();
+            uriPdf.add(fileUri);
             String filePath = fileUri.toString();
             File f = new File(filePath);
             String path = f.getAbsolutePath();
             long size = f.length();
-            Toast.makeText(BookingDoctorFragment.this, String.valueOf(size),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(BookingDoctorFragment.this, String.valueOf(size),Toast.LENGTH_SHORT).show();
             if (f.canExecute()) {
                 Toast.makeText(BookingDoctorFragment.this, "file not supported", Toast.LENGTH_SHORT).show();
             } else {
@@ -233,6 +238,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
                 }
             }
         }else {
+            uriPdf.add(data.getData());
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             switch(s){
                 case 1:
@@ -251,6 +257,7 @@ public class BookingDoctorFragment extends AppCompatActivity implements EventLis
                     break;
             }
         }
+//        Toast.makeText(BookingDoctorFragment.this, uriPdf.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void getSlotFromServer() {

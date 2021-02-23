@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawer;
+    public BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //getting bottom navigation view and attaching the listener
-        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+        navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
 
