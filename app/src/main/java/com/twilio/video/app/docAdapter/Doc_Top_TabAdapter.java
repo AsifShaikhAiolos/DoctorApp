@@ -6,14 +6,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.twilio.video.app.AvailableFragment;
 import com.twilio.video.app.PastAppointFragment;
 import com.twilio.video.app.R;
-import com.twilio.video.app.doc_fragments.Doc_Past_Appt_Fragment;
-import com.twilio.video.app.doc_fragments.Doc_Upcoming_Appt_Fragment;
 
 public class Doc_Top_TabAdapter extends FragmentStatePagerAdapter {
 

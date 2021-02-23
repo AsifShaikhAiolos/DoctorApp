@@ -213,6 +213,8 @@ dependencies {
     implementation 'com.github.igortrncic.dotted-progress-bar:library:1.0.0'
     ////
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.vistrav:pop:2.3'
+
     /*
      * Include as a compile time only dependency so Android Studio can resolve references
      * to com.android.ViewBinding.

@@ -24,7 +24,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity android:name=".doc_fragments.DoctorSignUpActivity"></activity>
-        <activity android:name=".doc_fragments.AccountActivity" />
+        <activity android:name=".doc_fragments.ProfileDetails" />
         <activity android:name=".doc_fragments.DoctorSettingActivity" />
         <activity android:name=".doc_fragments.DoctorNotificationActivity" />
         <activity android:name=".doc_fragments.DoctorStatusActionActivity" />

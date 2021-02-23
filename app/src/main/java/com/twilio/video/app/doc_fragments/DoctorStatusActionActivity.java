@@ -1,31 +1,21 @@
 package com.twilio.video.app.doc_fragments;
-
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
-import android.widget.CheckBox;
+import android.widget.TextView;
 import android.view.View;
-import android.widget.Toolbar;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
-import com.twilio.video.app.LoginActivity;
 import com.twilio.video.app.R;
 import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.DoctorAvailability;
-import com.twilio.video.app.apiWork.networkPojo.apidata.UpCommingDatat;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.AvailbleModelClass;
-import com.twilio.video.app.apiWork.networkPojo.apimodel.DashModel;
-import com.twilio.video.app.apiWork.networkPojo.apimodel.UpcommingModel;
+import com.vistrav.pop.Pop;
 
 import java.util.ArrayList;
 
@@ -35,12 +25,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class DoctorStatusActionActivity extends AppCompatActivity {
-
-//    CheckBox dayOff;
-//    CheckBox dayOn;
     Button btn;
-    RadioGroup radioGroup;
-    private RadioButton radioButton;
     androidx.appcompat.widget.Toolbar toolbar;
     String var,var2;
     @Override
@@ -48,63 +33,31 @@ public class DoctorStatusActionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_status_action);
         btn = (Button) findViewById(R.id.btnSave);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        int selectedId = radioGroup.getCheckedRadioButtonId();
-//        radioGroup=(RadioGroup) findViewById(R.id.radioGroup);
-//        genderradioButton = (RadioButton) findViewById(selectedId);
-
-
-//        int selectedId = radioGroup.getCheckedRadioButtonId();
-
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
                 {
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                         switch(checkedId){
                             case R.id.radio1:
-                                // do operations specific to this selection
                                 var="0";
-
-
                                 break;
+
                             case R.id.radio2:
-                                // do operations specific to this selection
                                 var="1";
-//                                Toast.makeText(DoctorStatusActionActivity.this,var, Toast.LENGTH_SHORT).show();
-//
-                                break;
+                               break;
                         }
                     }
                 });
-
-//        btn.setVisibility(View.VISIBLE);
-
-
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-
-//                String getDate = (String) getIntent().getExtras().get("date");
-//                Toast.makeText(DoctorStatusActionActivity.this,
-//                        getDate, Toast.LENGTH_SHORT).show();
-//                int selectedId = rg.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-//                radioButton = (RadioButton) findViewById(selectedId);
-
                 checkingDashDetails();
-
-//                Toast.makeText(DoctorStatusActionActivity.this,
-//                        var, Toast.LENGTH_SHORT).show();
-//
             }
         });
 
@@ -129,42 +82,70 @@ public class DoctorStatusActionActivity extends AppCompatActivity {
 
             public void onResponse(Call<AvailbleModelClass> call, Response<AvailbleModelClass> response) {
                 if (response.body()!=null){
-//                    if (response.message().equalsIgnoreCase("success")) {
-//                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-
                         String message=response.body().getMessage();
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(DoctorStatusActionActivity.this)
-                            .setIcon(R.drawable.app_logo)
-                            .setTitle("Notification")
-                            .setMessage(message)
-                            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+//                    ViewDialog alert = new ViewDialog();
+//                    alert.showDialog(getApplicationContext(), message);
+
+                    Pop.on(DoctorStatusActionActivity.this).with().title(R.string.app_name).layout(R.layout.custom_pop)
+                            .when(new Pop.Yah() {
                                 @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
+                                public void clicked(DialogInterface dialog, View view) {
+//                                    Toast.makeText(getBaseContext(), "Yah button clicked", Toast.LENGTH_LONG).show();
                                 }
                             })
-                            .show();
+                            .show(new Pop.View() { // assign value to view element
+                                @Override
+                                public void prepare(View view) {
+                                    TextView etName =  view.findViewById(R.id.message);
+//                                    Log.i(TAG, "etName :: " + etName.getText());
+                                    etName.setText(message);
+                                }
+                            });
 
-
-//                    if(response.body().getMakeAvailable()==1) {
-////setTokentoprefernece    Can't mark the date as a days off, as the Date selected has an active appointment.
-//
-//                        }
-//
-//                        if(response.)
+//                    AlertDialog alertDialog = new AlertDialog.Builder(DoctorStatusActionActivity.this)
+//                            .setIcon(R.drawable.app_logo)
+//                            .setTitle("Notification")
+//                            .setMessage(message)
+//                            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialogInterface, int i) {
+//                                }
+//                            })
+//                            .show();
+//                    alertDialog.setContentView(R.layout.mydailogbhai);
                         Log.e("errorchecking",response.body().toString());
-//                    } else {
-//                        Log.e("errorchecking",response.body().toString());
-//                    }
                 }
             }
-
             @Override
             public void onFailure(Call<AvailbleModelClass> call, Throwable t) {
                 Log.e("errorchecking",t.toString());
             }
         });
     }
+
+//    public class ViewDialog {
+//        public void showDialog(Context activity, String msg) {
+//            final Dialog dialog = new Dialog(activity);
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//            dialog.setCancelable(false);
+//            dialog.setContentView(R.layout.mydailogbhai);
+//
+//            TextView text = (TextView) dialog.findViewById(R.id.message);
+//            text.setText(msg);
+//
+//            TextView dialogButton = dialog.findViewById(R.id.txtYes);
+//            dialogButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    dialog.dismiss();
+//                }
+//            });
+//
+//            dialog.show();
+//
+//        }
+//    }
 
 
 //    private void getUpcommingDataFromServer(){

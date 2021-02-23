@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,7 +61,7 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        String appointmenttime = TimeConvertor(data.get(position).getTime_slot().getStart_time());
+        String appointmenttime = getStandardTime(data.get(position).getTime_slot().getStart_time());
         String appointmentdate = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docName.setText(data.get(position).getDoctor_name());
 //        holder.docSpeciality.setText(data.get(position).get());
@@ -93,6 +94,24 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
             card = itemView.findViewById(R.id.crdDoctorProfileUpcomming);
         }
     }
+
+
+
+    private String getStandardTime(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        df.setTimeZone(TimeZone.getDefault());
+        String formattedDate = df.format(date);
+        return TimeConvertor(formattedDate) ;
+    }
+
 
     public String DateConvertor(String d){
         try {

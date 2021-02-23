@@ -15,8 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.twilio.video.app.LoginActivity;
 import com.twilio.video.app.R;
 import com.twilio.video.app.SPManager;
@@ -24,14 +22,12 @@ import com.twilio.video.app.apiWork.NetworkInterface;
 import com.twilio.video.app.apiWork.RetrofitClient;
 import com.twilio.video.app.apiWork.networkPojo.apidata.DocProfileData;
 import com.twilio.video.app.apiWork.networkPojo.apimodel.DocProfile;
-import com.twilio.video.app.doc_fragments.AccountActivity;
+import com.twilio.video.app.doc_fragments.ProfileDetails;
 import com.twilio.video.app.doc_fragments.DoctorNotificationActivity;
 import com.twilio.video.app.doc_fragments.DoctorSettingActivity;
-import com.twilio.video.app.doc_fragments.DoctorStatusActionActivity;
 
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,7 +66,7 @@ public class DoctorProfileFragment extends Fragment {
         viewEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AccountActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileDetails.class);
                 startActivity(intent);
             }
         });

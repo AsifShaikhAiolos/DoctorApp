@@ -28,25 +28,12 @@ public class NewSplashScreen extends AppCompatActivity {
             startActivity(new Intent(NewSplashScreen.this,LoginActivity.class));
             finish();
         }
-
-//        textViewAni.postDelayed(new Runnable() {
-//            public void run() {
-////                textViewAni.setVisibility(View.GONE);
-////                    progressBar.setVisibility(View.VISIBLE);
-//            }
-//        }, 3000);
-
-//        RunAnimation();
-//        ImageView textViewAni=findViewById(R.id.textAni);
-//        final Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.textani);
-//        textViewAni.setAnimation(slide_up);
-
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
                 Intent mainIntent = new Intent(NewSplashScreen.this, LoginActivity.class);
                 startActivity(mainIntent);
-//                overridePendingTransition(R.anim.fadein,0);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 finish();
             }
         }, SPLASH_DISPLAY_LENGTH);

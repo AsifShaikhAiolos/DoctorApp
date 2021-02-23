@@ -9,12 +9,11 @@ public class LoginModel {
     String message;
     String data;
 
-    public LoginModel(String status, String message, String data) {
+
+    public LoginModel(String status, String message) {
         this.status = status;
         this.message = message;
-        this.data = data;
     }
-
 
     public String getStatus() {
         return status;

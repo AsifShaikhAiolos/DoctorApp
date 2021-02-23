@@ -13,6 +13,7 @@ import com.twilio.video.app.apiWork.networkPojo.apidata.PastDatat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHolder> {
     List<PastDatat> data;
@@ -31,8 +32,8 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        String sd = TimeConvertor(data.get(position).getTime_slot().getStart_time());
-        String ed = TimeConvertor(data.get(position).getTime_slot().getEnd_time());
+        String sd = getStandardTime(data.get(position).getTime_slot().getStart_time());
+        String ed = getStandardTime(data.get(position).getTime_slot().getEnd_time());
         String d = DateConvertor(data.get(position).getTime_slot().getDate());
         holder.docST.setText(sd);
         holder.docET.setText(ed);
@@ -56,6 +57,23 @@ public class PastDataAdapter extends RecyclerView.Adapter<PastDataAdapter.ViewHo
             docNAme = itemView.findViewById(R.id.txtDoctorNamepast);
         }
     }
+
+
+    private String getStandardTime(String dateStr) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a");
+        Date date = null;
+        try {
+            date = df.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        df.setTimeZone(TimeZone.getDefault());
+        String formattedDate = df.format(date);
+        return TimeConvertor(formattedDate) ;
+    }
+
 
     public String DateConvertor(String d){
         try {

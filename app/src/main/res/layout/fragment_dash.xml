@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -18,6 +18,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar2"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +51,10 @@
 
                     <TextView
                         android:id="@+id/bookingimg"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:layout_below="@+id/bookingtext"
                         android:gravity="center_horizontal"
                         android:text="Number of Bookings"
                         android:fontFamily="@font/fontawesome_webfont"
@@ -64,7 +67,6 @@
                         android:id="@+id/bookingtext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/bookingimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
                         android:text="0"
@@ -95,6 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:layout_below="@id/earnlyt"
                         android:fontFamily="@font/fontawesome_webfont"
                         android:text="Earnings"
                         android:gravity="center_horizontal"
@@ -103,9 +106,9 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
-                        android:layout_below="@+id/doctorimg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/earnlyt"
                         android:gravity="center_horizontal"
                         android:layout_margin="@dimen/_16sdp">
 
@@ -122,7 +125,7 @@
                             android:id="@+id/earntext"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="525"
+                            android:text="0"
                             android:layout_marginLeft="@dimen/_2sdp"
                             android:textColor="#000"
                             android:textSize="@dimen/_20ssp"
@@ -178,6 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:layout_below="@id/precautionstext"
                         android:gravity="center_horizontal"
                         android:text="Upcoming Bookings"
                         android:fontFamily="@font/fontawesome_webfont"
@@ -190,7 +194,6 @@
                         android:id="@+id/precautionstext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/precautionsimg"
                         android:layout_margin="16dp"
                         android:gravity="center_horizontal"
                         android:text="0"
@@ -201,13 +204,15 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp"
-            android:layout_marginBottom="-120dp"
-            android:scaleType="fitXY"
-            android:alpha="0.4"
-            app:srcCompat="@drawable/bg_splash_logo"
-            />
+
     </LinearLayout>
-</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+       android:layout_alignParentBottom="true"
+   android:layout_marginBottom="-150dp"
+        android:scaleType="fitXY"
+        android:alpha="0.4"
+        app:srcCompat="@drawable/bg_splash_logo"
+        />
+</RelativeLayout>

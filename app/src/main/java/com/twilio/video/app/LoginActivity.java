@@ -19,8 +19,6 @@ import com.twilio.video.app.apiWork.networkPojo.apimodel.LoginModel;
 import com.twilio.video.app.doc_fragments.DoctorSettingActivity;
 import com.twilio.video.app.doc_fragments.DoctorSignUpActivity;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,23 +74,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                 if (response.body()!=null){
-                if (response.body().getStatus().equalsIgnoreCase("success")) {
+                    if (response.body().getStatus().equalsIgnoreCase("success")) {
 //setTokentoprefernece
-                    try {
                         SPManager.getInstance().setAccessToken(response.body().getData());
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(intent);
-                        Log.e("errorchecking", response.body().toString());
-                        Toast.makeText(LoginActivity.this, response.body().getData(), Toast.LENGTH_LONG).show();
-                    } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-
+                        Log.e("errorchecking",response.body().toString());
+                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                        Log.e("errorchecking",response.body().toString());
                     }
-                }else {
-                    Toast.makeText(LoginActivity.this, response.body().getData(), Toast.LENGTH_LONG).show();
-                    Log.e("errorchecking",response.body().toString());
                 }
-            }
             }
 
             @Override
