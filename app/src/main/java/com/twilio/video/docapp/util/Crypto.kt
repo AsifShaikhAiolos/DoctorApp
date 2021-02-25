@@ -1,6 +1,10 @@
 package com.twilio.video.docapp.util
 
+import android.app.Activity
+import android.app.Dialog
 import android.util.Base64
+import android.view.WindowManager
+import com.twilio.video.docapp.R
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import javax.crypto.Cipher
@@ -40,5 +44,17 @@ class Crypto {
         }
         return null
     }
+
+//    fun showAlertMessage(msg: String, activity:Activity) {
+//        lateinit var dialog: Dialog
+//        if (activity != null) {
+//            dialog = Dialog(activity, R.style.Dialog)
+//            dialog.setContentView(R.layout.error_msg_box)
+//            dialog.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+//                    WindowManager.LayoutParams.WRAP_CONTENT)
+//            dialog.setCancelable(false)
+//            dialog
+//        }
+//    }
 
 }

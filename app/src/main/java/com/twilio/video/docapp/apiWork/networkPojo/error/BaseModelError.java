@@ -2,12 +2,16 @@ package com.twilio.video.docapp.apiWork.networkPojo.error;
 
 import java.util.List;
 
-public class LoginModelError {
+public class BaseModelError {
     public String status;
     public String message;
     public List<LoginDataError> data;
 
-    public LoginModelError(String status, String message, List<LoginDataError> data) {
+    public BaseModelError(){
+
+    }
+
+    public BaseModelError(String status, String message, List<LoginDataError> data) {
         this.status = status;
         this.message = message;
         this.data = data;
